@@ -58,7 +58,8 @@
 ## 构建
 - Windows x64：`powershell -ExecutionPolicy Bypass -File .\build\build-windows.ps1`
 - Linux x64：`bash ./build/build-linux.sh`
-- 目标电脑无需 Go/Node/Python；Go 只在构建机上需要。
+- macOS Apple Silicon（M 系列）：`bash ./build/build-macos-arm64.sh`
+- 目标电脑无需 Go/Node/Python；Go 只在构建机上需要。macOS 启动器未做 Apple Developer 签名与公证，系统可能显示首次运行安全提示。
 
 ## 在线演示
 同一套静态前端可部署到 Vercel 分享和演示。在线版不需要后端，也不是本地版的运行依赖。PWA 缓存逻辑已实现，适用于首次加载成功后的 HTTPS/localhost 环境；当前自动化环境未能完成断网重载实测，建议在目标浏览器验证。Windows Go 便携版本身不依赖 PWA。
