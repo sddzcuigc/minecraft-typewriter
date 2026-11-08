@@ -61,8 +61,7 @@
 - 目标电脑无需 Go/Node/Python；Go 只在构建机上需要。
 
 ## 在线演示
-在线版：[https://wordmap-english.vercel.app/](https://wordmap-english.vercel.app/)。该站点是纯静态演示，首次加载后支持兼容浏览器的 PWA 缓存；本地 Go 便携版不依赖云端。
-同一套静态前端可部署到 Vercel 分享和演示。在线版不需要后端，也不是本地版的运行依赖。PWA 离线缓存只适用于首次加载成功后的 HTTPS/localhost 环境；Windows Go 便携版本身不依赖它。
+同一套静态前端可部署到 Vercel 分享和演示。在线版不需要后端，也不是本地版的运行依赖。PWA 缓存逻辑已实现，适用于首次加载成功后的 HTTPS/localhost 环境；当前自动化环境未能完成断网重载实测，建议在目标浏览器验证。Windows Go 便携版本身不依赖 PWA。
 
 ## 已知限制
 1. 113 个精选词不是出版社完整词表，教材准确性仍需纸书逐页核验。
