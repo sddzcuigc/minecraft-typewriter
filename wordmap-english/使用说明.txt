@@ -35,3 +35,9 @@
 - 6 条公开电子课本文本版短摘句，建议与纸质课本复核。
 - 15 条公开配套练习/试卷预览摘句，附来源；不等同于教育部门正式统考真题。
 - 未核验的课本原句不会用 AI 编造冒充原文。
+
+【macOS Apple Silicon（M 系列）】
+- 可使用单独的 macOS ARM64 便携包，运行 WordMap-macos-arm64。
+- 在终端进入解压目录，执行：chmod +x WordMap-macos-arm64 && ./WordMap-macos-arm64
+- 浏览器访问 http://127.0.0.1:18765/。
+- 当前二进制未进行 Apple Developer 签名与公证，macOS 可能显示首次运行安全提示；也可直接打开 WordMap-Offline.html 学习。
