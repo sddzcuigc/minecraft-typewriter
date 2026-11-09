@@ -1,0 +1,24 @@
+name: WordMap V3.3 validation
+on:
+  push:
+    branches:
+      - wordmap-v33-ci
+    paths:
+      - "wordmap-english/**"
+      - ".github/workflows/wordmap-v33-check.yml"
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check JavaScript syntax
+        run: |
+          node --check wordmap-english/app.js
+          node --check wordmap-english/data.js
+      - name: Validate vocabulary and pages
+        run: |
+          node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('wordmap-english/data/words.json','utf8'));if(d.words.length!==153)throw Error('expected 153 words, got '+d.words.length);if(d.edges.length!==149)throw Error('expected 149 edges');const h=fs.readFileSync('wordmap-english/index.html','utf8');for(const id of ['pinyinPage','imagesPage','memoryPage'])if(!h.includes('id=\"'+id+'\"'))throw Error('missing '+id);console.log('WordMap V3.3 validation passed')"
