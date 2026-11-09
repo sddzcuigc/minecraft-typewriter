@@ -18,6 +18,8 @@ GitHub：https://github.com/sddzcuigc/minecraft-typewriter/tree/main/shizixingqi
 
 项目目录新增 `main.go` 与 `go.mod`，仅依赖 Go 标准库，静态资源通过 `embed` 编入单个可执行文件，不需要 Node.js、npm、CDN 或在线运行时。启动后默认监听 `127.0.0.1:18765` 并打开浏览器；如需内网访问，可显式运行 `-listen 0.0.0.0:18765`，程序会列出本机 IPv4 地址。内网开放时请配置防火墙，只在可信局域网使用。
 
+GitHub Actions 会在每次更新本项目时自动生成 Windows x64、Linux x64、macOS Apple Silicon 启动器，以及源码 ZIP；在仓库 Actions 页面下载对应产物，保留30天。手工构建命令如下。
+
 Windows amd64：
 
 ```powershell

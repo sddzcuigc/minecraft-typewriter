@@ -1,0 +1,74 @@
+name: Build portable offline packages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "shizixingqiu/**"
+      - ".github/workflows/build-portable.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build ${{ matrix.label }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: Windows x64
+            runner: windows-latest
+            goos: windows
+            goarch: amd64
+            output: shizixingqiu-windows-amd64.exe
+          - label: Linux x64
+            runner: ubuntu-latest
+            goos: linux
+            goarch: amd64
+            output: shizixingqiu-linux-amd64
+          - label: macOS Apple Silicon
+            runner: macos-14
+            goos: darwin
+            goarch: arm64
+            output: shizixingqiu-darwin-arm64
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: shizixingqiu/go.mod
+      - name: Build self-contained launcher
+        shell: bash
+        working-directory: shizixingqiu
+        env:
+          CGO_ENABLED: "0"
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+        run: |
+          mkdir -p ../dist
+          go build -trimpath -ldflags="-s -w" -o "../dist/${{ matrix.output }}" .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.output }}
+          path: dist/${{ matrix.output }}
+          if-no-files-found: error
+          retention-days: 30
+
+  source-package:
+    name: Package source and offline web assets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create source package
+        run: |
+          mkdir -p dist
+          cd shizixingqiu
+          zip -r ../dist/shizixingqiu-source.zip . -x "dist/*"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shizixingqiu-source
+          path: dist/shizixingqiu-source.zip
+          if-no-files-found: error
+          retention-days: 30
