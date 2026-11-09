@@ -1,42 +1,54 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f8ef"><meta name="description" content="识字星球：看图识字、拼音、五笔和儿童打字游戏。"><title>识字星球 · 看图识字与打字乐园</title><style>
-:root{--bg:#f6f8ef;--paper:#fff;--ink:#26352d;--muted:#718078;--line:#e5eadf;--green:#347b57;--mint:#e8f4e9;--shadow:0 12px 36px #33452d12}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 8% 5%,#e8f3df 0,transparent 24rem),var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Microsoft YaHei",sans-serif}button,input{font:inherit}button{cursor:pointer}.shell{max-width:1080px;margin:auto;padding:22px 18px 56px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:16px;background:#dff0d9;display:grid;place-items:center;font-size:27px}.brand h1{font-size:22px;margin:0}.brand p{margin:1px 0 0;color:var(--muted);font-size:12px}.tag{background:#fff;border:1px solid var(--line);border-radius:99px;padding:7px 12px;color:var(--muted);font-size:12px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}.stat,.panel{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.stat{padding:13px 16px}.stat small{color:var(--muted)}.stat strong{display:block;font-size:24px;margin-top:2px}.tabs{display:flex;gap:8px;overflow:auto;padding:3px 0 14px}.tab{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 15px;white-space:nowrap;color:#526157}.tab.active{background:var(--green);color:white;border-color:var(--green)}.panel{padding:20px}.layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:16px}.section-title{font-weight:750;font-size:18px;margin:0 0 13px}.muted{color:var(--muted)}.hero-card{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center}.art{min-height:220px;background:linear-gradient(145deg,#f0f7e9,#edf5f7);border-radius:17px;display:grid;place-items:center;overflow:hidden}.art svg{width:88%;max-width:230px;height:190px}.hanzi{font-size:clamp(76px,12vw,112px);line-height:1.1;font-weight:800;color:#2d6547}.pinyin{font-size:23px;color:#d28b38;font-weight:750}.chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}.chip{background:#f2f5ef;border-radius:9px;padding:6px 10px;font-size:13px}.word{font-size:21px;font-weight:750}.example,.wubi-box{background:#f7f8f4;border-radius:12px;padding:12px;margin-top:10px}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.btn{border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 14px;color:var(--ink)}.btn.primary{background:var(--green);border-color:var(--green);color:white;font-weight:700}.btn.soft{background:var(--mint);border-color:#d8ead9;color:#2d6547}.btn:disabled{opacity:.5}.char-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.char-tile{border:1px solid var(--line);background:#fff;border-radius:13px;padding:11px 5px;text-align:center}.char-tile.active{border:2px solid var(--green);background:var(--mint)}.char-tile b{display:block;font-size:26px}.char-tile small{color:var(--muted)}.keycap{display:inline-grid;place-items:center;min-width:44px;height:44px;background:#fff;border:1px solid #cbd6c9;border-bottom-width:4px;border-radius:9px;font-size:18px;font-weight:800;margin-right:8px}.keyboard{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin-top:12px}.keyboard span{background:#f2f5ef;border:1px solid var(--line);border-radius:7px;padding:7px 0;text-align:center;font-weight:700;font-size:12px}.keyboard span.hot{background:#dcefe0;border-color:#a9cfb1;color:#286344}.game-center{text-align:center;padding:18px}.game-art{width:160px;height:140px;margin:0 auto 10px;background:#f0f7e9;border-radius:18px;display:grid;place-items:center}.game-art svg{width:130px;height:120px}.game-prompt{font-size:42px;font-weight:800;margin:7px 0}.answer{width:min(100%,420px);padding:13px 15px;border:2px solid #dce5d9;border-radius:12px;background:#fff;text-align:center;font-size:22px;outline:none}.answer:focus{border-color:var(--green)}.feedback{min-height:30px;margin:9px 0;font-weight:650}.progress{height:8px;border-radius:20px;background:#edf0e9;overflow:hidden}.progress span{display:block;height:100%;background:#64a875;width:0}.empty{text-align:center;padding:32px 12px;color:var(--muted)}footer{text-align:center;color:var(--muted);font-size:12px;margin-top:20px}@media(max-width:700px){.shell{padding:15px 12px 40px}.layout{grid-template-columns:1fr}.hero-card{gap:10px}.art{min-height:175px}.art svg{height:155px}.panel{padding:15px}.stat{padding:11px}.stat strong{font-size:21px}.tab{padding:9px 12px}}@media(max-width:390px){.hero-card{grid-template-columns:1fr}.art{min-height:155px}}
-</style></head><body><div class="shell"><header class="top"><div class="brand"><div class="logo">🌱</div><div><h1>识字星球</h1><p>看图 · 识字 · 拼音 · 五笔 · 打字闯关</p></div></div><span class="tag">儿童互动学习 · Beta</span></header><section class="stats"><div class="stat"><small>认识的汉字</small><strong id="learnedStat">0 / 8</strong></div><div class="stat"><small>闯关答对</small><strong id="correctStat">0</strong></div><div class="stat"><small>待复习错字</small><strong id="wrongStat">0</strong></div></section><nav class="tabs"><button class="tab active" data-view="learn">📖 识字卡</button><button class="tab" data-view="game">⌨️ 打字闯关</button><button class="tab" data-view="wubi">🔤 五笔课堂</button><button class="tab" data-view="review">📝 错字本</button></nav><main id="app"></main><footer>无需账号、CDN 或在线接口。学习记录保存在当前浏览器。</footer></div>
-<script>
-(function(){
-"use strict";
-var items=[
-{c:"日",p:"rì",plain:"ri",w:"日子",wp:"rì zi",meaning:"太阳；也表示一天。",example:"太阳每天从东方升起。",strokes:4,key:"J",code:"JJJJ",root:"日字根是键名字根，86版键位 J。",art:"sun",label:"太阳"},
-{c:"月",p:"yuè",plain:"yue",w:"月亮",wp:"yuè liang",meaning:"月亮；也表示月份。",example:"夜晚，月亮挂在天空。",strokes:4,key:"E",code:"EEEE",root:"月字根是键名字根，86版键位 E。",art:"moon",label:"月亮"},
-{c:"山",p:"shān",plain:"shan",w:"大山",wp:"dà shān",meaning:"地面形成的高耸部分。",example:"远处有一座高高的山。",strokes:3,key:"M",code:"MMMM",root:"山字根是键名字根，86版键位 M。",art:"mountain",label:"山峰"},
-{c:"水",p:"shuǐ",plain:"shui",w:"河水",wp:"hé shuǐ",meaning:"无色、无味的常见液体。",example:"小河里的水清清的。",strokes:4,key:"I",code:"IIII",root:"水字根是键名字根，86版键位 I。",art:"water",label:"水流"},
-{c:"火",p:"huǒ",plain:"huo",w:"火车",wp:"huǒ chē",meaning:"燃烧时产生光和热。",example:"火车沿着铁轨向前行驶。",strokes:4,key:"O",code:"OOOO",root:"火字根是键名字根，86版键位 O。",art:"fire",label:"火焰"},
-{c:"木",p:"mù",plain:"mu",w:"木头",wp:"mù tou",meaning:"树木，也指木材。",example:"这张桌子是用木头做的。",strokes:4,key:"S",code:"SSSS",root:"木字根是键名字根，86版键位 S。",art:"tree",label:"树木"},
-{c:"口",p:"kǒu",plain:"kou",w:"门口",wp:"mén kǒu",meaning:"嘴；也表示出入口。",example:"小朋友站在学校门口。",strokes:3,key:"K",code:"KKKK",root:"口字根是键名字根，86版键位 K。",art:"mouth",label:"嘴巴"},
-{c:"人",p:"rén",plain:"ren",w:"大人",wp:"dà rén",meaning:"能够思考和行动的人。",example:"大人和小朋友一起读书。",strokes:2,key:"W",code:"WWWW",root:"人字根是键名字根，86版键位 W。",art:"person",label:"人物"}
-];
-var art={
-sun:'<circle cx="100" cy="83" r="32" fill="#f7c94f"/><g stroke="#e7ac35" stroke-width="7" stroke-linecap="round"><path d="M100 25v13M100 128v13M42 83h13M145 83h13M59 42l10 10M132 115l10 10M141 42l-10 10M69 115l-10 10"/></g>',
-moon:'<path d="M126 27A65 65 0 1 0 151 130 54 54 0 0 1 126 27Z" fill="#e9c75d"/><circle cx="53" cy="43" r="5" fill="#e9c75d"/><circle cx="40" cy="93" r="4" fill="#e9c75d"/>',
-mountain:'<path d="M12 153 72 38l37 70 26-42 53 87Z" fill="#78ad83"/><path d="m72 38 20 38-18-8-14 16Z" fill="#fff8e8"/>',
-water:'<path d="M14 50q22-22 44 0t44 0 44 0 44 0M14 91q22-22 44 0t44 0 44 0 44 0M14 132q22-22 44 0t44 0 44 0 44 0" fill="none" stroke="#60acd2" stroke-width="12" stroke-linecap="round"/>',
-fire:'<path d="M102 166C36 165 43 105 76 68c-3 27 16 27 19 1 3-22 18-39 28-48-4 40 39 57 32 100-4 28-26 45-53 45Z" fill="#ee9853"/><path d="M102 151c-26-3-24-29-7-48 2 17 15 12 17-4 23 28 14 50-10 52Z" fill="#f7d16b"/>',
-tree:'<path d="M100 165V100" stroke="#98734d" stroke-width="15" stroke-linecap="round"/><circle cx="100" cy="66" r="42" fill="#6eae7a"/><circle cx="67" cy="91" r="30" fill="#82bd85"/><circle cx="132" cy="91" r="30" fill="#82bd85"/>',
-mouth:'<path d="M31 89Q100 23 169 89Q100 157 31 89Z" fill="#e99c9c" stroke="#a95660" stroke-width="6"/><path d="M39 85Q100 109 161 85" fill="none" stroke="#a95660" stroke-width="5"/>',
-person:'<circle cx="100" cy="39" r="22" fill="#e7b98f"/><path d="M100 66v48M100 78 60 105M100 78l40 27M100 114 70 164M100 114l30 50" stroke="#6799b3" stroke-width="13" stroke-linecap="round"/>'
-};
-function picture(d){return '<svg viewBox="0 0 200 190" role="img" aria-label="'+d.label+'插画"><g>'+art[d.art]+'</g></svg>'}
-var app=document.getElementById("app"),view="learn",idx=0,gameIdx=0,mode="拼音",learned=[],wrong=[],correct=0;
-try{learned=JSON.parse(localStorage.getItem("szx.learned")||"[]");wrong=JSON.parse(localStorage.getItem("szx.wrong")||"[]");correct=+(localStorage.getItem("szx.correct")||0)}catch(e){}
-function save(){localStorage.setItem("szx.learned",JSON.stringify(learned));localStorage.setItem("szx.wrong",JSON.stringify(wrong));localStorage.setItem("szx.correct",String(correct))}
-function stats(){document.getElementById("learnedStat").textContent=learned.length+" / 8";document.getElementById("correctStat").textContent=correct;document.getElementById("wrongStat").textContent=wrong.length}
-function tabs(){document.querySelectorAll(".tab").forEach(function(b){b.classList.toggle("active",b.dataset.view===view)})}
-function learn(){var d=items[idx];var s='<div class="layout"><section class="panel"><div class="section-title">今天认识一个字 <span class="muted" style="float:right;font-size:13px">'+(idx+1)+' / 8</span></div><div class="hero-card"><div class="art">'+picture(d)+'</div><div style="text-align:center"><div class="hanzi">'+d.c+'</div><div class="pinyin">'+d.p+'</div><div class="muted" style="font-size:13px">普通话读音</div></div></div><div class="chips"><span class="chip">笔画：'+d.strokes+'画</span><span class="chip">组词：'+d.w+'</span><span class="chip">拼音：'+d.plain+'</span></div><h3 style="margin:14px 0 3px">字的意思</h3><div class="muted">'+d.meaning+'</div><div class="example"><strong class="word">'+d.w+'</strong> <span class="muted">'+d.wp+'</span><div style="margin-top:5px">'+d.example+'</div></div><div class="wubi-box"><strong>五笔 86 版 · 键名字根</strong><div style="margin-top:10px"><span class="keycap">'+d.key+'</span><b style="font-size:21px">'+d.code+'</b></div><div class="muted" style="font-size:13px;margin-top:8px">'+d.root+'</div></div><div class="actions"><button class="btn primary" id="known">'+(learned.includes(d.c)?"✓ 已经学会":"我学会了")+'</button><button class="btn" id="prev">上一个</button><button class="btn" id="next">下一个</button></div><div class="progress" style="margin-top:14px"><span style="width:'+(learned.includes(d.c)?100:0)+'%"></span></div></section><aside class="panel"><div class="section-title">汉字星球</div><p class="muted" style="font-size:13px;margin-top:-5px">点选一个汉字，打开它的学习卡片。</p><div class="char-grid">'+items.map(function(x,i){return '<button class="char-tile '+(i===idx?"active":"")+'" data-char="'+i+'"><b>'+x.c+'</b><small>'+x.p+'</small></button>'}).join("")+'</div><div class="example" style="margin-top:16px"><strong>学习小建议</strong><p class="muted" style="margin:5px 0 0;font-size:13px">先看图说出是什么，再读拼音、读词语，最后试着自己打出来。</p></div></aside></div>';
-app.innerHTML=s;document.getElementById("known").onclick=function(){if(!learned.includes(d.c))learned.push(d.c);save();render()};document.getElementById("prev").onclick=function(){idx=(idx+7)%8;learn()};document.getElementById("next").onclick=function(){idx=(idx+1)%8;learn()};app.querySelectorAll("[data-char]").forEach(function(b){b.onclick=function(){idx=+b.dataset.char;learn()}})}
-function game(){var d=items[gameIdx],expected=mode==="拼音"?d.plain:d.code;app.innerHTML='<section class="panel"><div class="section-title">打字闯关 <span class="muted" style="float:right;font-size:13px">第 '+(gameIdx+1)+' 关 / 8</span></div><div class="actions" style="margin-top:0"><button class="btn '+(mode==="拼音"?"soft":"")+'" id="pinyin">拼音输入</button><button class="btn '+(mode==="五笔"?"soft":"")+'" id="wubi">五笔输入</button></div><div class="game-center"><div class="game-art">'+picture(d)+'</div><div class="muted">'+(mode==="拼音"?"看图输入这个字的拼音（不带声调）":"看图输入这个字的五笔86键名字根编码")+'</div><div class="game-prompt">'+(mode==="拼音"?d.p:d.c)+'</div><input id="answer" class="answer" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="'+(mode==="拼音"?"例如："+d.plain:"例如："+d.code)+'"><div class="feedback" id="feedback" aria-live="polite"></div><div class="actions" style="justify-content:center"><button class="btn primary" id="check">检查答案</button><button class="btn" id="nextGame">下一关 →</button></div></div><div class="muted" style="font-size:13px">拼音不需要声调符号；五笔模式仅练习本页列出的 8 个键名字根。</div></section><section class="panel" style="margin-top:16px"><strong>本轮累计答对：'+correct+'</strong><div class="progress" style="margin-top:10px"><span style="width:'+(learned.length/8*100)+'%"></span></div></section>';
-document.getElementById("pinyin").onclick=function(){mode="拼音";game()};document.getElementById("wubi").onclick=function(){mode="五笔";game()};var input=document.getElementById("answer"),feedback=document.getElementById("feedback"),check=document.getElementById("check");function test(){if(check.disabled)return;if(input.value.trim().toLowerCase()===expected){feedback.textContent="答对了！你真棒，获得 1 颗星。";feedback.style.color="#347b57";correct++;if(!learned.includes(d.c))learned.push(d.c);wrong=wrong.filter(function(x){return x!==d.c});save();stats();check.disabled=true;check.textContent="✓ 已完成"}else{feedback.textContent="再想一想。提示："+(mode==="拼音"?d.p:d.root);feedback.style.color="#bd7938";if(!wrong.includes(d.c))wrong.push(d.c);save();stats()}}check.onclick=test;input.onkeydown=function(e){if(e.key==="Enter")test()};document.getElementById("nextGame").onclick=function(){gameIdx=(gameIdx+1)%8;game()}}
-function wubi(){var s='<section class="panel"><div class="section-title">五笔字根入门 · 86 版</div><p class="muted" style="font-size:14px">先认识键名字根。下面 8 个字均按 86 版键名字根规则展示，连续敲击该字根所在键 4 次。普通汉字的拆分和编码规则更复杂。</p><div class="char-grid">'+items.map(function(d,i){return '<button class="char-tile" data-wubi="'+i+'"><b>'+d.c+'</b><small>'+d.key+' · '+d.code+'</small></button>'}).join("")+'</div><div class="wubi-box" style="margin-top:16px"><strong>键盘位置示意</strong><div class="keyboard">'+("QWERTYUIOPASDFGHJKLZXCVBNM".split("").map(function(k){return '<span class="'+("WEIOSJKM".includes(k)?"hot":"")+'">'+k+'</span>'}).join(""))+'</div><p class="muted" style="font-size:12px">绿色键对应本页演示的 W、E、I、O、J、K、M、S。</p></div><div class="example"><strong>注意版本</strong><p class="muted" style="font-size:13px">本课堂明确使用五笔 86 版。98 版字根分布不同，不能混用。本页暂不展示未经核验的 98 版编码。</p></div></section>';app.innerHTML=s;app.querySelectorAll("[data-wubi]").forEach(function(b){b.onclick=function(){idx=+b.dataset.wubi;view="learn";render()}})}
-function review(){var s='<section class="panel"><div class="section-title">我的错字本</div><p class="muted" style="font-size:13px">答错的字会自动放到这里，重新学习并答对后会移出错字本。</p>';if(wrong.length){s+='<div class="char-grid">'+wrong.map(function(c){var i=items.findIndex(function(x){return x.c===c}),d=items[i];return '<button class="char-tile" data-review="'+i+'"><b>'+c+'</b><small>'+d.p+'</small></button>'}).join("")+'</div>'}else{s+='<div class="empty">🌟 暂时没有错字，继续保持！</div>'}s+='<div class="actions"><button class="btn" id="clearWrong">清空错字本</button></div></section>';app.innerHTML=s;app.querySelectorAll("[data-review]").forEach(function(b){b.onclick=function(){idx=+b.dataset.review;view="learn";render()}});document.getElementById("clearWrong").onclick=function(){wrong=[];save();render()}}
-function render(){tabs();stats();if(view==="learn")learn();else if(view==="game")game();else if(view==="wubi")wubi();else review()}
-document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click",function(){view=b.dataset.view;render()})});render();
-})();
-</script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f8f2">
+  <meta name="description" content="识字星球：3500常用汉字、拼音、部首、笔画、看图识字、五笔86入门和打字闯关。">
+  <title>识字星球 · 3500汉字学习乐园</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="data.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<div class="shell">
+  <header class="header">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">🌱</div>
+      <div><h1>识字星球</h1><p>看图 · 识字 · 拼音 · 五笔 · 打字闯关</p></div>
+    </div>
+    <span class="offline-tag">离线优先 · 无需登录</span>
+  </header>
+  <section class="intro">
+    <div>
+      <span class="eyebrow">给儿童的互动识字小课堂</span>
+      <h2>每天认识几个字，<br><em>一点一点积累。</em></h2>
+      <p>从常见汉字开始，看字形、读拼音，再到键盘上把它打出来。</p>
+      <div class="intro-badges"><span>📚 <b id="letterCount">3500 字</b>可查</span><span>🎨 看图联想</span><span>⌨️ 即时闯关</span></div>
+    </div>
+    <div class="intro-art"><span>山</span><span>☀️</span><span>水</span><span>🌿</span></div>
+  </section>
+  <section class="stats" aria-label="学习成绩">
+    <div class="stat"><small>已经认识</small><strong id="learnedStat">0 / 3500</strong></div>
+    <div class="stat"><small>累计答对</small><strong id="correctStat">0</strong></div>
+    <div class="stat"><small>待复习错字</small><strong id="wrongStat">0</strong></div>
+  </section>
+  <div class="searchbar">
+    <span aria-hidden="true">⌕</span>
+    <input id="topSearch" aria-label="搜索汉字拼音和词语" placeholder="搜索汉字、拼音或词语，例如：山、shui、月亮">
+    <button id="topSearchBtn">搜索字库</button>
+  </div>
+  <nav class="tabs" aria-label="功能导航">
+    <button class="tab active" data-view="learn">📖 认字卡</button>
+    <button class="tab" data-view="bank">🗂️ 汉字字库</button>
+    <button class="tab" data-view="game">⌨️ 拼音闯关</button>
+    <button class="tab" data-view="wubi">🔤 五笔入门</button>
+    <button class="tab" data-view="review">📝 错字本</button>
+  </nav>
+  <main id="content" aria-label="识字学习内容">
+    <section class="panel">正在加载本地汉字库……</section>
+  </main>
+  <footer>3500字字形与拼音数据依据 mapull/chinese-dictionary（MIT）整理。多音字、释义与配图仍需分级校对。<br>全部资源可本地运行；朗读依赖浏览器和设备已安装的中文语音。</footer>
+</div>
+</body>
+</html>
