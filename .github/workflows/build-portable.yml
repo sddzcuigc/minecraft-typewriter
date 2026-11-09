@@ -29,7 +29,7 @@ jobs:
             goarch: amd64
             output: shizixingqiu-linux-amd64
           - label: macOS Apple Silicon
-            runner: macos-14
+            runner: ubuntu-latest
             goos: darwin
             goarch: arm64
             output: shizixingqiu-darwin-arm64
