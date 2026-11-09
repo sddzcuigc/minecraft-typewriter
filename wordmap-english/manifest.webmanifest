@@ -1,7 +1,7 @@
 {
   "name": "词汇星图 WordMap",
   "short_name": "词汇星图",
-  "description": "外研版四年级上册英语词汇关联学习与自动听写",
+  "description": "外研版四年级英语：拼音联想、图片词典、记忆曲线和离线练习",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",
