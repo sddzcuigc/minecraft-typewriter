@@ -1,0 +1,12 @@
+{
+  "coverage": {
+    "modernMeaning": 3495,
+    "shuowen": 2176,
+    "traditionalMatch": 756
+  },
+  "sourceVersions": {
+    "base": "https://raw.githubusercontent.com/mapull/chinese-dictionary/e804ada333b68afddfdccbe8dcc938a72da157a7/character/common/char_common_base.json",
+    "detail": "https://raw.githubusercontent.com/mapull/chinese-dictionary/e804ada333b68afddfdccbe8dcc938a72da157a7/character/common/char_common_detail.json",
+    "shuowen": "https://raw.githubusercontent.com/gujilab/chinese-classical-corpus/09a6873e46760f20027e20bf48814f5c5cc05d66/output/shuowen.json"
+  }
+}
