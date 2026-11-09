@@ -1,8 +1,8 @@
 {
-  "version": "3.0",
-  "title": "词汇星图 WordMap",
+  "version": "3.3.0",
+  "title": "词汇星图 WordMap V3.3",
   "curriculum": "2024 外研版（三起点）孙有中主编 四年级上册",
-  "sourceNote": "113个核心词汇精选，按公开教学知识清单整理；不是出版社官方完整词表。请家长按纸质教材校对。拼写块仅为辅助记忆分块，不等同于严格音节或IPA。",
+  "sourceNote": "153条可练习词条，其中113条原版本精选，40条教辅整理的补充词和常用短语；153不是已核验的出版社官方单词数。拼音近音仅为记忆钩子，不是英语音标。",
   "units": [
     {
       "id": "u1",
@@ -73,7 +73,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "jump",
@@ -109,7 +111,9 @@
       ],
       "textbookStatus": "已核对·建议纸书复核",
       "textbookNote": "摘句来自FlipHTML5用户上传的公开电子课本文本版，并非出版社官方托管文件；建议与孩子手中的纸质课本复核。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "high",
@@ -136,7 +140,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "far",
@@ -163,7 +169,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "ping-pong",
@@ -191,7 +199,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "volleyball",
@@ -220,7 +230,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "hope",
@@ -247,7 +259,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "lose",
@@ -274,7 +288,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "keep",
@@ -301,7 +317,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "remember",
@@ -330,7 +348,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "give",
@@ -368,7 +388,9 @@
           "sourceNote": "第三方公开配套试卷预览，页面内容存在OCR缺字，录入时按上下文校正；不是教育部门统一统考原卷。",
           "status": "公开配套试卷预览摘句（OCR校正）"
         }
-      ]
+      ],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "try",
@@ -395,7 +417,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "fail",
@@ -422,7 +446,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "cancer",
@@ -450,7 +476,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "money",
@@ -478,7 +506,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "month",
@@ -505,7 +535,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "year",
@@ -532,7 +564,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "player",
@@ -571,7 +605,9 @@
           "sourceNote": "第三方公开配套试卷预览，页面内容存在OCR缺字，录入时按上下文校正；不是教育部门统一统考原卷。",
           "status": "公开配套试卷预览摘句（OCR校正）"
         }
-      ]
+      ],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "ability",
@@ -601,7 +637,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "hard",
@@ -628,7 +666,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "kind",
@@ -655,7 +695,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "ill",
@@ -682,7 +724,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "first",
@@ -709,7 +753,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "because",
@@ -737,7 +783,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "across",
@@ -765,7 +813,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "never",
@@ -793,7 +843,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "chore",
@@ -820,7 +872,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "wash",
@@ -858,7 +912,9 @@
           "sourceNote": "第三方公开配套试卷预览，页面内容存在OCR缺字，录入时按上下文校正；不是教育部门统一统考原卷。",
           "status": "公开配套试卷预览摘句（OCR校正）"
         }
-      ]
+      ],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "feed",
@@ -894,7 +950,9 @@
       ],
       "textbookStatus": "已核对·建议纸书复核",
       "textbookNote": "摘句来自FlipHTML5用户上传的公开电子课本文本版，并非出版社官方托管文件；建议与孩子手中的纸质课本复核。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "sweep",
@@ -932,7 +990,9 @@
           "sourceNote": "第三方公开配套试卷预览，页面内容存在OCR缺字，录入时按上下文校正；不是教育部门统一统考原卷。",
           "status": "公开配套试卷预览摘句（OCR校正）"
         }
-      ]
+      ],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "tidy",
@@ -960,7 +1020,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "dish",
@@ -987,7 +1049,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "floor",
@@ -1025,7 +1089,9 @@
           "sourceNote": "第三方公开配套试卷预览，页面内容存在OCR缺字，录入时按上下文校正；不是教育部门统一统考原卷。",
           "status": "公开配套试卷预览摘句（OCR校正）"
         }
-      ]
+      ],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "rubbish",
@@ -1053,7 +1119,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "finish",
@@ -1081,7 +1149,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "feel",
@@ -1108,7 +1178,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "water",
@@ -1136,7 +1208,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "pick",
@@ -1163,7 +1237,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "collect",
@@ -1191,7 +1267,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "cut",
@@ -1218,7 +1296,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "easy",
@@ -1246,7 +1326,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "clean",
@@ -1273,7 +1355,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "dirty",
@@ -1301,7 +1385,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "tired",
@@ -1328,7 +1414,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "helpful",
@@ -1356,7 +1444,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "job",
@@ -1383,7 +1473,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "desk",
@@ -1410,7 +1502,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "wall",
@@ -1437,7 +1531,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "problem",
@@ -1465,7 +1561,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "sunshine",
@@ -1493,7 +1591,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "yard",
@@ -1520,7 +1620,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "blow",
@@ -1547,7 +1649,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "enjoy",
@@ -1575,7 +1679,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "taste",
@@ -1602,7 +1708,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "turn",
@@ -1629,7 +1737,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "report",
@@ -1668,7 +1778,9 @@
           "sourceNote": "第三方公开配套试卷预览，页面内容存在OCR缺字，录入时按上下文校正；不是教育部门统一统考原卷。",
           "status": "公开配套试卷预览摘句（OCR校正）"
         }
-      ]
+      ],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "weather",
@@ -1707,7 +1819,9 @@
           "sourceNote": "第三方公开配套试卷预览，页面内容存在OCR缺字，录入时按上下文校正；不是教育部门统一统考原卷。",
           "status": "公开配套试卷预览摘句（OCR校正）"
         }
-      ]
+      ],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "hot",
@@ -1734,7 +1848,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "cold",
@@ -1761,7 +1877,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "warm",
@@ -1788,7 +1906,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "cool",
@@ -1815,7 +1935,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "cloud",
@@ -1842,7 +1964,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "cloudy",
@@ -1870,7 +1994,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "wind",
@@ -1897,7 +2023,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "windy",
@@ -1934,7 +2062,9 @@
       ],
       "textbookStatus": "已核对·建议纸书复核",
       "textbookNote": "摘句来自FlipHTML5用户上传的公开电子课本文本版，并非出版社官方托管文件；建议与孩子手中的纸质课本复核。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "rain",
@@ -1961,7 +2091,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "rainy",
@@ -1989,7 +2121,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "snow",
@@ -2016,7 +2150,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "snowy",
@@ -2044,7 +2180,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "sun",
@@ -2071,7 +2209,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "sunny",
@@ -2099,7 +2239,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "diary",
@@ -2128,7 +2270,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "teacher",
@@ -2156,7 +2300,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "season",
@@ -2195,7 +2341,9 @@
           "sourceNote": "第三方公开配套试卷预览，页面内容存在OCR缺字，录入时按上下文校正；不是教育部门统一统考原卷。",
           "status": "公开配套试卷预览摘句（OCR校正）"
         }
-      ]
+      ],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "spring",
@@ -2231,7 +2379,9 @@
       ],
       "textbookStatus": "已核对·建议纸书复核",
       "textbookNote": "摘句来自FlipHTML5用户上传的公开电子课本文本版，并非出版社官方托管文件；建议与孩子手中的纸质课本复核。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "summer",
@@ -2259,7 +2409,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "autumn",
@@ -2287,7 +2439,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "winter",
@@ -2315,7 +2469,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "birthday",
@@ -2343,7 +2499,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "snowstorm",
@@ -2371,7 +2529,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "beach",
@@ -2409,7 +2569,9 @@
           "sourceNote": "第三方公开配套试卷预览，页面内容存在OCR缺字，录入时按上下文校正；不是教育部门统一统考原卷。",
           "status": "公开配套试卷预览摘句（OCR校正）"
         }
-      ]
+      ],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "sea",
@@ -2436,7 +2598,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "equator",
@@ -2465,7 +2629,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "fly",
@@ -2503,7 +2669,9 @@
           "sourceNote": "第三方公开配套试卷预览，页面内容存在OCR缺字，录入时按上下文校正；不是教育部门统一统考原卷。",
           "status": "公开配套试卷预览摘句（OCR校正）"
         }
-      ]
+      ],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "join",
@@ -2530,7 +2698,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "bus",
@@ -2577,7 +2747,9 @@
           "sourceNote": "第三方公开配套试卷预览，页面内容存在OCR缺字，录入时按上下文校正；不是教育部门统一统考原卷。",
           "status": "公开配套试卷预览摘句（OCR校正）"
         }
-      ]
+      ],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "car",
@@ -2604,7 +2776,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "train",
@@ -2642,7 +2816,9 @@
           "sourceNote": "第三方公开配套试卷预览，页面内容存在OCR缺字，录入时按上下文校正；不是教育部门统一统考原卷。",
           "status": "公开配套试卷预览摘句（OCR校正）"
         }
-      ]
+      ],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "plane",
@@ -2669,7 +2845,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "ship",
@@ -2696,7 +2874,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "truck",
@@ -2723,7 +2903,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "travel",
@@ -2751,7 +2933,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "wear",
@@ -2778,7 +2962,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "live",
@@ -2805,7 +2991,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "city",
@@ -2833,7 +3021,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "sky",
@@ -2860,7 +3050,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "place",
@@ -2887,7 +3079,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "way",
@@ -2914,7 +3108,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "library",
@@ -2954,7 +3150,9 @@
           "sourceNote": "第三方公开配套试卷预览，页面内容存在OCR缺字，录入时按上下文校正；不是教育部门统一统考原卷。",
           "status": "公开配套试卷预览摘句（OCR校正）"
         }
-      ]
+      ],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "cinema",
@@ -2994,7 +3192,9 @@
           "sourceNote": "第三方公开配套试卷预览，页面内容存在OCR缺字，录入时按上下文校正；不是教育部门统一统考原卷。",
           "status": "公开配套试卷预览摘句（OCR校正）"
         }
-      ]
+      ],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "hospital",
@@ -3023,7 +3223,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "supermarket",
@@ -3053,7 +3255,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "museum",
@@ -3082,7 +3286,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "underground",
@@ -3111,7 +3317,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "left",
@@ -3138,7 +3346,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "right",
@@ -3165,7 +3375,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "straight",
@@ -3212,7 +3424,9 @@
           "sourceNote": "第三方公开配套试卷预览，页面内容存在OCR缺字，录入时按上下文校正；不是教育部门统一统考原卷。",
           "status": "公开配套试卷预览摘句（OCR校正）"
         }
-      ]
+      ],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "excuse",
@@ -3240,7 +3454,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "wish",
@@ -3267,7 +3483,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "true",
@@ -3294,7 +3512,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "step",
@@ -3321,7 +3541,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "own",
@@ -3348,7 +3570,9 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
-      "examExamples": []
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
     },
     {
       "id": "cross",
@@ -3375,6 +3599,1242 @@
       "textbookExamples": [],
       "textbookStatus": "待纸质课本原页核验",
       "textbookNote": "当前没有该词对应的可核验课本原句。上传对应课本页后，可补录原句和页码。",
+      "examExamples": [],
+      "entryType": "word",
+      "curriculumLevel": "prior_curated_not_officially_verified"
+    },
+    {
+      "id": "play sports",
+      "en": "play sports",
+      "zh": "做运动",
+      "unit": "u1",
+      "emoji": "🔤",
+      "chunks": [
+        "play",
+        "sports"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "phrase",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "We play sports after school.",
+          "translation": "我们放学后运动。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "run fast",
+      "en": "run fast",
+      "zh": "跑得快",
+      "unit": "u1",
+      "emoji": "🔤",
+      "chunks": [
+        "run",
+        "fast"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "phrase",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "I can run fast.",
+          "translation": "我能跑得快。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "jump high",
+      "en": "jump high",
+      "zh": "跳得高",
+      "unit": "u1",
+      "emoji": "🔤",
+      "chunks": [
+        "jump",
+        "high"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "phrase",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "Rabbits jump high.",
+          "translation": "兔子跳得高。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "jump far",
+      "en": "jump far",
+      "zh": "跳得远",
+      "unit": "u1",
+      "emoji": "🔤",
+      "chunks": [
+        "jump",
+        "far"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "phrase",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "Can you jump far?",
+          "translation": "你能跳得远吗？",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "play ping-pong",
+      "en": "play ping-pong",
+      "zh": "打乒乓球",
+      "unit": "u1",
+      "emoji": "🔤",
+      "chunks": [
+        "play",
+        "ping",
+        "pong"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "phrase",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "We play ping-pong on Sunday.",
+          "translation": "我们星期天打乒乓球。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "play volleyball",
+      "en": "play volleyball",
+      "zh": "打排球",
+      "unit": "u1",
+      "emoji": "🔤",
+      "chunks": [
+        "play",
+        "vol",
+        "ley",
+        "ball"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "phrase",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "They play volleyball together.",
+          "translation": "他们一起打排球。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "at first",
+      "en": "at first",
+      "zh": "起初",
+      "unit": "u1",
+      "emoji": "🔤",
+      "chunks": [
+        "at",
+        "first"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "phrase",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "At first, I was afraid.",
+          "translation": "起初我很害怕。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "give up",
+      "en": "give up",
+      "zh": "放弃",
+      "unit": "u1",
+      "emoji": "🔤",
+      "chunks": [
+        "give",
+        "up"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "phrase",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "Do not give up easily.",
+          "translation": "不要轻易放弃。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "helper",
+      "en": "helper",
+      "zh": "帮手；助手",
+      "unit": "u2",
+      "emoji": "🔤",
+      "chunks": [
+        "help",
+        "er"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "My sister is a good helper.",
+          "translation": "我妹妹是个好帮手。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "pig",
+      "en": "pig",
+      "zh": "猪",
+      "unit": "u2",
+      "emoji": "🔤",
+      "chunks": [
+        "pig"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "The pig is on the farm.",
+          "translation": "这头猪在农场里。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "cow",
+      "en": "cow",
+      "zh": "奶牛；母牛",
+      "unit": "u2",
+      "emoji": "🔤",
+      "chunks": [
+        "cow"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "The cow is eating grass.",
+          "translation": "奶牛正在吃草。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "grass",
+      "en": "grass",
+      "zh": "草；青草",
+      "unit": "u2",
+      "emoji": "🔤",
+      "chunks": [
+        "grass"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "The grass is green.",
+          "translation": "草是绿色的。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "phew",
+      "en": "phew",
+      "zh": "唉；呼（表示松口气）",
+      "unit": "u2",
+      "emoji": "🔤",
+      "chunks": [
+        "phew"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "Phew, the work is done!",
+          "translation": "呼，工作做完了！",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "may",
+      "en": "may",
+      "zh": "可以（用于请求允许）",
+      "unit": "u2",
+      "emoji": "🔤",
+      "chunks": [
+        "may"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "May I help you?",
+          "translation": "我可以帮助你吗？",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "outside",
+      "en": "outside",
+      "zh": "在室外",
+      "unit": "u2",
+      "emoji": "🔤",
+      "chunks": [
+        "out",
+        "side"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "The children play outside.",
+          "translation": "孩子们在外面玩。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "woof",
+      "en": "woof",
+      "zh": "汪汪（狗叫声）",
+      "unit": "u2",
+      "emoji": "🔤",
+      "chunks": [
+        "woof"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "Woof! The dog wants food.",
+          "translation": "汪！狗想要食物。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "again",
+      "en": "again",
+      "zh": "再一次",
+      "unit": "u2",
+      "emoji": "🔤",
+      "chunks": [
+        "a",
+        "gain"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "Please try again.",
+          "translation": "请再试一次。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "also",
+      "en": "also",
+      "zh": "还；也",
+      "unit": "u2",
+      "emoji": "🔤",
+      "chunks": [
+        "al",
+        "so"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "I also help at home.",
+          "translation": "我也在家帮忙。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "sometimes",
+      "en": "sometimes",
+      "zh": "有时",
+      "unit": "u2",
+      "emoji": "🔤",
+      "chunks": [
+        "some",
+        "times"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "I sometimes sweep the floor.",
+          "translation": "我有时扫地。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "good job",
+      "en": "good job",
+      "zh": "干得好",
+      "unit": "u2",
+      "emoji": "🔤",
+      "chunks": [
+        "good",
+        "job"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "phrase",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "Good job! You did it.",
+          "translation": "干得好！你做到了。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "warm up",
+      "en": "warm up",
+      "zh": "（使）暖和；热身",
+      "unit": "u2",
+      "emoji": "🔤",
+      "chunks": [
+        "warm",
+        "up"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "phrase",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "We warm up before a game.",
+          "translation": "我们在比赛前热身。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "to-do list",
+      "en": "to-do list",
+      "zh": "待办事项清单",
+      "unit": "u2",
+      "emoji": "🔤",
+      "chunks": [
+        "to",
+        "do",
+        "list"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "phrase",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "I write a to-do list.",
+          "translation": "我写了一张待办清单。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "ice cream",
+      "en": "ice cream",
+      "zh": "冰激凌",
+      "unit": "u3",
+      "emoji": "🔤",
+      "chunks": [
+        "ice",
+        "cream"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "phrase",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "The ice cream tastes sweet.",
+          "translation": "冰激凌尝起来很甜。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "surprise",
+      "en": "surprise",
+      "zh": "惊喜；意想不到的事",
+      "unit": "u3",
+      "emoji": "🔤",
+      "chunks": [
+        "sur",
+        "prise"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "What a nice surprise!",
+          "translation": "真是个惊喜！",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "coat",
+      "en": "coat",
+      "zh": "外套",
+      "unit": "u3",
+      "emoji": "🔤",
+      "chunks": [
+        "coat"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "Wear your coat when it is cold.",
+          "translation": "天气冷时穿上外套。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "tv",
+      "en": "TV",
+      "zh": "电视",
+      "unit": "u3",
+      "emoji": "🔤",
+      "chunks": [
+        "TV"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "I watch the weather report on TV.",
+          "translation": "我在电视上看天气预报。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "favourite",
+      "en": "favourite",
+      "zh": "最喜欢的",
+      "unit": "u4",
+      "emoji": "🔤",
+      "chunks": [
+        "fa",
+        "vour",
+        "ite"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "Summer is my favourite season.",
+          "translation": "夏天是我最喜欢的季节。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "fly kites",
+      "en": "fly kites",
+      "zh": "放风筝",
+      "unit": "u4",
+      "emoji": "🔤",
+      "chunks": [
+        "fly",
+        "kites"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "phrase",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "We fly kites in spring.",
+          "translation": "我们在春天放风筝。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "round",
+      "en": "round",
+      "zh": "周围；到处",
+      "unit": "u4",
+      "emoji": "🔤",
+      "chunks": [
+        "round"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "We look round the garden.",
+          "translation": "我们环顾花园。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "quite",
+      "en": "quite",
+      "zh": "相当；十分",
+      "unit": "u4",
+      "emoji": "🔤",
+      "chunks": [
+        "quite"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "It is quite hot today.",
+          "translation": "今天相当热。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "town",
+      "en": "town",
+      "zh": "小镇；城镇",
+      "unit": "u5",
+      "emoji": "🔤",
+      "chunks": [
+        "town"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "My grandparents live in a town.",
+          "translation": "我的祖父母住在小镇上。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "picnic",
+      "en": "picnic",
+      "zh": "野餐",
+      "unit": "u5",
+      "emoji": "🔤",
+      "chunks": [
+        "pic",
+        "nic"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "We have a picnic in the park.",
+          "translation": "我们在公园野餐。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "minute",
+      "en": "minute",
+      "zh": "分钟",
+      "unit": "u5",
+      "emoji": "🔤",
+      "chunks": [
+        "min",
+        "ute"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "The train comes in ten minutes.",
+          "translation": "火车十分钟后到。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "bamboo",
+      "en": "bamboo",
+      "zh": "竹子",
+      "unit": "u5",
+      "emoji": "🔤",
+      "chunks": [
+        "bam",
+        "boo"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "Pandas eat bamboo.",
+          "translation": "熊猫吃竹子。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "airport",
+      "en": "airport",
+      "zh": "机场",
+      "unit": "u5",
+      "emoji": "🔤",
+      "chunks": [
+        "air",
+        "port"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "We go to the airport by bus.",
+          "translation": "我们坐公交车去机场。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "sports centre",
+      "en": "sports centre",
+      "zh": "体育中心",
+      "unit": "u6",
+      "emoji": "🔤",
+      "chunks": [
+        "sports",
+        "centre"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "phrase",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "The sports centre is near the library.",
+          "translation": "体育中心在图书馆附近。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "wheel",
+      "en": "wheel",
+      "zh": "车轮",
+      "unit": "u6",
+      "emoji": "🔤",
+      "chunks": [
+        "wheel"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "The wheel goes round and round.",
+          "translation": "车轮不停地转。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "tomorrow",
+      "en": "tomorrow",
+      "zh": "明天",
+      "unit": "u6",
+      "emoji": "🔤",
+      "chunks": [
+        "to",
+        "mor",
+        "row"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "We will visit the museum tomorrow.",
+          "translation": "我们明天要参观博物馆。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "woman",
+      "en": "woman",
+      "zh": "女人；女性",
+      "unit": "u6",
+      "emoji": "🔤",
+      "chunks": [
+        "wom",
+        "an"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "The woman is walking home.",
+          "translation": "这位女士正走回家。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
+      "examExamples": []
+    },
+    {
+      "id": "careful",
+      "en": "careful",
+      "zh": "小心的；谨慎的",
+      "unit": "u6",
+      "emoji": "🔤",
+      "chunks": [
+        "care",
+        "ful"
+      ],
+      "seed": false,
+      "custom": false,
+      "entryType": "word",
+      "curriculumLevel": "teaching_aid_candidate",
+      "source": "21世纪教育网《小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结》",
+      "sourceUrl": "https://zy.21cnjy.com/23390582",
+      "status": "教辅资料可查；待官方课本附录逐条核验",
+      "practiceExamples": [
+        {
+          "text": "Be careful when you cross the road.",
+          "translation": "过马路要小心。",
+          "kind": "原创拓展例句",
+          "source": "WordMap 自编",
+          "verified": false
+        }
+      ],
+      "textbookExamples": [],
+      "textbookStatus": "待纸质课本原页核验",
+      "textbookNote": "教辅资料含此词或短语，但还没有逐页核验对应的课本原始例句。",
       "examExamples": []
     }
   ],
@@ -4032,6 +5492,246 @@
       "to": "true",
       "type": "常见搭配",
       "reason": "come true：实现"
+    },
+    {
+      "from": "sport",
+      "to": "play sports",
+      "type": "运动主题",
+      "reason": "来自本单元教辅知识总结的phrase候选，待纸书核验"
+    },
+    {
+      "from": "sport",
+      "to": "run fast",
+      "type": "运动动作",
+      "reason": "来自本单元教辅知识总结的phrase候选，待纸书核验"
+    },
+    {
+      "from": "jump",
+      "to": "jump high",
+      "type": "动词搭配",
+      "reason": "来自本单元教辅知识总结的phrase候选，待纸书核验"
+    },
+    {
+      "from": "jump",
+      "to": "jump far",
+      "type": "动词搭配",
+      "reason": "来自本单元教辅知识总结的phrase候选，待纸书核验"
+    },
+    {
+      "from": "ping-pong",
+      "to": "play ping-pong",
+      "type": "运动搭配",
+      "reason": "来自本单元教辅知识总结的phrase候选，待纸书核验"
+    },
+    {
+      "from": "volleyball",
+      "to": "play volleyball",
+      "type": "运动搭配",
+      "reason": "来自本单元教辅知识总结的phrase候选，待纸书核验"
+    },
+    {
+      "from": "first",
+      "to": "at first",
+      "type": "常用短语",
+      "reason": "来自本单元教辅知识总结的phrase候选，待纸书核验"
+    },
+    {
+      "from": "give",
+      "to": "give up",
+      "type": "常用短语",
+      "reason": "来自本单元教辅知识总结的phrase候选，待纸书核验"
+    },
+    {
+      "from": "helpful",
+      "to": "helper",
+      "type": "词形关联",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "feed",
+      "to": "pig",
+      "type": "动物场景",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "feed",
+      "to": "cow",
+      "type": "动物场景",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "yard",
+      "to": "grass",
+      "type": "庭院场景",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "tired",
+      "to": "phew",
+      "type": "情绪表达",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "chore",
+      "to": "may",
+      "type": "礼貌表达",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "yard",
+      "to": "outside",
+      "type": "地点场景",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "feed",
+      "to": "woof",
+      "type": "动物声音",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "finish",
+      "to": "again",
+      "type": "时间副词",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "helpful",
+      "to": "also",
+      "type": "常用副词",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "chore",
+      "to": "sometimes",
+      "type": "频率副词",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "job",
+      "to": "good job",
+      "type": "鼓励表达",
+      "reason": "来自本单元教辅知识总结的phrase候选，待纸书核验"
+    },
+    {
+      "from": "warm",
+      "to": "warm up",
+      "type": "常用短语",
+      "reason": "来自本单元教辅知识总结的phrase候选，待纸书核验"
+    },
+    {
+      "from": "chore",
+      "to": "to-do list",
+      "type": "任务管理",
+      "reason": "来自本单元教辅知识总结的phrase候选，待纸书核验"
+    },
+    {
+      "from": "taste",
+      "to": "ice cream",
+      "type": "食物味道",
+      "reason": "来自本单元教辅知识总结的phrase候选，待纸书核验"
+    },
+    {
+      "from": "enjoy",
+      "to": "surprise",
+      "type": "情绪场景",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "cold",
+      "to": "coat",
+      "type": "天气衣物",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "report",
+      "to": "tv",
+      "type": "天气预报场景",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "season",
+      "to": "favourite",
+      "type": "语义搭配",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "fly",
+      "to": "fly kites",
+      "type": "动词短语",
+      "reason": "来自本单元教辅知识总结的phrase候选，待纸书核验"
+    },
+    {
+      "from": "equator",
+      "to": "round",
+      "type": "方位表达",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "summer",
+      "to": "quite",
+      "type": "程度副词",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "city",
+      "to": "town",
+      "type": "地点对照",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "travel",
+      "to": "picnic",
+      "type": "活动场景",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "train",
+      "to": "minute",
+      "type": "时间概念",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "travel",
+      "to": "bamboo",
+      "type": "旅行故事",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "plane",
+      "to": "airport",
+      "type": "交通场景",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "library",
+      "to": "sports centre",
+      "type": "公共场所",
+      "reason": "来自本单元教辅知识总结的phrase候选，待纸书核验"
+    },
+    {
+      "from": "underground",
+      "to": "wheel",
+      "type": "交通部件",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "wish",
+      "to": "tomorrow",
+      "type": "时间表达",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "own",
+      "to": "woman",
+      "type": "人物场景",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
+    },
+    {
+      "from": "cross",
+      "to": "careful",
+      "type": "安全场景",
+      "reason": "来自本单元教辅知识总结的word候选，待纸书核验"
     }
   ],
   "sources": {
@@ -4079,5 +5779,12 @@
       "status": "公开电子课本文本版已用于少量短句核对；建议纸书复核",
       "note": "该电子书由FlipHTML5用户上传，不是出版社官方托管版本。"
     }
+  },
+  "supplementarySource": {
+    "title": "小学英语 外研版（三起）（孙有中）（2024）四年级上册知识点总结",
+    "url": "https://zy.21cnjy.com/23390582",
+    "accessed": "2026-11-09",
+    "supplementaryCount": 40,
+    "verification": "对照教材附录待核验"
   }
 }
