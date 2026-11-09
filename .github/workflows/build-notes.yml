@@ -1,0 +1,42 @@
+name: Build verified Hanzi learning notes
+on:
+  push:
+    branches: [main]
+    paths:
+      - "shizixingqiu/tools/build_notes.py"
+      - ".github/workflows/build-notes.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fetch pinned open dictionary and historical sources
+        run: python shizixingqiu/tools/build_notes.py
+      - name: Check derived files
+        run: |
+          test -s shizixingqiu/notes.js
+          test -s shizixingqiu/notes-stats.json
+          python - <<'PY'
+          import json, pathlib, re
+          s=pathlib.Path("shizixingqiu/notes.js").read_text()
+          x=json.loads(s.split("window.SZX_NOTES=",1)[1].rstrip(";\n"))
+          assert len(x)==3500
+          print("3500 records validated; bytes:",len(s.encode()))
+          PY
+      - name: Commit generated data back to repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add shizixingqiu/notes.js shizixingqiu/notes-stats.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data(shizixingqiu): add cited 3500 character meanings and Shuowen extracts"
+            git push origin HEAD:main
+          fi
