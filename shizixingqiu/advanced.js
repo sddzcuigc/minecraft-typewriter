@@ -187,4 +187,5 @@ actions.append(b,w,m,im);
 const observer=new MutationObserver(decorateLearningCard);
 observer.observe(root,{childList:true,subtree:true});
 decorateLearningCard();
+if(navigator.serviceWorker&&location.protocol!=="file:"){navigator.serviceWorker.register("./sw.js").catch(()=>{});}
 })();

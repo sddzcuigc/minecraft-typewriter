@@ -14,11 +14,35 @@ GitHub：https://github.com/sddzcuigc/minecraft-typewriter/tree/main/shizixingqi
 - **教材例句**：可按年级、学期、课次录入自备教材短句，在本机按汉字检索。另有明确标注的原创练习句和人教社官网入口；不批量抓取或再分发人教版课文。
 - **图画搜索**：联网搜索 Wikimedia Commons；只展示元数据可识别且筛选为 CC BY、CC BY-SA、CC0 或公有领域的结果；显示作者、许可与来源页；用户点击后缓存到 IndexedDB，供断网查看。
 
+## Go 便携启动器
+
+项目目录新增 `main.go` 与 `go.mod`，仅依赖 Go 标准库，静态资源通过 `embed` 编入单个可执行文件，不需要 Node.js、npm、CDN 或在线运行时。启动后默认监听 `127.0.0.1:18765` 并打开浏览器；如需内网访问，可显式运行 `-listen 0.0.0.0:18765`，程序会列出本机 IPv4 地址。内网开放时请配置防火墙，只在可信局域网使用。
+
+Windows amd64：
+
+```powershell
+go build -trimpath -ldflags="-s -w" -o dist/shizixingqiu-windows-amd64.exe .
+```
+
+macOS Apple Silicon：
+
+```bash
+GOOS=darwin GOARCH=arm64 go build -trimpath -ldflags="-s -w" -o dist/shizixingqiu-darwin-arm64 .
+```
+
+Linux amd64：
+
+```bash
+GOOS=linux GOARCH=amd64 go build -trimpath -ldflags="-s -w" -o dist/shizixingqiu-linux-amd64 .
+```
+
+无图形界面或服务器环境可加 `-open=false`。更换操作系统/CPU 架构时需重新编译对应二进制。
+
 ## 离线策略
 - 核心页面、3500字字库、样式、拼音练习、记忆数据、手写画布、精选笔顺数据均在本地。
 - 图片搜索和未缓存字符的笔顺首次加载需要网络。选中的图片和首次请求的笔顺会写入浏览器 IndexedDB。
 - 浏览器 localStorage 保存学习进度、错字本、记忆曲线、用户记忆线索和用户导入的教材短句。
-- 无 CDN、无第三方 JS 运行时、无后端数据库。双击 index.html 可运行核心功能；更推荐通过本地 Go HTTP 启动器打开，以获得稳定的浏览器存储与跨域请求行为。
+- 无 CDN、无第三方 JS 运行时、无后端数据库。双击 index.html 可运行核心功能；推荐通过 Go HTTP 启动器打开，以获得稳定的浏览器存储与跨域请求行为。首次通过 localhost 加载时，Service Worker 会缓存核心静态文件，后续可离线刷新。
 - 不同浏览器/设备的数据不会自动同步。更换设备前需自行备份浏览器数据。
 
 ## 重要边界
