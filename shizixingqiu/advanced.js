@@ -32,7 +32,7 @@ function next(){done=false;const pool=quizMode==="word"?pinyinWords:chars.filter
 function check(){if(done)return;const val=normalizeTyped($("pinyinAnswer").value);if(!val)return;const expected=question.py.map(normalizeTyped);const noTone=pinyinBase(val);const accepted=expected.some(x=>x===val||( !strictTone && pinyinBase(x)===noTone));if(accepted){done=true;$("pinyinFeedback").textContent="✓ 正确！"+question.py.join(" / ");$("pinyinFeedback").className="adv-feedback good";qnum++}else{$("pinyinFeedback").textContent="再试一次。提示：第一个音节以“"+pinyinBase(question.py[0]).charAt(0)+"”开头。";$("pinyinFeedback").className="adv-feedback bad"}}
 $("toneStrict").onchange=e=>{strictTone=e.target.checked;next()};
 $("content").querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>{quizMode=b.dataset.mode;root.querySelectorAll("[data-mode]").forEach(x=>x.classList.toggle("on",x===b));next()});
-$("checkPinyin").onclick=check;$("nextPinyin").onclick=()=>{next();qnum++};$("showPinyin").onclick=()=>{$("pinyinFeedback").textContent="参考答案："+question.py.join(" / ");$("pinyinFeedback").className="adv-feedback";done=true};
+$("checkPinyin").onclick=check;$("nextPinyin").onclick=()=>{qnum++;next()};$("showPinyin").onclick=()=>{$("pinyinFeedback").textContent="参考答案："+question.py.join(" / ");$("pinyinFeedback").className="adv-feedback";done=true};
 $("pinyinAnswer").onkeydown=e=>{if(e.key==="Enter"){if(done){next();qnum++}else check()}};
 root.querySelectorAll("[data-sound]").forEach(b=>b.onclick=()=>speak(b.dataset.sound));
 next();
@@ -119,7 +119,7 @@ area.innerHTML='<div class="stroke-placeholder">正在读取 '+esc(c)+' 的笔�
 let data=window.SZX_STROKES&&window.SZX_STROKES[c];
 if(!data){try{const cached=await dbGet("strokes",c);if(cached)data=cached.data}catch(e){}}
 if(!data&&navigator.onLine){try{const url="https://raw.githubusercontent.com/chanind/hanzi-writer-data/master/data/"+encodeURIComponent(c)+".json";const r=await fetch(url);if(!r.ok)throw new Error("未找到该字的笔顺数据");data=await r.json();await dbPut("strokes",{char:c,data})}catch(e){$("strokeNote").textContent="未能下载该字的笔顺。可先练习书写，联网后再试。";}}
-if(!data){area.innerHTML='<div class="stroke-placeholder">'+esc(c)+' 暂无离线笔顺数据<br>已提供田字格书写区</div>';$("strokeCount").textContent="待补数据";return}
+if(!$("strokeSvg"))return;if(!data){area.innerHTML='<div class="stroke-placeholder">'+esc(c)+' 暂无离线笔顺数据<br>已提供田字格书写区</div>';$("strokeCount").textContent="待补数据";return}
 strokeCurrent=data;strokeIndex=0;drawStrokeFrame();
 $("strokeCount").textContent=data.strokes.length+" 笔";
 $("strokeNote").textContent="数据来源：hanzi-writer-data / Make Me a Hanzi，采用 Arphic Public License。笔顺按来源数据展示，教学使用时仍建议与当前教材范字核对。";
@@ -171,9 +171,10 @@ el.querySelectorAll("[data-delete-image]").forEach(b=>b.onclick=async()=>{const 
 }catch(e){el.innerHTML='<p class="adv-note">当前浏览器无法读取离线图册缓存。</p>'}
 }
 function render(){setActive();if(active==="pinyin")renderPinyin();else if(active==="curve")renderCurve();else if(active==="write")renderWrite();else if(active==="memory")renderMemory();else if(active==="textbook")renderTextbook();else if(active==="images")renderImages()}
-const observer=new MutationObserver(()=>{
+function decorateLearningCard(){
 const actions=root.querySelector(".learning-grid > section .actions");
-const c=getChar();
+const el=document.querySelector(".big-char");
+const c=el?el.textContent.trim():selectedChar;
 if(actions&&!actions.querySelector("[data-add-curve]")){
 selectedChar=c;
 const b=document.createElement("button");b.className="subtle-btn";b.textContent="加入记忆曲线";b.dataset.addCurve="1";b.onclick=()=>{addSrs(c);alert("已加入记忆曲线："+c)};
@@ -182,6 +183,8 @@ const m=document.createElement("button");m.className="subtle-btn";m.textContent=
 const im=document.createElement("button");im.className="subtle-btn";im.textContent="找配图";im.onclick=()=>open("images",c);
 actions.append(b,w,m,im);
 }
-});
+}
+const observer=new MutationObserver(decorateLearningCard);
 observer.observe(root,{childList:true,subtree:true});
+decorateLearningCard();
 })();
