@@ -189,3 +189,62 @@ observer.observe(root,{childList:true,subtree:true});
 decorateLearningCard();
 if(navigator.serviceWorker&&location.protocol!=="file:"){navigator.serviceWorker.register("./sw.js").catch(()=>{});}
 })();
+
+
+/* 扩展：3500字的来源化释义、联想结构图、同音记忆与《说文》 */
+(function(){
+"use strict";
+var rows=window.HANZI_3500||[],notes=window.SZX_NOTES||{},app=document.getElementById("content"),tabs=document.querySelector(".tabs");
+if(!rows.length||!app||!tabs)return;
+var ix=new Map(rows.map((r,i)=>[r[0],i])),ex=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+var imagery={"一":"☝️","二":"✌️","三":"3️⃣","人":"🚶","口":"👄","日":"☀️","月":"🌙","山":"⛰️","水":"💧","火":"🔥","木":"🌳","土":"🪴","金":"🥇","田":"🌾","石":"🪨","目":"👁️","耳":"👂","牙":"🦷","心":"❤️","雨":"🌧️","雪":"❄️","风":"🌬️","云":"☁️","花":"🌸","草":"🌱","树":"🌲","林":"🌳","森":"🌲","叶":"🍃","果":"🍎","米":"🍚","麦":"🌾","瓜":"🍉","竹":"🎋","鸟":"🐦","鱼":"🐟","马":"🐎","牛":"🐂","羊":"🐑","猪":"🐖","狗":"🐕","猫":"🐈","鸡":"🐓","鸭":"🦆","兔":"🐇","虎":"🐅","龙":"🐉","蛇":"🐍","象":"🐘","鹿":"🦌","虫":"🐛","蝶":"🦋","星":"⭐","天":"🌤️","海":"🌊","河":"🏞️","桥":"🌉","车":"🚗","船":"⛵","门":"🚪","家":"🏠","书":"📚","笔":"✏️","画":"🎨","纸":"📄","校":"🏫","球":"⚽","手":"✋","眼":"👀","春":"🌷","夏":"☀️","秋":"🍂","冬":"⛄","红":"🟥","黄":"🟨","蓝":"🟦","绿":"🟩","笑":"😄","哭":"😢","跑":"🏃","走":"🚶","吃":"🍽️","喝":"🥤","写":"✍️"};
+var radicalIcons={"氵":"💧","水":"💧","冫":"🧊","木":"🌳","艹":"🌿","禾":"🌾","火":"🔥","灬":"🔥","日":"☀️","月":"🌙","心":"❤️","忄":"❤️","扌":"✋","目":"👁️","耳":"👂","口":"👄","讠":"💬","言":"💬","亻":"🚶","人":"🚶","女":"👩","子":"🧒","宀":"🏠","广":"🏠","门":"🚪","辶":"🚶","走":"🚶","足":"🦶","车":"🚗","马":"🐎","牛":"🐂","犭":"🐕","鸟":"🐦","虫":"🐛","鱼":"🐟","贝":"🪙","金":"🥇","钅":"🥇","土":"⛰️","山":"⛰️","石":"🪨","王":"💎","玉":"💎","纟":"🧵","衤":"👕","饣":"🍚","疒":"🩺","竹":"🎋","刀":"✂️","刂":"✂️","田":"🌾","雨":"🌧️"};
+var chosen={"山":"三座高峰排在一起，观察上升的竖线。","水":"想象水流在中间汇合，又向左右分开。","木":"树干、横枝和树根构成一棵树。","火":"想象中间的火苗和两边飞溅的火星。","休":"一个人倚着树木休息。","林":"两棵树站在一起，组成树林。","森":"三棵树挤成一片茂密的森林。","明":"太阳和月亮都能发光，用图画联想明亮。","众":"几个人聚在一起，就变成人多。","尖":"上面小下面大，像尖尖的铅笔头。","晴":"日字旁让人想到太阳，右边青提供读音线索。","请":"言字旁表示语言，青帮助记住读音。","睛":"目字旁提示眼睛，青帮助记住读音。","清":"三点水提示和水相关，右边青提供读音线索。","家":"想象家人住在一座有屋顶的房子里。"};
+var stype={D:"独体",H:"左右",B:"上下",E:"上中下",M:"左中右",Q:"全包围",R:"半包围",A:"品字形"};
+var sounds=new Map();
+rows.forEach(r=>(r[1]||[]).forEach(p=>{if(!sounds.has(p))sounds.set(p,[]);sounds.get(p).push(r[0]);}));
+function item(c){var n=notes[c]||{},r=rows[ix.get(c)]||[c,[],0,""];return {c:c,py:r[1]||[],rad:r[3]||"",stroke:r[2],s:n.s||"",m:n.m||[],sw:n.sw||null,t:n.t||""}}
+function svg(d){
+ var seed=d.c.codePointAt(0),bg=["#eaf6ec","#eef4ff","#fff3e1","#f5eefc"][seed%4],im=imagery[d.c]||radicalIcons[d.rad]||"✍️",kind=imagery[d.c]?"实物图标":radicalIcons[d.rad]?"部首联想":"字形联想";
+ function rect(x,y,w,h,second){return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="9" fill="'+(second?"#c2dfed":"#a5dfc0")+'" opacity=".65"/>'}
+ var part=rect(23,25,105,105,0),type=d.s.charAt(0);
+ if(type==="H")part=rect(23,25,45,105,0)+rect(73,25,55,105,1);
+ if(type==="B")part=rect(23,25,105,48,0)+rect(23,79,105,51,1);
+ if(type==="M")part=rect(23,25,30,105,0)+rect(57,25,31,105,1)+rect(92,25,36,105,0);
+ if(type==="E")part=rect(23,25,105,30,0)+rect(23,60,105,30,1)+rect(23,95,105,35,0);
+ if(type==="Q")part='<rect x="24" y="25" width="104" height="105" rx="8" fill="none" stroke="#a4d8bd" stroke-width="13"/>'+rect(50,52,50,50,1);
+ return '<svg viewBox="0 0 480 300" role="img" aria-label="'+ex(d.c)+'字的联想示意图"><rect width="480" height="300" rx="22" fill="'+bg+'"/><g transform="translate(28 35)">'+part+'</g><text x="102" y="155" font-size="88" text-anchor="middle" font-weight="700" fill="#287555">'+ex(d.c)+'</text><circle cx="353" cy="108" r="73" fill="#ffffffaa"/><text x="353" y="134" font-size="78" text-anchor="middle">'+im+'</text><rect x="34" y="213" width="412" height="63" rx="14" fill="#ffffffaa"/><text x="50" y="236" font-size="15" fill="#416d52">'+kind+' · '+ex(stype[type]||"结构待核对")+'</text><text x="50" y="259" font-size="19" fill="#365d49">'+ex(d.py.join(" / "))+'</text></svg>'
+}
+function mnemonic(d){
+ if(chosen[d.c])return chosen[d.c];
+ if(radicalIcons[d.rad])return '先把部首“'+d.rad+'”和图标联系起来，再观察这个字的'+(stype[d.s[0]]||"整体")+'结构。这是记忆提示，不能仅根据部首判断字义。';
+ return '先看“'+d.c+'”的'+(stype[d.s[0]]||"字形")+'结构，再按笔画顺序写一遍。这个字目前没有逐字设计的实物插画。';
+}
+function homophone(d){
+ var py=d.py[0]||"",peer=(sounds.get(py)||[]).find(x=>x!==d.c);
+ if(peer)return '“'+ex(d.c)+'”和“'+ex(peer)+'”可以读 '+ex(py)+'。想象把它们画在同一张卡片上，记住相同读音，再区分字形和意思。<small>同音字不代表同义或同源；多音字需要结合词语。</small>';
+ return '读作 '+ex(py)+'。暂无适用的同音字示例，可以拆开声母、韵母和声调记音；不编造谐音故事。'
+}
+function makeCard(c){
+ var d=item(c),meaning=d.m.length?d.m.map(x=>'<p><b>'+ex(x[0])+'</b> '+x[1].map(ex).join('；')+'</p>').join(''):'<p>此字暂缺可靠现代释义，请先学习读音与字形。</p>';
+ var old=d.sw?'<b>《说文解字》原文：'+ex(d.sw[0])+'</b><blockquote>'+ex(d.sw[1])+'</blockquote><small>古籍解释的是古代文字形义，与现代简化字及现代常用义可能不同。</small>':'<b>《说文解字》参考</b><p>未可靠匹配到该字的古籍原文，不编造字源。</p>';
+ return '<div class="szx-explain" data-szx-char="'+ex(c)+'"><div class="szx-two"><div class="szx-drawing">'+svg(d)+'<p><b>图形联想：</b>'+ex(mnemonic(d))+'</p></div><div class="szx-desc"><div><strong>现代字义 · 待人工逐字校验</strong>'+meaning+'<small>来源：开放词典。<a href="https://www.zdic.net/hans/'+encodeURIComponent(c)+'" target="_blank" rel="noopener">对照现代词典</a></small></div><div><strong>谐音记忆</strong><p>'+homophone(d)+'</p></div><div class="szx-classic">'+old+'</div></div></div><div class="szx-toolbar"><button class="subtle-btn szx-test" type="button">遮住字考考自己</button><span class="szx-message"></span></div></div>'
+}
+var style=document.createElement("style");style.textContent=".szx-explain{border-top:1px solid #e4ebe4;padding-top:16px;margin-top:18px}.szx-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:12px}.szx-drawing{background:#f1f7f2;border-radius:14px;overflow:hidden}.szx-drawing svg{width:100%;height:auto;display:block}.szx-drawing p{padding:10px;font-size:12px;line-height:1.7;margin:0}.szx-desc{display:grid;gap:9px}.szx-desc>div{border:1px solid #e3ebe2;border-radius:12px;padding:11px;font-size:12px;line-height:1.7}.szx-desc strong{display:block;color:#287452}.szx-desc p{margin:5px 0}.szx-desc small{display:block;color:#849387;font-size:11px}.szx-classic{background:#fff9ec}.szx-classic blockquote{border-left:3px solid #e7cf95;padding:7px 10px;margin:7px 0}.szx-toolbar{display:flex;gap:9px;align-items:center;margin-top:10px}.szx-message{font-size:12px;color:#358457}.szx-hide .szx-drawing svg text{opacity:0}.szx-hide .szx-desc{visibility:hidden}.szx-lookup{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}.szx-lookup input{min-width:120px;flex:1;border:1px solid #dce8dc;padding:10px;border-radius:10px}@media(max-width:740px){.szx-two{grid-template-columns:1fr}.szx-desc>div{font-size:13px}}";document.head.appendChild(style);
+function wire(p){p.querySelector(".szx-test").onclick=()=>{var hidden=p.classList.toggle("szx-hide");p.querySelector(".szx-test").textContent=hidden?"显示答案":"遮住字考考自己";p.querySelector(".szx-message").textContent=hidden?"现在读字、说字义、写一遍。":"看看有没有独立记住。"}}
+function decorate(){
+ var section=app.querySelector(".learning-grid > section"),c=section?.querySelector(".big-char")?.textContent.trim();if(!section||!ix.has(c))return;
+ var old=section.querySelector(".szx-explain");if(old?.dataset.szxChar===c)return;if(old)old.remove();
+ section.insertAdjacentHTML("beforeend",makeCard(c));wire(section.querySelector(".szx-explain"));
+}
+var obs=new MutationObserver(()=>{if(app.querySelector(".learning-grid"))decorate()});obs.observe(app,{subtree:true,childList:true});decorate();
+var current=ix.get("山")||0;function explore(){
+ var c=rows[current][0];app.innerHTML='<section class="panel"><div class="between"><h2>3500字联想图、谐音与说文参考</h2><span class="muted">'+(current+1)+' / '+rows.length+'</span></div><p class="small-note">每个字均可离线生成字形联想图。部分是物象图标，其他是字形示意，并非3500幅独立手绘插画；历史原文只在匹配到来源时显示。</p><div class="szx-lookup"><input id="szx-query" placeholder="输入汉字或拼音"><button class="primary-btn" id="szx-find">查找</button><button class="subtle-btn" id="szx-prev">上一个</button><button class="subtle-btn" id="szx-next">下一个</button></div>'+makeCard(c)+'</section>';
+ wire(app.querySelector(".szx-explain"));
+ app.querySelector("#szx-prev").onclick=()=>{current=(current+rows.length-1)%rows.length;explore()};
+ app.querySelector("#szx-next").onclick=()=>{current=(current+1)%rows.length;explore()};
+ function find(){var q=app.querySelector("#szx-query").value.trim();if(ix.has(q))current=ix.get(q);else{var found=q&&rows.findIndex(r=>r[1]?.some(p=>p.toLowerCase().includes(q.toLowerCase())));if(!q||found<0){app.querySelector(".szx-message").textContent="未找到，试试输入汉字或拼音。";return}current=found}explore()}
+ app.querySelector("#szx-find").onclick=find;app.querySelector("#szx-query").onkeydown=e=>{if(e.key==="Enter")find()};
+}
+var btn=document.createElement("button");btn.className="tab";btn.textContent="🎨 字源联想";btn.onclick=()=>{var c=app.querySelector(".big-char")?.textContent.trim();if(ix.has(c))current=ix.get(c);tabs.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));btn.classList.add("active");explore()};tabs.appendChild(btn);
+})();

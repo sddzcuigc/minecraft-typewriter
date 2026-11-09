@@ -24,3 +24,10 @@
 
 ## 项目自编内容
 间架结构口诀、记忆提示、练习词语与原创例句由本项目编写，作为学习辅助；不应被当作官方规范、教材原文或唯一正确写法。
+
+
+## V2.2 现代字义及《说文解字》
+- [mapull/chinese-dictionary](https://github.com/mapull/chinese-dictionary) 的 `char_common_detail.json`：仓库标记 MIT License，上游说明部分数据质量和原始出处无法严格保证。本项目只抽取短释义并明确标注“待逐字校验”；原仓库许可文本位于 UPSTREAM-MIT-LICENSE.txt。
+- [gujilab/chinese-classical-corpus](https://github.com/gujilab/chinese-classical-corpus) 的 `output/shuowen.json`：整理本《说文解字》原文，数据 CC0 1.0；仅原文引用，不将其观点或释文自动认定为现代文字学结论。
+- 特殊风险：简繁、古今字与异体字不能简单一一等同；自动匹配结果只供参考，暂未进行全部3500字人工审定。
+- 字形联想图使用原生 SVG 根据字符、字形结构和部首图标生成；是可离线使用的记忆示意图，不是古文字图谱或真实世界物象照片。
