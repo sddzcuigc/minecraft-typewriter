@@ -209,7 +209,7 @@ function setPage(next){
  if(page==="practice"&&next!=="practice"){clearTimeout(autoSpeechTimer);if("speechSynthesis" in window)speechSynthesis.cancel();}
  if(next!=="pinyin")clearTimeout(pinyinTimer);page=next;["practice","dictation","pinyin","images","memory","map","parent"].forEach(id=>document.getElementById(id+"Page").classList.toggle("hidden",id!==next));
  document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===next));
- if(next==="map")renderMap();if(next==="parent")renderParent();if(next==="practice")renderPractice();if(next==="dictation")renderDictationPage();if(next==="pinyin")renderPinyinPage();if(next==="images"){selectedImageWordId=currentId;renderImagePage(true);}if(next==="memory")renderMemoryPage();
+ if(next==="map")renderMap();if(next==="parent")renderParent();if(next==="practice")renderPractice();if(next==="dictation")renderDictationPage();if(next==="pinyin")renderPinyinPage();if(next==="images"){selectedImageWordId=currentId;renderImagePage(true);}if(next==="memory")renderMemoryPage();window.dispatchEvent(new CustomEvent("wordmap:page",{detail:{page:next}}));
 }
 document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>setPage(b.dataset.page)));
 document.getElementById("easyMode").onclick=()=>setMode("easy");
@@ -261,7 +261,7 @@ const keyboard=document.getElementById("keyboardInput");
 keyboard.addEventListener("input",handleKeyboard);
 keyboard.addEventListener("keydown",e=>{if(e.key==="Enter")e.preventDefault();});
 function setMode(m){mode=m;typed="";used=new Set();selectedChunks=[];hintUsed=false;completed=false;hadErrorThisAttempt=false;lastBadValue="";if(m==="easy")tiles=shuffle((easyKind==="chunks"?chunks(word()):letters(word())).map((ch,i)=>({ch,id:i})));document.getElementById("easyMode").classList.toggle("active",m==="easy");document.getElementById("hardMode").classList.toggle("active",m==="hard");renderPractice();if(m==="hard")setTimeout(()=>keyboard.focus(),50);}
-function setCurrent(id){const w=byId(id);if(!w)return;if(!unlocked(w)){toast("先完成相连的词，再来解锁它。");return;}clearTimeout(autoTimer);clearTimeout(autoSpeechTimer);if("speechSynthesis" in window)speechSynthesis.cancel();currentId=id;typed="";used=new Set();selectedChunks=[];hintUsed=false;completed=false;hadErrorThisAttempt=false;lastBadValue="";tiles=shuffle((easyKind==="chunks"?chunks(w):letters(w)).map((ch,i)=>({ch,id:i})));setPage("practice");}
+function setCurrent(id){const w=byId(id);if(!w)return;if(!unlocked(w)){toast("先完成相连的词，再来解锁它。");return;}clearTimeout(autoTimer);clearTimeout(autoSpeechTimer);if("speechSynthesis" in window)speechSynthesis.cancel();currentId=id;typed="";used=new Set();selectedChunks=[];hintUsed=false;completed=false;hadErrorThisAttempt=false;lastBadValue="";tiles=shuffle((easyKind==="chunks"?chunks(w):letters(w)).map((ch,i)=>({ch,id:i})));setPage("practice");window.dispatchEvent(new CustomEvent("wordmap:current",{detail:{id:currentId,word:word()}}));}
 function startUnit(unitId){const u=UNITS.find(x=>x.id===unitId);if(!u)return;const w=BASE.find(x=>x.unit===unitId&&unlocked(x)&&!mastered(x))||byId(u.seed);setCurrent(w.id);}
 function startDueReview(){const list=allWords().filter(due).sort((a,b)=>progress(a.id).dueAt-progress(b.id).dueAt);if(!list.length){toast("今天没有到期复习词。可以继续探索新词。");return;}setCurrent(list[0].id);toast(`进入到期复习：${list.length} 个词待复习。`);}
 function renderPractice(){
@@ -495,7 +495,7 @@ function renderStats(){
  ensureDay();const all=allWords(),open=all.filter(unlocked).length,done=all.filter(mastered).length,dueN=all.filter(due).length;
  document.getElementById("statOpen").textContent=open;document.getElementById("statDone").textContent=done;document.getElementById("statDue").textContent=dueN;
  document.getElementById("statAccuracy").textContent=state.daily.attempts?Math.round(state.daily.correct/state.daily.attempts*100)+"%":"—";
- document.getElementById("streak").textContent=`今日正确 ${state.daily.correct} 次`;document.getElementById("todayProgress").textContent=`目标 ${state.settings.dailyGoal} 次`;
+ document.getElementById("streak").textContent=`今日正确 ${state.daily.correct} 次`;document.getElementById("todayProgress").textContent=`目标 ${state.settings.dailyGoal} 次`;window.dispatchEvent(new CustomEvent("wordmap:stats",{detail:{open:open,done:done,due:dueN,correct:state.daily.correct,goal:state.settings.dailyGoal}}));
 }
 function renderMap(){
  const w=word(),ns=neighbors(currentId).slice(0,10),canvas=document.getElementById("mapCanvas"),W=800,H=340,cx=400,cy=170,rx=285,ry=125;let lines="",nodes="";
@@ -554,6 +554,7 @@ function init(){
  document.getElementById("dictationRate").value=String(state.settings.speechRate||.8);
  tiles=shuffle(letters(word()).map((ch,i)=>({ch,id:i})));renderPractice();renderStats();
 }
+window.WordMapUI={setPage:setPage,setCurrent:setCurrent,getCurrentWord:function(){return word();},getWords:function(){return allWords();},getUnits:function(){return UNITS;},getProgress:function(id){return Object.assign({},progress(id));},isUnlocked:function(id){var w=typeof id==="string"?byId(id):id;return !!w&&unlocked(w);},isMastered:function(id){var w=typeof id==="string"?byId(id):id;return !!w&&mastered(w);},getStats:function(){ensureDay();var all=allWords();return {open:all.filter(unlocked).length,done:all.filter(mastered).length,due:all.filter(due).length,correct:state.daily.correct,goal:state.settings.dailyGoal};}};
 init();
 })();
 
