@@ -264,6 +264,10 @@ footer.tip{position:fixed;right:20px;bottom:83px;width:230px;text-align:right;co
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
+/* Keep the example card beside the left quest HUD, not under the current-word card. */
+#practicePage .examples-panel{left:270px;width:220px;}
+@media(max-width:860px){#practicePage .examples-panel{display:none;}}
+
 </style></head>
 <body class="voxel-body"><canvas id="worldCanvas" aria-label="Three.js 方块英语世界"></canvas><div class="world-vignette"></div><div id="worldLabels" class="world-label-layer"></div><aside class="world-quest-panel"><div class="quest-kicker">WORLD QUESTS / 01</div><div class="quest-title">探索六大词汇岛</div><div class="quest-desc">选择一个世界，解锁词汇、完成拼写挑战，让知识地图逐渐亮起来。</div><div id="worldUnitList" class="world-unit-list"></div><div class="quest-footer">拖动世界查看地形 · 点击浮岛开始冒险。<br>每个岛屿都是一个学习单元。</div></aside><aside class="world-current-card"><div class="current-kicker">CURRENT QUEST / 当前任务</div><div id="worldCurrentWord" class="world-current-word">SPORT</div><div id="worldCurrentMeaning" class="world-current-meaning">运动</div><div id="worldCurrentUnit" class="world-current-unit">运动与坚持 · 当前任务</div><div class="world-current-progress"><span id="worldProgressBar"></span></div></aside><div class="world-hint">拖动旋转 · 滚轮缩放 · 点击浮岛探索</div><button id="worldResetView" class="world-reset" type="button">⌖ 重置世界视角</button><div class="app">
 <header class="top"><div class="brand"><div class="logo"><span>W</span></div><div><h1>词汇方块世界 <span style="font-size:12px;color:#8b98ad">WORDCRAFT</span></h1><div class="sub">把英语学习变成一场方块世界冒险 · 153 个词条 · Three.js 本地 3D 引擎</div></div></div><div class="top-actions"><span class="chip" id="streak">今日正确 0 次</span><span class="chip" id="todayProgress">每日目标</span></div></header>
@@ -1180,8 +1184,6 @@ function syncHud(){
   updateBillboard(w);
   if(unit){selectedUnitId=unit.id;var found=islands.find(function(x){return x.unit.id===unit.id;});if(found){markerNodes.forEach(function(m){m.el.classList.toggle("active",m.unit.id===unit.id);});document.querySelectorAll(".world-unit-button").forEach(function(b){b.classList.toggle("active",b.dataset.unit===unit.id);});}}
  }
- var s=API.getStats?API.getStats():null;
- if(s){var xp=s.done*20+s.correct*2;document.getElementById("hudXp").textContent=xp;document.getElementById("hudDue").textContent=s.due;document.getElementById("hudMastered").textContent=s.done;}
  buildQuestList();
 }
 function focusIsland(unitId){
