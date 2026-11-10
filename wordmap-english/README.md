@@ -34,3 +34,13 @@
 - Vercel 项目根目录固定为 `wordmap-english`，只部署本词汇星图静态站点，不构建仓库根目录的其他 Vite 项目。
 - 在线首页使用 `index.html`、`styles.css`、`data.js`、`app.js`；单文件离线版为 `WordMap-Offline.html`。
 - 本次发布不改变词库和学习数据结构，旧版 V3.2 本地备份继续兼容。
+
+
+## V4.0 · WordCraft 方块世界重构
+
+- 原二维卡片式页面重构为全屏 Three.js 方块世界，程序化生成六个单元浮岛、中央村庄、桥梁、树木、建筑、云层、海面、传送门和方块角色。
+- 使用 Three.js 0.159 本地 vendor 构建，不加载 CDN；使用 InstancedMesh 批量绘制方块，控制 draw calls。
+- 鼠标拖动旋转、滚轮缩放、点击浮岛切换单元；左侧任务清单和当前任务 HUD 与学习进度同步。
+- 原 V3.3 词库、localStorage 键、拼音打字、图片词典、记忆卡、听写和 JSON 备份恢复逻辑保留。
+- Go 便携包构建脚本包含本地 Three.js 和世界场景文件；单文件离线版内嵌 Three.js、词库、业务逻辑和样式。
+- WebGL 不可用时回退为普通学习面板；图片搜索仍为用户主动触发的可选联网功能。
