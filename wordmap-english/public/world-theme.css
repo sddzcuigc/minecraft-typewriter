@@ -178,3 +178,7 @@ footer.tip{position:fixed;right:20px;bottom:83px;width:230px;text-align:right;co
  .nav button{min-width:42px;padding:7px 6px}.nav button .hotbar-icon{display:none}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* Keep the example card beside the left quest HUD, not under the current-word card. */
+#practicePage .examples-panel{left:270px;width:220px;}
+@media(max-width:860px){#practicePage .examples-panel{display:none;}}
