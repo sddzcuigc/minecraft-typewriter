@@ -1,19 +1,12 @@
 {
-  "name": "词汇星图 WordMap",
-  "short_name": "词汇星图",
-  "description": "外研版四年级英语：拼音联想、图片词典、记忆曲线和离线练习",
+  "name": "词汇方块世界 WordCraft",
+  "short_name": "方块世界",
+  "description": "Three.js 方块世界英语冒险学习工具，支持离线运行",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f4f6fb",
-  "theme_color": "#f4f6fb",
-  "icons": [
-    {
-      "src": "icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    }
-  ]
+  "background_color": "#294638",
+  "theme_color": "#294638",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
 }
