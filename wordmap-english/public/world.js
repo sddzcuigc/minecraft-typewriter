@@ -249,7 +249,7 @@ function syncHud(){
   if(unit){selectedUnitId=unit.id;var found=islands.find(function(x){return x.unit.id===unit.id;});if(found){markerNodes.forEach(function(m){m.el.classList.toggle("active",m.unit.id===unit.id);});document.querySelectorAll(".world-unit-button").forEach(function(b){b.classList.toggle("active",b.dataset.unit===unit.id);});}}
  }
  var s=API.getStats?API.getStats():null;
- if(s){var xp=s.done*20+s.correct*2;document.getElementById("hudXp").textContent=xp;document.getElementById("hudDue").textContent=s.due;document.getElementById("hudMastered").textContent=s.done;}
+ if(s){var xp=s.done*20+s.correct*2;var xpNode=document.getElementById("hudXp"),dueNode=document.getElementById("hudDue"),masteredNode=document.getElementById("hudMastered");if(xpNode)xpNode.textContent=xp;if(dueNode)dueNode.textContent=s.due;if(masteredNode)masteredNode.textContent=s.done;}
  buildQuestList();
 }
 function focusIsland(unitId){
