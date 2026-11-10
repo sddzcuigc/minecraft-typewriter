@@ -29,3 +29,8 @@
 - 纯 HTML/CSS/JS，无 CDN、无远程 TTS、无后端数据库。
 - 学习记录和自定义记忆卡保存在 localStorage；图片 Blob 保存在 IndexedDB。
 - Go 启动器仅绑定本机回环地址。图片搜索为可选联网增强，不影响内网离线学习。
+
+## V3.3.1 发布说明
+- Vercel 项目根目录固定为 `wordmap-english`，只部署本词汇星图静态站点，不构建仓库根目录的其他 Vite 项目。
+- 在线首页使用 `index.html`、`styles.css`、`data.js`、`app.js`；单文件离线版为 `WordMap-Offline.html`。
+- 本次发布不改变词库和学习数据结构，旧版 V3.2 本地备份继续兼容。
