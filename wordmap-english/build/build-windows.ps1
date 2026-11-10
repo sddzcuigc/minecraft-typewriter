@@ -3,7 +3,7 @@ Set-Location (Split-Path -Parent $PSScriptRoot)
 New-Item -ItemType Directory -Force -Path "dist" | Out-Null
 $files = @(
   "index.html", "styles.css", "world-theme.css", "data.js", "app.js", "world.js", "WordMap-Offline.html", "manifest.webmanifest", "sw.js", "icon.svg",
-  "使用说明.txt", "README.md", "CHANGELOG-V3.md", "CHANGELOG-V3.1.md", "tests/V3.1验收记录.md"
+  "使用说明.txt", "README.md", "CHANGELOG-V3.1.md", "CHANGELOG-V3.3.md", "CHANGELOG-V4.0.md", "tests/V3.1验收记录.md", "tests/V3.3验收记录.md", "tests/V4.0验收记录.md"
 )
 New-Item -ItemType Directory -Force -Path "dist/vendor" | Out-Null
 Copy-Item "vendor/three.min.js" -Destination "dist/vendor/three.min.js" -Force
