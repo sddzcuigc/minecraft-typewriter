@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#294638"><title>词汇方块世界 WordCraft V4.0 · Three.js 离线英语冒险</title><style>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#294638"><title>词汇方块世界 WordCraft V5.0 · 学生探索与家长学习报告</title><style>
 
 
 :root{--bg:#f4f6fb;--card:#fff;--ink:#1b2740;--muted:#7a879d;--line:#e8edf5;--blue:#5578e8;--green:#1d9b73;--red:#d65f66;--shadow:0 10px 30px rgba(35,55,95,.07);--r:20px}
@@ -268,11 +268,160 @@ footer.tip{position:fixed;right:20px;bottom:83px;width:230px;text-align:right;co
 #practicePage .examples-panel{left:270px;width:220px;}
 @media(max-width:860px){#practicePage .examples-panel{display:none;}}
 
+
+
+/* WordMap V5.0 responsive design system */
+:root{--v5-ink:#27352c;--v5-muted:#738074;--v5-paper:rgba(250,249,242,.96);--v5-green:#416b4d;--v5-shadow:0 14px 36px rgba(24,43,29,.14)}
+html,body{width:100%;min-height:100%;height:auto;overflow-x:hidden;overflow-y:auto}
+body.voxel-body{min-height:100svh;overflow-x:hidden;overflow-y:auto;color:var(--v5-ink);font-family:Inter,"Segoe UI","Microsoft YaHei",system-ui,sans-serif}
+.app{position:relative;z-index:8;width:100%;height:auto;min-height:100svh;max-width:none;margin:0;padding:16px 20px 96px;overflow:visible;pointer-events:none}.app>*{pointer-events:auto}
+.top{position:relative;top:auto;left:auto;right:auto;z-index:32;margin:0;min-height:64px;align-items:center;pointer-events:none}
+.brand{pointer-events:auto;padding:8px 15px 8px 9px;background:rgba(250,249,242,.94);border:1px solid rgba(255,255,255,.85);border-radius:16px;box-shadow:var(--v5-shadow);backdrop-filter:blur(14px)}
+.logo{width:44px;height:44px;border:0;border-radius:13px;background:linear-gradient(145deg,#76a66c,#426c4b);color:#fff9e9;font-family:Georgia,serif;font-size:25px;text-shadow:none;box-shadow:inset 0 -4px 0 rgba(18,44,25,.18)}
+h1{color:#26382c;font-size:18px;letter-spacing:-.02em;font-weight:850;text-shadow:none}.sub{color:#758477;font-size:10px}
+.chip{background:rgba(250,249,242,.94);border:1px solid #e1e8dc;border-radius:999px;padding:8px 12px;color:#5e705f;font-size:10px;box-shadow:0 4px 14px rgba(25,45,29,.08);backdrop-filter:blur(10px)}
+.stats{position:absolute;z-index:30;top:80px;right:20px;left:auto;width:auto;display:grid;grid-template-columns:repeat(4,minmax(74px,auto));gap:7px;margin:0}
+.stat{min-width:74px;padding:8px 11px;background:rgba(250,249,242,.94);border:1px solid rgba(255,255,255,.9);border-radius:13px;box-shadow:0 8px 22px rgba(25,45,29,.1);backdrop-filter:blur(12px)}
+.stat .k{color:#7c8b7d;font-size:9px}.stat .v{margin-top:3px;color:#31543a;font-size:20px;line-height:1.1;text-shadow:none}.stat .hint{color:#9aa69a;font-size:8px}
+.world-quest-panel{z-index:26;left:20px;top:126px;width:248px;max-height:calc(100svh - 350px);overflow:auto;padding:15px;background:rgba(250,249,242,.95);border:1px solid rgba(255,255,255,.9);border-radius:18px;box-shadow:var(--v5-shadow);backdrop-filter:blur(15px);color:var(--v5-ink)}
+.quest-kicker,.current-kicker{color:#9a7944;font-size:9px;letter-spacing:.15em}.quest-title{margin:7px 0 5px;color:#2d4031;font-size:16px}.quest-desc{color:#758275;font-size:10px;line-height:1.65}
+.world-unit-list{gap:7px}.world-unit-button{grid-template-columns:34px minmax(0,1fr) auto;padding:7px 8px;background:#eef2e8;border:1px solid #d9e4d5;border-radius:11px;box-shadow:none;color:#3d503f}
+.world-unit-button:hover,.world-unit-button.active{background:#e1ebdc;border-color:#8cae82;transform:translateX(2px)}
+.world-unit-icon{width:31px;height:31px;background:#d9e8d3;border:1px solid #b8d0af;border-radius:9px;color:#426d4b}
+.world-unit-copy b{color:#344b39;font-size:10px}.world-unit-copy small{color:#839182;font-size:8px}.world-unit-count{color:#9a7944;font-size:9px}.quest-footer{border-color:#e5e8dd;color:#849082}
+.world-current-card{z-index:24;left:20px;bottom:105px;width:248px;padding:13px 15px;background:rgba(250,249,242,.96);border:1px solid rgba(255,255,255,.9);border-radius:17px;box-shadow:var(--v5-shadow);backdrop-filter:blur(15px)}
+.world-current-word{margin-top:5px;color:#2f5539;font-size:23px;text-shadow:none}.world-current-meaning{color:#5f705f;font-size:12px}.world-current-unit{color:#a17b42;font-size:9px}
+.world-current-progress{background:#e6ebdf;border-radius:99px}.world-current-progress span{background:linear-gradient(90deg,#7da66e,#d1a15b);border-radius:99px}
+.world-hint{right:20px;bottom:104px;padding:8px 12px;background:rgba(250,249,242,.9);border:1px solid #e1e8dc;border-radius:999px;color:#687a69;font-size:9px;box-shadow:0 5px 18px rgba(25,45,29,.08)}
+.world-reset{z-index:31;top:80px;left:50%;transform:translateX(-50%);padding:8px 13px;background:rgba(250,249,242,.95);border:1px solid #e1e8dc;border-radius:999px;color:#4c674f;font-size:10px;box-shadow:0 5px 18px rgba(25,45,29,.1)}
+.nav{z-index:45;left:50%;bottom:12px;gap:5px;padding:7px;background:rgba(250,249,242,.96);border:1px solid rgba(255,255,255,.92);border-radius:16px;box-shadow:0 12px 32px rgba(17,35,22,.22);backdrop-filter:blur(16px)}
+.nav button{min-width:76px;padding:8px 11px;background:#edf1e9;border:1px solid #dfe7dc;border-radius:11px;color:#5c705d;font-size:10px;font-weight:800;box-shadow:none}
+.nav button.active{background:#426b4d;border-color:#426b4d;color:#fff9e9;box-shadow:0 4px 12px rgba(48,86,57,.2)}
+#practicePage{position:absolute;z-index:20;top:132px;right:20px;left:auto;width:min(900px,calc(100vw - 320px));max-height:calc(100svh - 238px);overflow:auto}
+#practicePage .layout{display:grid;grid-template-columns:minmax(0,1fr) 236px;grid-template-areas:"practice side" "examples examples";gap:12px;align-items:start}
+#practicePage .practice{grid-area:practice;min-width:0;min-height:0;max-height:none;overflow:visible;padding:19px;background:var(--v5-paper);border:1px solid rgba(255,255,255,.9);border-radius:18px;box-shadow:var(--v5-shadow);backdrop-filter:blur(16px);color:var(--v5-ink)}
+#practicePage .side{grid-area:side;min-width:0;max-height:calc(100svh - 260px);overflow:auto;padding:16px;background:var(--v5-paper);border:1px solid rgba(255,255,255,.9);border-radius:18px;box-shadow:var(--v5-shadow);backdrop-filter:blur(16px);color:var(--v5-ink)}
+#practicePage .examples-panel{grid-area:examples;position:relative;left:auto;right:auto;bottom:auto;width:auto;max-height:170px;overflow:auto;margin:0;padding:13px 15px;background:var(--v5-paper);border:1px solid rgba(255,255,255,.9);border-radius:16px;box-shadow:var(--v5-shadow);backdrop-filter:blur(14px);color:var(--v5-ink)}
+#practicePage .panel{background:var(--v5-paper);border:1px solid #e3e9de;border-radius:18px;box-shadow:var(--v5-shadow);color:var(--v5-ink)}
+#practicePage .word-card{background:linear-gradient(140deg,#edf3e8,#f8f6ec);border:1px solid #e1e9dc;border-radius:15px;box-shadow:none}
+#practicePage .meaning{color:#2d4232}#practicePage .meta{color:#788879}
+#practicePage .soft,#practicePage .mode button,#practicePage .submode button{background:#f6f7f1;border:1px solid #dce5d8;border-radius:10px;color:#5d715f;box-shadow:none}
+#practicePage .mode button.active,#practicePage .submode button.active{background:#426b4d;border-color:#426b4d;color:#fff9eb;box-shadow:0 4px 10px rgba(52,91,61,.18)}
+#practicePage .tile{border:1px solid #d9e3d4;border-radius:10px;background:#fffef9;color:#344a38;box-shadow:0 3px 0 #dfe7dc}
+#practicePage .assembled{background:#fbfcf8;border-color:#cbd9c8}#practicePage .answer-label,#practicePage .tip,#practicePage .progress-label{color:#7c8b7e}
+#practicePage .side-section{border-color:#e4e9df}#practicePage .side h3,#practicePage .examples-title{color:#354a39}
+#practicePage .side-row{color:#7a897a}#practicePage .side-row strong{color:#3c5841}
+#practicePage .relation{background:#f4f6ef;border-color:#dfe7dc;color:#5c715e}#practicePage .relation.open{background:#eaf2e6;border-color:#c6d9bf;color:#3d6947}#practicePage .relation.done{background:#f7f0df;border-color:#ead8ae;color:#8a6937}
+#practicePage .example-card{background:#fffef9;border-color:#e4e9df;border-radius:12px}#practicePage .example-en{color:#304433}#practicePage .example-zh{color:#7a897b}
+#pinyinPage,#imagesPage,#memoryPage,#mapPage,#dictationPage{position:absolute;z-index:20;top:132px;right:20px;left:auto;width:min(1080px,calc(100vw - 320px));max-height:calc(100svh - 238px);overflow:auto;padding:21px;background:var(--v5-paper);border:1px solid rgba(255,255,255,.92);border-radius:18px;box-shadow:var(--v5-shadow);backdrop-filter:blur(16px);color:var(--v5-ink)}
+.view-head h2{color:#2c4031;font-size:21px;letter-spacing:-.025em}.view-head p,.memory-note{color:#7a897b}
+.feature-card,.box{background:#fffef9;border:1px solid #e2e9df;border-radius:15px;color:#354a39;box-shadow:none}.feature-card h3,.box h3{color:#354a39}.feature-meaning{color:#304633}
+.pinyin-cue{background:#edf3e8;border-color:#d8e5d3}.pinyin-cue span{color:#456f4e}.pinyin-slot{background:#f9faf5;border-color:#dce5d9;color:#49634c}
+.image-result,.image-cached{background:#fffef9;border-color:#e2e9df;color:#405641}
+.image-result button,.image-toolbar button,.image-toolbar label,.primary,.dictation-actions .primary{background:#426b4d;color:#fff9e9;border:1px solid #426b4d;border-radius:10px;box-shadow:0 3px 0 #2e5038}
+.memory-stat,.memory-curve{background:#f6f7f1;border-color:#e1e8dc;color:#415842}.memory-stat strong{color:#426b4d}.memory-due{background:#fffef9;border-color:#e1e8dc;color:#405541}
+.dictation-card{background:linear-gradient(145deg,#fffef9,#f0f4eb);border-color:#e1e8dc}.dictation-count,.dictation-word-hint{color:#304633}.dictation-feedback{color:#6c806e}
+.field label,.field>label{color:#758575}input,select,textarea{background:#fffef9;border:1px solid #dce5d8;border-radius:10px;color:#334735}.field input,.field select,.field textarea{padding:9px 11px}
+.map-card{background:#f8f8f1;border-color:#e1e8dc}.map-canvas{background:radial-gradient(circle at 50% 45%,#edf3e8,#fbfaf5 70%)}
+.map-node{background:#fffef9;color:#3b533e;border-color:#dbe5d7}.map-node.center{background:#426b4d;color:#fff;border-color:#426b4d}.map-node small{color:#7a8b7a}
+.toast{z-index:60;background:#2e4934;border:1px solid #8ba681;border-radius:12px;color:#fff9e9;box-shadow:var(--v5-shadow)}footer.tip{display:none}
+body.parent-mode{background:#f0f1e9;color:#29392e}body.parent-mode #worldCanvas{opacity:.075;filter:saturate(.35);pointer-events:none}body.parent-mode .world-vignette{background:rgba(242,244,236,.82)}
+body.parent-mode .world-label-layer,body.parent-mode .world-quest-panel,body.parent-mode .world-current-card,body.parent-mode .world-hint,body.parent-mode .world-reset{display:none}
+body.parent-mode .app{display:flex;flex-direction:column;max-width:1380px;min-height:100svh;margin:0 auto;padding:22px 26px 34px;overflow:visible;pointer-events:auto}body.parent-mode .app>*{pointer-events:auto}
+body.parent-mode .top{position:relative;top:auto;left:auto;right:auto;width:100%;margin:0}
+body.parent-mode .stats{position:relative;top:auto;right:auto;left:auto;width:100%;grid-template-columns:repeat(4,minmax(0,1fr));margin:15px 0 0}
+body.parent-mode .stat{min-width:0;background:rgba(255,255,255,.88);border:1px solid #e0e7dc;box-shadow:0 7px 22px rgba(37,56,39,.05)}
+body.parent-mode .nav{position:relative;left:auto;bottom:auto;transform:none;align-self:flex-start;max-width:100%;margin:15px 0 0;overflow-x:auto}
+body.parent-mode .nav button{background:#fff;border-color:#e0e7dc;color:#657465;box-shadow:none}body.parent-mode .nav button.active{background:#426b4d;border-color:#426b4d;color:#fff9e9}
+body.parent-mode #parentPage{position:relative;z-index:20;top:auto;right:auto;left:auto;transform:none;width:100%;max-width:100%;max-height:none;overflow:visible;margin:16px 0 0;padding:0;background:transparent;border:0;border-radius:0;box-shadow:none;color:#29392e}
+.parent-hero{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;padding:26px 30px;background:linear-gradient(125deg,#f7f5e9,#e8efe4);border:1px solid #e0e7dc;border-radius:22px}
+.parent-eyebrow,.parent-overline{font-size:9px;letter-spacing:.16em;font-weight:850;color:#8a7955}
+.parent-hero h2{margin:8px 0;color:#293b2e;font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-.04em}.parent-hero p{max-width:650px;margin:0;color:#718071;font-size:12px;line-height:1.75}
+.parent-source{display:flex;flex:none;align-items:center;gap:10px;padding:12px 15px;background:rgba(255,255,255,.76);border:1px solid #dfe7dc;border-radius:14px}
+.parent-source-indicator{width:9px;height:9px;flex:none;border-radius:50%;background:#5b9a68;box-shadow:0 0 0 4px rgba(91,154,104,.12)}
+.parent-source strong,.parent-source small{display:block}.parent-source strong{color:#415d45;font-size:11px}.parent-source small{margin-top:3px;color:#8a9789;font-size:9px}
+.parent-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0}
+.parent-kpi{min-width:0;padding:17px 19px;background:rgba(255,255,255,.91);border:1px solid #e1e8de;border-radius:17px;box-shadow:0 8px 24px rgba(31,52,35,.045)}
+.parent-kpi span{display:block;color:#7b897b;font-size:10px}.parent-kpi strong{display:block;margin-top:5px;color:#31553a;font-size:29px;line-height:1.15;letter-spacing:-.04em}.parent-kpi small{display:block;margin-top:5px;color:#98a398;font-size:9px;line-height:1.5}
+.parent-dashboard-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(290px,.85fr);gap:13px}
+.parent-card{min-width:0;padding:19px 21px;background:rgba(255,255,255,.94);border:1px solid #e1e8de;border-radius:17px;box-shadow:0 8px 24px rgba(31,52,35,.045);color:#334636}
+.parent-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.parent-card h3{margin:5px 0 13px;color:#2d4032;font-size:16px;font-weight:800;letter-spacing:-.02em}
+.parent-note{color:#98a297;font-size:9px}.parent-card-description{margin:-4px 0 12px;color:#899589;font-size:10px;line-height:1.6}
+.parent-distribution-bar{display:flex;width:100%;height:11px;margin:7px 0 16px;overflow:hidden;background:#edf1e9;border-radius:99px}.parent-distribution-segment{display:block;min-width:0;height:100%}
+.parent-distribution-segment.locked{background:#d9dfd6}.parent-distribution-segment.open{background:#94b78b}.parent-distribution-segment.review{background:#d9b36e}.parent-distribution-segment.done{background:#477d54}
+.parent-distribution-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 15px}
+.parent-distribution-item{display:grid;grid-template-columns:9px minmax(0,1fr) auto;align-items:center;gap:8px;min-width:0}
+.parent-distribution-dot{width:8px;height:8px;border-radius:50%;background:#d9dfd6}.parent-distribution-dot.open{background:#94b78b}.parent-distribution-dot.review{background:#d9b36e}.parent-distribution-dot.done{background:#477d54}
+.parent-distribution-item strong,.parent-distribution-item small{display:block}.parent-distribution-item strong{color:#526553;font-size:10px}.parent-distribution-item small{margin-top:2px;color:#9aa59a;font-size:8px;line-height:1.4}.parent-distribution-item>b{color:#526b55;font-size:11px}
+.parent-insight{display:flex;flex-direction:column;gap:4px;margin-top:15px;padding:11px 13px;background:#f2f5ee;border:1px solid #e6ece2;border-radius:12px}
+.parent-insight strong{color:#466449;font-size:10px}.parent-insight span{color:#849184;font-size:9px;line-height:1.6}
+.parent-today-numbers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:4px 0 15px}
+.parent-today-numbers>div{padding:10px 8px;background:#f5f7f1;border:1px solid #e8ede4;border-radius:11px;text-align:center}
+.parent-today-numbers strong,.parent-today-numbers span{display:block}.parent-today-numbers strong{color:#355b3e;font-size:21px}.parent-today-numbers span{margin-top:3px;color:#8a988a;font-size:8px}
+.parent-goal-track,.parent-unit-track{height:7px;overflow:hidden;background:#e9eee6;border-radius:99px}.parent-goal-track span,.parent-unit-track span{display:block;height:100%;background:linear-gradient(90deg,#5b8b61,#b6c88a);border-radius:99px}
+.parent-goal-caption{margin-top:6px;color:#8b998a;font-size:9px}
+.parent-next-step{margin-top:15px;padding:12px 13px;background:#f7f3e8;border:1px solid #eee5d2;border-radius:12px}
+.parent-next-step strong{display:block;margin-top:4px;color:#5a4a2d;font-size:12px}.parent-next-step p{margin:5px 0 10px;color:#897e68;font-size:9px;line-height:1.6}
+.parent-action{padding:8px 12px;border:1px solid #456e4c;border-radius:9px;background:#426b4d;color:#fff9e9;font-size:10px;font-weight:800}
+.parent-unit-progress{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px}.parent-unit-row{min-width:0}
+.parent-unit-heading{display:flex;justify-content:space-between;gap:8px;margin-bottom:6px}.parent-unit-heading strong{overflow:hidden;color:#4c604d;font-size:10px;text-overflow:ellipsis;white-space:nowrap}.parent-unit-heading span{flex:none;color:#849184;font-size:9px}
+.parent-unit-row small{display:block;margin-top:5px;color:#99a398;font-size:8px}
+.parent-details{margin-top:14px;border-top:1px solid #e8ede5;padding-top:10px}.parent-details summary{color:#738373;font-size:10px;font-weight:750;cursor:pointer}
+.parent-details .table-wrap{margin-top:8px}.parent-details table{font-size:10px}.parent-details th,.parent-details td{padding:7px 8px;border-color:#edf0e9}.parent-details th{color:#89968a}.parent-details td{color:#586b59}
+.parent-card .mistakes{display:flex;flex-direction:column;gap:6px;max-height:220px;overflow:auto}
+.parent-card .mistake{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;padding:9px 11px;background:#fff9f5;border:1px solid #f0e4da;border-radius:10px;color:#75594a;text-align:left}
+.parent-card .mistake strong{font-size:10px}.parent-card .mistake small{color:#a48e80;font-size:9px}
+.parent-tools-grid{display:grid;grid-template-columns:1.15fr 1fr .95fr;gap:13px;margin-top:13px}.parent-form-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.parent-card .field{margin-bottom:10px}.parent-card .field label{font-size:9px}
+.parent-check{display:flex;align-items:center;gap:8px;margin:8px 0;color:#6e7e6f;font-size:10px;line-height:1.5}.parent-check input{accent-color:#4d7955}
+.parent-inline-action{margin:10px 0}.parent-card .soft{background:#f3f6ef;border:1px solid #dfe8dc;border-radius:9px;color:#58705a;box-shadow:none}
+.parent-card .soft:hover{background:#eaf1e6;border-color:#aec5a6}.parent-card .custom-list{max-height:140px;overflow:auto;padding-top:4px}
+.parent-card .custom-item{background:#f5f7f1;border:1px solid #e4eae0;border-radius:8px;color:#607160}.parent-card .custom-item button{color:#a66b5e}
+.parent-setting-group{padding:5px 0 8px;border-top:1px solid #edf0e9;border-bottom:1px solid #edf0e9}
+.parent-backup-actions{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}
+.parent-danger-zone{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:17px;padding-top:12px;border-top:1px solid #f0e8e3}
+.parent-danger-zone span{color:#a1948c;font-size:8px;line-height:1.5}.parent-danger-zone button{color:#9a6458;border-color:#ead9d1;background:#fff8f5}
+.parent-footnote{margin:13px 3px 0;color:#8c988a;font-size:9px;line-height:1.7}
+@media(max-width:1180px){.world-quest-panel{width:230px}#practicePage{width:min(850px,calc(100vw - 310px))}#pinyinPage,#imagesPage,#memoryPage,#mapPage,#dictationPage{width:min(1000px,calc(100vw - 310px))}#practicePage .layout{grid-template-columns:minmax(0,1fr) 220px}}
+@media(max-width:860px){
+ .app{padding:10px 10px 92px}.top{left:auto;right:auto;top:auto;align-items:center;flex-wrap:wrap;gap:8px}.brand{padding:7px 10px}.logo{width:38px;height:38px;font-size:22px}h1{font-size:15px}.sub{font-size:8px}.stats{display:none}
+ .world-reset{top:78px;left:auto;right:12px;transform:none;padding:7px 10px;font-size:9px}
+ .world-quest-panel{left:12px;right:12px;top:119px;width:auto;max-height:91px;overflow:hidden;padding:9px 11px;border-radius:14px}
+ .quest-title{margin:2px 0 6px;font-size:12px}.quest-desc,.quest-footer{display:none}
+ .world-unit-list{display:flex;gap:7px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}.world-unit-button{min-width:148px;flex:0 0 auto;padding:6px}
+ .world-current-card,.world-hint{display:none}
+ #practicePage,#pinyinPage,#imagesPage,#memoryPage,#mapPage,#parentPage,#dictationPage{top:229px;left:12px;right:12px;width:auto;max-height:calc(100svh - 320px);padding:13px;border-radius:15px}
+ #practicePage .layout{grid-template-columns:minmax(0,1fr);grid-template-areas:"practice" "examples" "side";gap:10px}
+ #practicePage .practice,#practicePage .side{max-height:none;overflow:visible;padding:13px}#practicePage .examples-panel{max-height:180px;padding:11px}
+ .nav{bottom:8px;gap:3px;padding:5px;max-width:calc(100vw - 12px);border-width:1px;border-radius:13px}
+ .nav button{min-width:58px;padding:7px 8px;font-size:9px;gap:4px}.nav button .hotbar-icon{font-size:12px}footer.tip{display:none}
+}
+@media(max-width:600px){
+ .app{padding:9px 9px 90px}.top{align-items:flex-start;flex-direction:column}.brand{max-width:100%;width:100%}.top-actions{display:none}
+ .world-reset{top:74px;right:10px;padding:6px 9px;font-size:8px}
+ .world-quest-panel{top:105px;left:9px;right:9px;max-height:72px;padding:7px 9px}.quest-kicker{font-size:8px}.quest-title{font-size:11px;margin:1px 0 4px}
+ .world-unit-button{min-width:132px;grid-template-columns:25px minmax(0,1fr) auto;padding:5px;gap:5px}.world-unit-icon{width:24px;height:24px;font-size:13px}.world-unit-copy b{font-size:8px}.world-unit-copy small{font-size:7px}
+ #practicePage,#pinyinPage,#imagesPage,#memoryPage,#mapPage,#parentPage,#dictationPage{top:190px;left:9px;right:9px;max-height:calc(100svh - 272px);padding:11px}#practicePage .practice{padding:12px}
+ .nav button{min-width:0;flex:0 0 auto;padding:7px 9px;font-size:9px}.nav button .hotbar-icon{display:none}
+}
+@media(prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media(max-width:760px){
+ body.parent-mode .app{padding:12px 12px 28px}body.parent-mode .top{align-items:flex-start;flex-direction:column}body.parent-mode .top-actions{display:flex}
+ body.parent-mode .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:12px}
+ body.parent-mode .nav{align-self:stretch;width:100%;margin-top:12px}body.parent-mode .nav button{flex:1 0 auto;min-width:58px}
+ body.parent-mode .parent-hero{padding:19px 17px;align-items:flex-start;flex-direction:column}body.parent-mode .parent-source{width:100%}
+ body.parent-mode .parent-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.parent-mode .parent-dashboard-grid,body.parent-mode .parent-tools-grid{grid-template-columns:minmax(0,1fr)}
+ body.parent-mode .parent-unit-progress,body.parent-mode .parent-distribution-list{grid-template-columns:minmax(0,1fr)}
+ body.parent-mode .parent-card{padding:16px}body.parent-mode .parent-form-row{grid-template-columns:minmax(0,1fr)}
+ body.parent-mode .parent-danger-zone{align-items:flex-start;flex-direction:column}
+}
+
 </style></head>
-<body class="voxel-body"><canvas id="worldCanvas" aria-label="Three.js 方块英语世界"></canvas><div class="world-vignette"></div><div id="worldLabels" class="world-label-layer"></div><aside class="world-quest-panel"><div class="quest-kicker">WORLD QUESTS / 01</div><div class="quest-title">探索六大词汇岛</div><div class="quest-desc">选择一个世界，解锁词汇、完成拼写挑战，让知识地图逐渐亮起来。</div><div id="worldUnitList" class="world-unit-list"></div><div class="quest-footer">拖动世界查看地形 · 点击浮岛开始冒险。<br>每个岛屿都是一个学习单元。</div></aside><aside class="world-current-card"><div class="current-kicker">CURRENT QUEST / 当前任务</div><div id="worldCurrentWord" class="world-current-word">SPORT</div><div id="worldCurrentMeaning" class="world-current-meaning">运动</div><div id="worldCurrentUnit" class="world-current-unit">运动与坚持 · 当前任务</div><div class="world-current-progress"><span id="worldProgressBar"></span></div></aside><div class="world-hint">拖动旋转 · 滚轮缩放 · 点击浮岛探索</div><button id="worldResetView" class="world-reset" type="button">⌖ 重置世界视角</button><div class="app">
+<body class="voxel-body"><canvas id="worldCanvas" aria-label="Three.js 方块英语世界"></canvas><div class="world-vignette"></div><div id="worldLabels" class="world-label-layer"></div><aside class="world-quest-panel"><div class="quest-kicker">YOUR LEARNING WORLD / 06</div><div class="quest-title">今天，探索一个新世界</div><div class="quest-desc">选择一个世界，解锁词汇、完成拼写挑战，让知识地图逐渐亮起来。</div><div id="worldUnitList" class="world-unit-list"></div><div class="quest-footer">拖动世界查看地形 · 点击浮岛开始冒险。<br>每个岛屿都是一个学习单元。</div></aside><aside class="world-current-card"><div class="current-kicker">CURRENT QUEST / 当前任务</div><div id="worldCurrentWord" class="world-current-word">SPORT</div><div id="worldCurrentMeaning" class="world-current-meaning">运动</div><div id="worldCurrentUnit" class="world-current-unit">运动与坚持 · 当前任务</div><div class="world-current-progress"><span id="worldProgressBar"></span></div></aside><div class="world-hint">拖动旋转 · 滚轮缩放 · 点击浮岛探索</div><button id="worldResetView" class="world-reset" type="button">⌖ 重置世界视角</button><div class="app">
 <header class="top"><div class="brand"><div class="logo"><span>W</span></div><div><h1>词汇方块世界 <span style="font-size:12px;color:#8b98ad">WORDCRAFT</span></h1><div class="sub">把英语学习变成一场方块世界冒险 · 153 个词条 · Three.js 本地 3D 引擎</div></div></div><div class="top-actions"><span class="chip" id="streak">今日正确 0 次</span><span class="chip" id="todayProgress">每日目标</span></div></header>
 <section class="stats"><div class="stat"><div class="k">已解锁</div><div class="v" id="statOpen">6</div><div class="hint">可以开始探索</div></div><div class="stat"><div class="k">已掌握</div><div class="v" id="statDone">0</div><div class="hint">跨日无提示回忆</div></div><div class="stat"><div class="k">待复习</div><div class="v" id="statDue">0</div><div class="hint">需要复习的词</div></div><div class="stat"><div class="k">今日准确率</div><div class="v" id="statAccuracy">—</div><div class="hint">按今日答题记录</div></div></section>
-<nav class="nav"><button class="active" data-page="practice"><span class="hotbar-icon">⚔</span><span>学习</span></button><button data-page="dictation"><span class="hotbar-icon">🎧</span><span>听写</span></button><button data-page="pinyin"><span class="hotbar-icon">⌨</span><span>拼写</span></button><button data-page="images"><span class="hotbar-icon">🖼</span><span>图鉴</span></button><button data-page="memory"><span class="hotbar-icon">✦</span><span>记忆</span></button><button data-page="map"><span class="hotbar-icon">🗺</span><span>星图</span></button><button data-page="parent"><span class="hotbar-icon">⚙</span><span>家长</span></button></nav>
+<nav class="nav" aria-label="学习导航"><button class="active" data-page="practice"><span class="hotbar-icon">⚔</span><span>学习</span></button><button data-page="dictation"><span class="hotbar-icon">🎧</span><span>听写</span></button><button data-page="pinyin"><span class="hotbar-icon">⌨</span><span>拼写</span></button><button data-page="images"><span class="hotbar-icon">🖼</span><span>图鉴</span></button><button data-page="memory"><span class="hotbar-icon">✦</span><span>记忆</span></button><button data-page="map"><span class="hotbar-icon">🗺</span><span>星图</span></button><button data-page="parent"><span class="hotbar-icon">⚙</span><span>家长</span></button></nav>
 <section id="practicePage"><div class="layout"><main class="panel practice"><div class="panel-head"><div><div class="eyebrow">LEARN BY RECALL</div><div class="unit-title" id="unitTitle"></div></div><div class="mode"><button id="easyMode" class="active">简单 · 鼠标点字</button><button id="hardMode">进阶 · 键盘打字</button></div></div>
 <div class="word-card"><div class="word-emoji" id="wordEmoji">🏃</div><div class="meaning" id="meaning">运动</div><div class="meta" id="wordMeta">看中文，回忆英文拼写</div><div class="chunk-row hidden" id="chunkRow"></div><div class="word-image-preview" id="wordImagePreview"></div></div>
 <div class="controls"><button class="soft" id="speakBtn">🔊 重读单词</button><button class="soft" id="speakExampleBtn">▶ 朗读例句</button><button class="soft" id="autoSpeakToggle">自动朗读：开</button><button class="soft" id="chunksBtn">显示拼写块</button><button class="soft" id="hintBtn">给一点提示</button><button class="soft" id="mapCurrentBtn">查看关联</button><button class="soft" id="wordImageBtn">🖼 单词配图</button><button class="soft" id="wordMemoryBtn">✦ 记忆方法</button></div>
@@ -331,14 +480,29 @@ footer.tip{position:fixed;right:20px;bottom:83px;width:230px;text-align:right;co
  </div>
 </section>
 <section id="mapPage" class="panel view hidden"><div class="view-head"><div><h2>词汇星图</h2><p id="mapContext">围绕当前单词探索关联。</p></div><button class="soft" id="backPractice" onclick="document.querySelector('[data-page=practice]').click()">回到练习</button></div><div class="map-card"><div class="map-canvas" id="mapCanvas"></div><div class="map-legend"><span><i class="dot"></i>未解锁</span><span><i class="dot open"></i>已解锁</span><span><i class="dot done"></i>稳定掌握</span></div></div><div class="map-details" id="mapDetails"></div></section>
-<section id="parentPage" class="panel view hidden"><div class="view-head"><div><h2>家长中心</h2><p>管理自定义词库、查看进度、备份和恢复本机数据。</p></div></div><div class="parent-grid"><div class="box"><h3>单元学习报告</h3><div class="table-wrap"><table><thead><tr><th>单元</th><th>解锁</th><th>掌握</th><th>待复习</th></tr></thead><tbody id="reportTable"></tbody></table></div><h3 style="margin-top:17px">需要加强的词</h3><div class="mistakes" id="mistakeList"></div></div>
-<div class="box"><h3>自定义词库</h3><div class="form-row"><div class="field"><label>英文单词</label><input id="customEn" placeholder="例如 apple"></div><div class="field"><label>中文意思</label><input id="customZh" placeholder="例如 苹果"></div></div><label style="font-size:10px;color:#7c89a0"><input id="linkCustom" type="checkbox" checked> 将新词关联到当前学习词</label><div style="margin-top:10px"><button class="soft" id="addCustomBtn">添加单词</button></div><div class="custom-list" id="customList" style="margin-top:12px"></div>
-<h3 style="margin-top:18px">学习设置</h3><div class="field"><label>每日正确回忆目标</label><select id="dailyGoal"><option value="5">5 次</option><option value="10">10 次</option><option value="15">15 次</option><option value="20">20 次</option></select></div>
-<h3 style="margin-top:16px">自动朗读设置</h3>
-<div class="field"><label><input id="autoSpeakSetting" type="checkbox" checked> 进入学习词时自动朗读英文</label></div>
-<div class="field"><label><input id="autoExampleSetting" type="checkbox" checked> 单词后自动朗读原创例句</label></div>
-<div class="field"><label for="speechRateSetting">默认朗读速度</label><select id="speechRateSetting"><option value="0.65">很慢 0.65×</option><option value="0.8">慢速 0.8×</option><option value="0.9">稍慢 0.9×</option><option value="1">正常 1.0×</option><option value="1.1">稍快 1.1×</option></select></div>
-<h3 style="margin-top:16px">备份与恢复</h3><p>学习记录、自定义词和设置都保存在当前浏览器。建议定期导出 JSON 备份。</p><div class="controls" style="justify-content:flex-start"><button class="soft" id="exportBtn">导出备份</button><label class="soft" for="importFile">导入备份</label><input class="hidden" id="importFile" type="file" accept=".json,application/json"><button class="soft" id="clearBtn">清空本机数据</button></div></div></div></section>
+
+<section id="parentPage" class="panel view hidden parent-view" aria-labelledby="parentTitle">
+ <header class="parent-hero"><div class="parent-hero-copy"><div class="parent-eyebrow">FAMILY LEARNING REPORT</div><h2 id="parentTitle">看见进步，也看见下一步。</h2><p>这里汇总学生端在当前浏览器中的真实练习记录。先看掌握结构，再看今天最值得做的一件事。</p></div><div class="parent-source"><span class="parent-source-indicator"></span><div><strong>本机学习档案</strong><small>学生端与家长端共享当前浏览器记录</small></div></div></header>
+ <div class="parent-kpis">
+  <article class="parent-kpi"><span>词库总量</span><strong id="parentTotalWords">153</strong><small id="parentUnlockedWords">已解锁 6 个词条</small></article>
+  <article class="parent-kpi"><span>稳定掌握</span><strong id="parentMasteredCount">0</strong><small>完成五轮无提示间隔回忆</small></article>
+  <article class="parent-kpi"><span>待复习</span><strong id="parentDueCount">0</strong><small id="parentDueHint">按当前复习计划计算</small></article>
+  <article class="parent-kpi"><span>今日准确率</span><strong id="parentAccuracy">—</strong><small id="parentTodayAttempts">今日尚无作答记录</small></article>
+ </div>
+ <div class="parent-dashboard-grid">
+  <section class="parent-card"><div class="parent-card-head"><div><div class="parent-overline">MASTERY MAP</div><h3>词汇掌握结构</h3></div><span class="parent-note">按当前复习等级统计</span></div><div id="parentMasteryDistribution" class="parent-distribution"></div><div id="parentLearningInsight" class="parent-insight"></div></section>
+  <section class="parent-card"><div class="parent-card-head"><div><div class="parent-overline">DAILY CHECK-IN</div><h3>今日学习表现</h3></div></div><div id="parentTodayBreakdown"></div><div id="parentNextStep"></div></section>
+  <section class="parent-card"><div class="parent-card-head"><div><div class="parent-overline">UNIT REPORT</div><h3>单元学习进度</h3></div><span class="parent-note">只统计词库中的真实词条</span></div><div id="parentUnitProgress" class="parent-unit-progress"></div><details class="parent-details"><summary>查看单元详细数据</summary><div class="table-wrap"><table><thead><tr><th>单元</th><th>解锁</th><th>掌握</th><th>待复习</th></tr></thead><tbody id="reportTable"></tbody></table></div></details></section>
+  <section class="parent-card"><div class="parent-card-head"><div><div class="parent-overline">FOCUS WORDS</div><h3>需要加强的词</h3></div></div><p class="parent-card-description">按累计错误次数排序。点击单词可直接回到学生端练习。</p><div class="mistakes" id="mistakeList"></div></section>
+ </div>
+ <div class="parent-tools-grid">
+  <section class="parent-card"><div class="parent-overline">WORD LIBRARY</div><h3>自定义词库</h3><div class="parent-form-row"><div class="field"><label for="customEn">英文单词</label><input id="customEn" placeholder="例如 apple"></div><div class="field"><label for="customZh">中文意思</label><input id="customZh" placeholder="例如 苹果"></div></div><label class="parent-check"><input id="linkCustom" type="checkbox" checked> 将新词关联到当前学习词</label><div class="parent-inline-action"><button class="soft" id="addCustomBtn" type="button">添加单词</button></div><div class="custom-list" id="customList"></div></section>
+  <section class="parent-card"><div class="parent-overline">LEARNING RHYTHM</div><h3>学习节奏</h3><div class="field"><label for="dailyGoal">每日正确回忆目标</label><select id="dailyGoal"><option value="5">5 次</option><option value="10">10 次</option><option value="15">15 次</option><option value="20">20 次</option></select></div><div class="parent-setting-group"><label class="parent-check"><input id="autoSpeakSetting" type="checkbox" checked> 进入学习词时自动朗读英文</label><label class="parent-check"><input id="autoExampleSetting" type="checkbox" checked> 单词后自动朗读原创例句</label></div><div class="field"><label for="speechRateSetting">默认朗读速度</label><select id="speechRateSetting"><option value="0.65">很慢 0.65×</option><option value="0.8">慢速 0.8×</option><option value="0.9">稍慢 0.9×</option><option value="1">正常 1.0×</option><option value="1.1">稍快 1.1×</option></select></div></section>
+  <section class="parent-card"><div class="parent-overline">DATA & PRIVACY</div><h3>数据备份</h3><p class="parent-card-description">学习记录、自定义词和设置保存在当前浏览器。换设备前先导出 JSON，再在另一台设备导入。</p><div class="parent-backup-actions"><button class="soft" id="exportBtn" type="button">导出备份</button><label class="soft" for="importFile">导入备份</label><input class="hidden" id="importFile" type="file" accept=".json,application/json"></div><div class="parent-danger-zone"><span>清空操作不可撤销，建议先导出备份。</span><button class="soft" id="clearBtn" type="button">清空本机数据</button></div></section>
+ </div>
+ <p class="parent-footnote">数据边界：目前没有账号和云端同步。学生端与家长端在同一浏览器中共用记录；跨设备请使用备份导入/导出。</p>
+</section>
+
 <section id="dictationPage" class="panel view hidden">
 <div class="view-head"><div><h2>自动听写</h2><p>先听英文发音，再直接键盘拼写。输入正确后自动进入下一个词，不需要提交。</p></div><div class="dictation-badge" id="dictationVoiceStatus">语音检测中</div></div>
 <div class="dictation-settings">
@@ -358,7 +522,7 @@ footer.tip{position:fixed;right:20px;bottom:83px;width:230px;text-align:right;co
 </div>
 <p class="tip">语音使用浏览器和操作系统已有的英语语音。网页不下载语音、不调用在线 TTS；是否能完全断网发声，取决于目标电脑是否安装本地英语语音包。</p>
 </section>
-<footer class="tip" style="padding:18px 0 4px">Three.js 本地引擎 · 方块世界程序化生成 · 学习数据保存在本机</footer></div><div class="toast" id="toast"></div><script>
+<footer class="tip" style="padding:18px 0 4px">本地 Three.js 世界 · 学习记录保存在当前设备</footer></div><div class="toast" id="toast"></div><script>
 console.warn('Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation'),
 /**
  * @license
@@ -581,7 +745,7 @@ async function importImagePack(e){
 function setPage(next){
  if(page==="dictation"&&next!=="dictation"&&dictation.active)stopDictation(false);
  if(page==="practice"&&next!=="practice"){clearTimeout(autoSpeechTimer);if("speechSynthesis" in window)speechSynthesis.cancel();}
- if(next!=="pinyin")clearTimeout(pinyinTimer);page=next;["practice","dictation","pinyin","images","memory","map","parent"].forEach(id=>document.getElementById(id+"Page").classList.toggle("hidden",id!==next));
+ if(next!=="pinyin")clearTimeout(pinyinTimer);page=next;document.body.classList.toggle("parent-mode",next==="parent");document.body.dataset.page=next;["practice","dictation","pinyin","images","memory","map","parent"].forEach(id=>document.getElementById(id+"Page").classList.toggle("hidden",id!==next));
  document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===next));
  if(next==="map")renderMap();if(next==="parent")renderParent();if(next==="practice")renderPractice();if(next==="dictation")renderDictationPage();if(next==="pinyin")renderPinyinPage();if(next==="images"){selectedImageWordId=currentId;renderImagePage(true);}if(next==="memory")renderMemoryPage();window.dispatchEvent(new CustomEvent("wordmap:page",{detail:{page:next}}));
 }
@@ -869,7 +1033,7 @@ function renderStats(){
  ensureDay();const all=allWords(),open=all.filter(unlocked).length,done=all.filter(mastered).length,dueN=all.filter(due).length;
  document.getElementById("statOpen").textContent=open;document.getElementById("statDone").textContent=done;document.getElementById("statDue").textContent=dueN;
  document.getElementById("statAccuracy").textContent=state.daily.attempts?Math.round(state.daily.correct/state.daily.attempts*100)+"%":"—";
- document.getElementById("streak").textContent=`今日正确 ${state.daily.correct} 次`;document.getElementById("todayProgress").textContent=`目标 ${state.settings.dailyGoal} 次`;window.dispatchEvent(new CustomEvent("wordmap:stats",{detail:{open:open,done:done,due:dueN,correct:state.daily.correct,goal:state.settings.dailyGoal}}));
+ document.getElementById("streak").textContent=`今日正确 ${state.daily.correct} 次`;document.getElementById("todayProgress").textContent=`目标 ${state.settings.dailyGoal} 次`;window.dispatchEvent(new CustomEvent("wordmap:stats",{detail:{open:open,done:done,due:dueN,correct:state.daily.correct,goal:state.settings.dailyGoal}}));if(page==="parent")renderParent();
 }
 function renderMap(){
  const w=word(),ns=neighbors(currentId).slice(0,10),canvas=document.getElementById("mapCanvas"),W=800,H=340,cx=400,cy=170,rx=285,ry=125;let lines="",nodes="";
@@ -881,16 +1045,27 @@ function renderMap(){
 }
 function renderMapIfVisible(){if(page==="map")renderMap();}
 function renderParent(){
- document.getElementById("dailyGoal").value=state.settings.dailyGoal;
- document.getElementById("autoSpeakSetting").checked=state.settings.autoSpeak!==false;
- document.getElementById("autoExampleSetting").checked=state.settings.autoSpeakExample!==false;
- document.getElementById("speechRateSetting").value=String(state.settings.speechRate||.8);
- document.getElementById("customList").innerHTML=state.customWords.length?state.customWords.map(w=>`<span class="custom-item">${esc(w.en)} · ${esc(w.zh)} <button data-delcustom="${esc(w.id)}">删除</button></span>`).join(""):'<span class="muted" style="font-size:11px">暂无自定义单词。</span>';
+ const all=allWords(),total=all.length,open=all.filter(unlocked).length,done=all.filter(mastered).length,dueWords=all.filter(due);
+ const attempts=state.daily.attempts||0,correct=state.daily.correct||0,wrong=state.daily.wrong||0,accuracy=attempts?Math.round(correct/attempts*100):null;
+ const setText=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value;};
+ setText("parentTotalWords",total);setText("parentUnlockedWords",`已解锁 ${open} / ${total} 个词条`);setText("parentMasteredCount",done);setText("parentDueCount",dueWords.length);
+ setText("parentDueHint",dueWords.length?"建议优先完成到期复习":"当前没有到期词");setText("parentAccuracy",accuracy===null?"—":accuracy+"%");setText("parentTodayAttempts",`今日 ${attempts} 次作答 · 正确 ${correct} · 错误 ${wrong}`);
+ const buckets=[{key:"locked",label:"未解锁",count:all.filter(w=>!unlocked(w)).length,note:"尚未进入学习路径"},{key:"open",label:"已解锁待学习",count:all.filter(w=>unlocked(w)&&progress(w.id).level===0).length,note:"可以开始练习"},{key:"review",label:"复习进行中",count:all.filter(w=>unlocked(w)&&progress(w.id).level>0&&progress(w.id).level<5).length,note:"间隔回忆尚未完成"},{key:"done",label:"稳定掌握",count:done,note:"完成五轮无提示回忆"}];
+ const denominator=Math.max(1,total),distribution=document.getElementById("parentMasteryDistribution");
+ if(distribution){const segments=buckets.map(b=>`<span class="parent-distribution-segment ${b.key}" style="width:${(b.count/denominator*100).toFixed(2)}%" title="${b.label} ${b.count}"></span>`).join("");const rows=buckets.map(b=>`<div class="parent-distribution-item"><i class="parent-distribution-dot ${b.key}"></i><div><strong>${b.label}</strong><small>${b.count} 个 · ${b.note}</small></div><b>${Math.round(b.count/denominator*100)}%</b></div>`).join("");distribution.innerHTML=`<div class="parent-distribution-bar">${segments}</div><div class="parent-distribution-list">${rows}</div>`;}
+ const insight=document.getElementById("parentLearningInsight");if(insight){const ratio=total?Math.round(done/total*100):0;insight.innerHTML=`<strong>当前稳定掌握率 ${ratio}%</strong><span>掌握只统计五轮无提示间隔回忆完成的词，不把点击提示或简单模式算作稳定掌握。</span>`;}
+ const goal=Math.max(1,Number(state.settings.dailyGoal)||10),goalPct=Math.min(100,Math.round(correct/goal*100)),today=document.getElementById("parentTodayBreakdown");
+ if(today)today.innerHTML=`<div class="parent-today-numbers"><div><strong>${correct}</strong><span>正确回忆</span></div><div><strong>${wrong}</strong><span>错误记录</span></div><div><strong>${attempts}</strong><span>总作答</span></div></div><div class="parent-goal-track"><span style="width:${goalPct}%"></span></div><div class="parent-goal-caption">每日目标 ${goal} 次 · 已完成 ${goalPct}%</div>`;
+ const next=document.getElementById("parentNextStep");if(next){if(dueWords.length)next.innerHTML=`<div class="parent-next-step"><span class="parent-overline">SUGGESTED NEXT STEP</span><strong>先处理 ${dueWords.length} 个到期词</strong><p>先复习到期内容，再继续解锁新词，避免只学新词、不回头巩固。</p><button class="parent-action" id="parentReviewBtn" type="button">开始到期复习</button></div>`;else next.innerHTML=`<div class="parent-next-step"><span class="parent-overline">SUGGESTED NEXT STEP</span><strong>继续推进当前学习路径</strong><p>当前没有到期复习词，可以回到学生端继续探索已解锁单元。</p><button class="parent-action" id="parentContinueBtn" type="button">返回学生端</button></div>`;}
+ const unitHost=document.getElementById("parentUnitProgress");if(unitHost)unitHost.innerHTML=UNITS.map(u=>{const list=BASE.filter(w=>w.unit===u.id),unitOpen=list.filter(unlocked).length,unitDone=list.filter(mastered).length,unitDue=list.filter(due).length,pct=list.length?Math.round(unitDone/list.length*100):0;return `<div class="parent-unit-row"><div class="parent-unit-heading"><strong>${esc(u.title)}</strong><span>${unitDone}/${list.length} 已掌握</span></div><div class="parent-unit-track"><span style="width:${pct}%"></span></div><small>已解锁 ${unitOpen} · 待复习 ${unitDue}</small></div>`;}).join("");
+ document.getElementById("dailyGoal").value=state.settings.dailyGoal;document.getElementById("autoSpeakSetting").checked=state.settings.autoSpeak!==false;document.getElementById("autoExampleSetting").checked=state.settings.autoSpeakExample!==false;document.getElementById("speechRateSetting").value=String(state.settings.speechRate||.8);
+ document.getElementById("customList").innerHTML=state.customWords.length?state.customWords.map(w=>`<span class="custom-item">${esc(w.en)} · ${esc(w.zh)} <button data-delcustom="${esc(w.id)}" type="button">删除</button></span>`).join(""):'<span class="muted" style="font-size:11px">暂无自定义单词。</span>';
  document.querySelectorAll("[data-delcustom]").forEach(b=>b.onclick=()=>deleteCustom(b.dataset.delcustom));
- const miss=allWords().filter(w=>progress(w.id).wrong>0&&!mastered(w)).sort((a,b)=>progress(b.id).wrong-progress(a.id).wrong);
- document.getElementById("mistakeList").innerHTML=miss.length?miss.slice(0,30).map(w=>`<button class="mistake" data-mistake="${esc(w.id)}">${esc(w.en)} · 错 ${progress(w.id).wrong} 次</button>`).join(""):'<span class="muted" style="font-size:11px">暂无错词。</span>';
+ const miss=all.filter(w=>progress(w.id).wrong>0&&!mastered(w)).sort((a,b)=>progress(b.id).wrong-progress(a.id).wrong);
+ document.getElementById("mistakeList").innerHTML=miss.length?miss.slice(0,20).map(w=>`<button class="mistake" data-mistake="${esc(w.id)}" type="button"><strong>${esc(w.en)}</strong><small>${esc(w.zh.split("；")[0])} · 错 ${progress(w.id).wrong} 次</small></button>`).join(""):'<span class="muted" style="font-size:11px">暂无需要加强的错词。保持当前节奏。</span>';
  document.querySelectorAll("[data-mistake]").forEach(b=>b.onclick=()=>setCurrent(b.dataset.mistake));
  document.getElementById("reportTable").innerHTML=UNITS.map(u=>{const list=BASE.filter(w=>w.unit===u.id);return `<tr><td>${esc(u.title)}</td><td>${list.filter(unlocked).length}/${list.length}</td><td>${list.filter(mastered).length}</td><td>${list.filter(due).length}</td></tr>`;}).join("");
+ const reviewButton=document.getElementById("parentReviewBtn");if(reviewButton)reviewButton.onclick=startDueReview;const continueButton=document.getElementById("parentContinueBtn");if(continueButton)continueButton.onclick=()=>setPage("practice");
 }
 function addCustom(){
  const en=document.getElementById("customEn").value.trim().toLowerCase().replace(/\s+/g,"-"),zh=document.getElementById("customZh").value.trim();
