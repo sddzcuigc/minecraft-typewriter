@@ -1,4 +1,4 @@
-const CACHE_NAME = "wordmap-v4-voxel";
+const CACHE_NAME = "wordmap-v5-responsive-parent";
 const ASSETS = ["./", "./index.html", "./styles.css", "./world-theme.css", "./data.js", "./app.js", "./world.js", "./vendor/three.min.js", "./manifest.webmanifest", "./icon.svg", "./WordMap-Offline.html"];
 self.addEventListener("install", event => { event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))); self.skipWaiting(); });
 self.addEventListener("activate", event => { event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith("wordmap-") && key !== CACHE_NAME).map(key => caches.delete(key))))); self.clients.claim(); });
