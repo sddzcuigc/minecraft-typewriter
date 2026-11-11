@@ -7,7 +7,7 @@ const STORE="wordmap_product_v21", DAY=86400000, INTERVALS=[1,3,7,14,30];
 let state=loadState(), currentId=UNITS[0].seed, mode="easy", easyKind="letters", page="practice";
 let autoSpeechTimer=null, dictationTimer=null;
 let dictation={queue:[],index:0,active:false,paused:false,wrongCounted:false,sessionCorrect:0,sessionWrong:0,sessionAttempts:0,pendingAdvance:false,missedIds:[],firstRoundMissedCount:0,boostRound:false,repeatMistakes:true};
-let typed="", tiles=[], used=new Set(), selectedChunks=[], hintUsed=false, completed=false, hadErrorThisAttempt=false, lastBadValue="", autoTimer=null, showChunks=false;
+let typed="", tiles=[], used=new Set(), selectedChunks=[], hintUsed=false, completed=false, hadErrorThisAttempt=false, attemptCountedThisWord=false, lastBadValue="", autoTimer=null, showChunks=false;
 function initialState(){
  const progress={};BASE.forEach(w=>progress[w.id]={unlocked:!!w.seed,level:0,attempts:0,correct:0,wrong:0,easyWins:0,hardWins:0,dueAt:0,lastSeenAt:0});
  return {version:2,progress,customWords:[],customEdges:[],mnemonics:{},settings:{dailyGoal:10,autoSpeak:true,autoSpeakExample:true,speechRate:.8,dictationRepeat:2,dictationRepeatMistakes:true},daily:{date:today(),attempts:0,correct:0,wrong:0}};
@@ -116,7 +116,7 @@ function nextPinyinWord(){
  const list=pinyinWords();if(!list.length)return;let i=list.findIndex(w=>w.id===pinyinCurrentId);pinyinCurrentId=list[(i+1+list.length)%list.length].id;pinyinWrongCounted=false;renderPinyinPage();document.getElementById("pinyinInput").focus();
 }
 function renderMemoryPage(){
- const sel=document.getElementById("memoryWordSelect");if(!sel.options.length)sel.innerHTML=allWords().map(w=>'<option value="'+esc(w.id)+'">'+esc(w.en)+' · '+esc(w.zh)+'</option>').join("");
+ refreshWordSelectors();const sel=document.getElementById("memoryWordSelect");
  if(!byId(sel.value))sel.value=currentId;renderMemoryCurve();renderMemoryWord();
 }
 function renderMemoryCurve(){
@@ -155,8 +155,20 @@ async function renderWordImagePreview(){
  try{const rec=await getImageRecord(id);if(currentId!==id)return;if(rec&&rec.blob){if(practiceImageUrl)URL.revokeObjectURL(practiceImageUrl);practiceImageUrl=URL.createObjectURL(rec.blob);host.innerHTML='<img src="'+practiceImageUrl+'" alt="'+esc(w.en)+'" loading="lazy"><small>'+esc(rec.license||"许可信息待核验")+' · <a href="'+esc(rec.page||"#")+'" target="_blank" rel="noopener">图片来源</a></small>';}else host.innerHTML='<div class="word-image-empty">还没有缓存图片。联网后可自动搜索，保存后断网也能看。</div>';}
  catch(e){host.innerHTML='<div class="word-image-empty">图片缓存暂不可用；文字、拼写和复习不受影响。</div>';}
 }
+function refreshWordSelectors(){
+ const words=allWords(),options=words.map(w=>'<option value="'+esc(w.id)+'">'+esc(w.en)+' · '+esc(w.zh)+'</option>').join("");
+ const fill=(id,preferred)=>{
+  const el=document.getElementById(id);if(!el)return "";
+  const previous=preferred||el.value||currentId;
+  el.innerHTML=options;
+  el.value=words.some(w=>w.id===previous)?previous:(words.some(w=>w.id===currentId)?currentId:(words[0]?.id||""));
+  return el.value;
+ };
+ selectedImageWordId=fill("imageWordSelect",selectedImageWordId);
+ fill("memoryWordSelect");
+}
 async function renderImagePage(autoSearch){
- const sel=document.getElementById("imageWordSelect");if(!sel.options.length)sel.innerHTML=allWords().map(w=>'<option value="'+esc(w.id)+'">'+esc(w.en)+' · '+esc(w.zh)+'</option>').join("");
+ refreshWordSelectors();const sel=document.getElementById("imageWordSelect");
  if(!selectedImageWordId||!byId(selectedImageWordId))selectedImageWordId=currentId;sel.value=selectedImageWordId;
  await renderCachedImage();if(autoSearch!==false)searchCommonsImages();
 }
@@ -261,7 +273,7 @@ const keyboard=document.getElementById("keyboardInput");
 keyboard.addEventListener("input",handleKeyboard);
 keyboard.addEventListener("keydown",e=>{if(e.key==="Enter")e.preventDefault();});
 function setMode(m){mode=m;typed="";used=new Set();selectedChunks=[];hintUsed=false;completed=false;hadErrorThisAttempt=false;lastBadValue="";if(m==="easy")tiles=shuffle((easyKind==="chunks"?chunks(word()):letters(word())).map((ch,i)=>({ch,id:i})));document.getElementById("easyMode").classList.toggle("active",m==="easy");document.getElementById("hardMode").classList.toggle("active",m==="hard");renderPractice();if(m==="hard")setTimeout(()=>keyboard.focus(),50);}
-function setCurrent(id){const w=byId(id);if(!w)return;if(!unlocked(w)){toast("先完成相连的词，再来解锁它。");return;}clearTimeout(autoTimer);clearTimeout(autoSpeechTimer);if("speechSynthesis" in window)speechSynthesis.cancel();currentId=id;typed="";used=new Set();selectedChunks=[];hintUsed=false;completed=false;hadErrorThisAttempt=false;lastBadValue="";tiles=shuffle((easyKind==="chunks"?chunks(w):letters(w)).map((ch,i)=>({ch,id:i})));setPage("practice");window.dispatchEvent(new CustomEvent("wordmap:current",{detail:{id:currentId,word:word()}}));}
+function setCurrent(id){const w=byId(id);if(!w)return;if(!unlocked(w)){toast("先完成相连的词，再来解锁它。");return;}clearTimeout(autoTimer);clearTimeout(autoSpeechTimer);if("speechSynthesis" in window)speechSynthesis.cancel();currentId=id;typed="";used=new Set();selectedChunks=[];hintUsed=false;completed=false;hadErrorThisAttempt=false;attemptCountedThisWord=false;lastBadValue="";tiles=shuffle((easyKind==="chunks"?chunks(w):letters(w)).map((ch,i)=>({ch,id:i})));setPage("practice");window.dispatchEvent(new CustomEvent("wordmap:current",{detail:{id:currentId,word:word()}}));}
 function startUnit(unitId){const u=UNITS.find(x=>x.id===unitId);if(!u)return;const w=BASE.find(x=>x.unit===unitId&&unlocked(x)&&!mastered(x))||byId(u.seed);setCurrent(w.id);}
 function startDueReview(){const list=allWords().filter(due).sort((a,b)=>progress(a.id).dueAt-progress(b.id).dueAt);if(!list.length){toast("今天没有到期复习词。可以继续探索新词。");return;}setCurrent(list[0].id);toast(`进入到期复习：${list.length} 个词待复习。`);}
 function renderPractice(){
@@ -297,8 +309,11 @@ function renderSlots(badIndex=-1,badChar=""){
  const pct=Math.round(Math.min(typed.length,target.length)/target.length*100);
  document.getElementById("wordProgress").style.width=pct+"%";document.getElementById("wordProgressLabel").textContent=`拼写进度 ${pct}%`;
 }
-function countError(){hadErrorThisAttempt=true;
- const p=progress(currentId),now=Date.now();p.wrong++;p.attempts++;p.dueAt=now+4*60*60*1000;state.daily.wrong++;state.daily.attempts++;save();renderStats();
+function countError(){
+ const p=progress(currentId),now=Date.now();
+ if(!attemptCountedThisWord){p.attempts++;state.daily.attempts++;attemptCountedThisWord=true;}
+ if(!hadErrorThisAttempt){hadErrorThisAttempt=true;p.wrong++;state.daily.wrong++;}
+ p.dueAt=now+4*60*60*1000;save();renderStats();
 }
 function clickTile(i){
  if(completed)return;const t=tiles[i];if(!t||used.has(t.id))return;
@@ -331,7 +346,7 @@ function unlockChildren(fromId=currentId){
 }
 function complete(isEasy){
  if(completed)return;completed=true;const w=word(),p=progress(currentId),now=Date.now();
- p.correct++;p.attempts++;p.lastSeenAt=now;state.daily.correct++;state.daily.attempts++;
+ p.correct++;p.lastSeenAt=now;state.daily.correct++;if(!attemptCountedThisWord){p.attempts++;state.daily.attempts++;attemptCountedThisWord=true;}
  if(isEasy)p.easyWins++;
  else{
   p.hardWins++;
@@ -517,7 +532,7 @@ function renderParent(){
  if(distribution){const segments=buckets.map(b=>`<span class="parent-distribution-segment ${b.key}" style="width:${(b.count/denominator*100).toFixed(2)}%" title="${b.label} ${b.count}"></span>`).join("");const rows=buckets.map(b=>`<div class="parent-distribution-item"><i class="parent-distribution-dot ${b.key}"></i><div><strong>${b.label}</strong><small>${b.count} 个 · ${b.note}</small></div><b>${Math.round(b.count/denominator*100)}%</b></div>`).join("");distribution.innerHTML=`<div class="parent-distribution-bar">${segments}</div><div class="parent-distribution-list">${rows}</div>`;}
  const insight=document.getElementById("parentLearningInsight");if(insight){const ratio=total?Math.round(done/total*100):0;insight.innerHTML=`<strong>当前稳定掌握率 ${ratio}%</strong><span>掌握只统计五轮无提示间隔回忆完成的词，不把点击提示或简单模式算作稳定掌握。</span>`;}
  const goal=Math.max(1,Number(state.settings.dailyGoal)||10),goalPct=Math.min(100,Math.round(correct/goal*100)),today=document.getElementById("parentTodayBreakdown");
- if(today)today.innerHTML=`<div class="parent-today-numbers"><div><strong>${correct}</strong><span>正确回忆</span></div><div><strong>${wrong}</strong><span>错误记录</span></div><div><strong>${attempts}</strong><span>总作答</span></div></div><div class="parent-goal-track"><span style="width:${goalPct}%"></span></div><div class="parent-goal-caption">每日目标 ${goal} 次 · 已完成 ${goalPct}%</div>`;
+ if(today)today.innerHTML=`<div class="parent-today-numbers"><div><strong>${correct}</strong><span>正确完成</span></div><div><strong>${wrong}</strong><span>出错词数</span></div><div><strong>${attempts}</strong><span>总作答</span></div></div><div class="parent-goal-track"><span style="width:${goalPct}%"></span></div><div class="parent-goal-caption">每日目标 ${goal} 次 · 已完成 ${goalPct}%</div>`;
  const next=document.getElementById("parentNextStep");if(next){if(dueWords.length)next.innerHTML=`<div class="parent-next-step"><span class="parent-overline">SUGGESTED NEXT STEP</span><strong>先处理 ${dueWords.length} 个到期词</strong><p>先复习到期内容，再继续解锁新词，避免只学新词、不回头巩固。</p><button class="parent-action" id="parentReviewBtn" type="button">开始到期复习</button></div>`;else next.innerHTML=`<div class="parent-next-step"><span class="parent-overline">SUGGESTED NEXT STEP</span><strong>继续推进当前学习路径</strong><p>当前没有到期复习词，可以回到学生端继续探索已解锁单元。</p><button class="parent-action" id="parentContinueBtn" type="button">返回学生端</button></div>`;}
  const unitHost=document.getElementById("parentUnitProgress");if(unitHost)unitHost.innerHTML=UNITS.map(u=>{const list=BASE.filter(w=>w.unit===u.id),unitOpen=list.filter(unlocked).length,unitDone=list.filter(mastered).length,unitDue=list.filter(due).length,pct=list.length?Math.round(unitDone/list.length*100):0;return `<div class="parent-unit-row"><div class="parent-unit-heading"><strong>${esc(u.title)}</strong><span>${unitDone}/${list.length} 已掌握</span></div><div class="parent-unit-track"><span style="width:${pct}%"></span></div><small>已解锁 ${unitOpen} · 待复习 ${unitDue}</small></div>`;}).join("");
  document.getElementById("dailyGoal").value=state.settings.dailyGoal;document.getElementById("autoSpeakSetting").checked=state.settings.autoSpeak!==false;document.getElementById("autoExampleSetting").checked=state.settings.autoSpeakExample!==false;document.getElementById("speechRateSetting").value=String(state.settings.speechRate||.8);
@@ -534,7 +549,7 @@ function addCustom(){
  if(!/^[a-z]+(?:-[a-z]+)*$/.test(en)||!zh){toast("请输入英文单词和中文意思。");return;}
  if(allWords().some(w=>w.en.toLowerCase()===en)){toast("这个单词已经存在。");return;}
  const id="custom_"+en.replace(/[^a-z0-9]+/g,"_"),w={id,en,zh,unit:"custom",emoji:"🔤",chunks:en.split("-"),seed:true,custom:true,source:"家长自定义",practiceExamples:[],textbookExamples:[],examExamples:[],textbookStatus:"自定义词"};
- state.customWords.push(w);state.progress[id]={unlocked:true,level:0,attempts:0,correct:0,wrong:0,easyWins:0,hardWins:0,dueAt:0,lastSeenAt:0};
+ state.customWords.push(w);refreshWordSelectors();state.progress[id]={unlocked:true,level:0,attempts:0,correct:0,wrong:0,easyWins:0,hardWins:0,dueAt:0,lastSeenAt:0};
  const parentId=document.getElementById("linkCustom").checked?currentId:"";
  if(parentId)state.customEdges.push({from:parentId,to:id,type:"家长关联",reason:`家长把“${word().en}”与“${en}”关联`});
  document.getElementById("customEn").value="";document.getElementById("customZh").value="";document.getElementById("linkCustom").checked=true;
@@ -543,23 +558,24 @@ function addCustom(){
 function deleteCustom(id){
  if(!confirm("确定删除这个自定义词吗？"))return;
  state.customWords=state.customWords.filter(w=>w.id!==id);delete state.progress[id];state.customEdges=state.customEdges.filter(e=>e.from!==id&&e.to!==id);
- if(currentId===id){currentId=UNITS[0].seed;typed="";tiles=[];renderPractice();}
- save();renderParent();renderStats();
+ if(currentId===id)setCurrent(UNITS[0].seed);
+ refreshWordSelectors();save();renderParent();renderStats();
 }
 function exportBackup(){
  const payload={app:"WordMap",schema:22,exportedAt:new Date().toISOString(),curriculum:DATA.curriculum,progress:state.progress,customWords:state.customWords,customEdges:state.customEdges,mnemonics:state.mnemonics,settings:state.settings,daily:state.daily};
- const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="WordMap-学习记录备份.json";a.click();URL.revokeObjectURL(a.href);toast("备份文件已生成。");
+ const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),a=document.createElement("a"),url=URL.createObjectURL(blob);a.href=url;a.download="WordMap-学习记录备份.json";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);toast("备份文件已生成。");
 }
 function importBackup(e){
- const file=e.target.files?.[0];if(!file)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(x.app!=="WordMap"||![21,22].includes(x.schema)||!x.progress)throw 0;if(!confirm("导入将覆盖当前学习记录，建议先导出备份。继续吗？"))return;const f=initialState();state={...f,progress:{...f.progress,...x.progress},customWords:Array.isArray(x.customWords)?x.customWords:[],customEdges:Array.isArray(x.customEdges)?x.customEdges:[],settings:{...f.settings,...x.settings},daily:x.daily||f.daily,mnemonics:x.mnemonics&&typeof x.mnemonics==="object"?x.mnemonics:{}};BASE.forEach(w=>{if(w.seed)progress(w.id).unlocked=true;});save();renderParent();renderStats();renderPractice();toast("学习记录恢复成功。");}catch(err){toast("备份文件无效，未修改当前记录。");}e.target.value="";};r.readAsText(file);
+ const file=e.target.files?.[0];if(!file)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(x.app!=="WordMap"||![21,22].includes(x.schema)||!x.progress)throw 0;if(!confirm("导入将覆盖当前学习记录，建议先导出备份。继续吗？"))return;const f=initialState();state={...f,progress:{...f.progress,...x.progress},customWords:Array.isArray(x.customWords)?x.customWords:[],customEdges:Array.isArray(x.customEdges)?x.customEdges:[],settings:{...f.settings,...x.settings},daily:x.daily||f.daily,mnemonics:x.mnemonics&&typeof x.mnemonics==="object"?x.mnemonics:{}};BASE.forEach(w=>{if(w.seed)progress(w.id).unlocked=true;});if(!byId(currentId)||!unlocked(byId(currentId)))currentId=UNITS[0].seed;
+ typed="";tiles=[];used=new Set();selectedChunks=[];hintUsed=false;completed=false;hadErrorThisAttempt=false;attemptCountedThisWord=false;lastBadValue="";
+ refreshWordSelectors();save();renderParent();renderStats();renderPractice();toast("学习记录恢复成功。");}catch(err){toast("备份文件无效，未修改当前记录。");}e.target.value="";};r.readAsText(file);
 }
-function clearData(){if(!confirm("确定清空本机全部学习记录和自定义词库？此操作不可撤销。"))return;state=initialState();currentId=UNITS[0].seed;typed="";tiles=[];used=new Set();selectedChunks=[];save();renderPractice();renderParent();renderStats();toast("本机数据已清空。");}
+function clearData(){if(!confirm("确定清空本机全部学习记录和自定义词库？此操作不可撤销。"))return;state=initialState();currentId=UNITS[0].seed;typed="";tiles=[];used=new Set();selectedChunks=[];hintUsed=false;completed=false;hadErrorThisAttempt=false;attemptCountedThisWord=false;lastBadValue="";refreshWordSelectors();save();renderPractice();renderParent();renderStats();toast("本机数据已清空。");}
 function init(){
  document.getElementById("unitSelect").innerHTML=UNITS.map(u=>`<option value="${u.id}">${esc(u.title)}</option>`).join("");
  document.getElementById("dictationUnit").innerHTML='<option value="all">全册</option>'+UNITS.map(u=>`<option value="${u.id}">${esc(u.title)}</option>`).join("");
  document.getElementById("pinyinUnitSelect").innerHTML='<option value="all">全册</option>'+UNITS.map(u=>'<option value="'+u.id+'">'+esc(u.title)+'</option>').join("");
- document.getElementById("imageWordSelect").innerHTML=allWords().map(w=>'<option value="'+esc(w.id)+'">'+esc(w.en)+' · '+esc(w.zh)+'</option>').join("");
- document.getElementById("memoryWordSelect").innerHTML=allWords().map(w=>'<option value="'+esc(w.id)+'">'+esc(w.en)+' · '+esc(w.zh)+'</option>').join("");
+ refreshWordSelectors();
  document.getElementById("dictationRepeat").value=String(state.settings.dictationRepeat||2);
  document.getElementById("dictationRepeatMistakes").checked=state.settings.dictationRepeatMistakes!==false;
  document.getElementById("dictationRate").value=String(state.settings.speechRate||.8);
