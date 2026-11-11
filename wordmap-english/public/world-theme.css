@@ -244,7 +244,7 @@ body.parent-mode{background:#f0f1e9;color:#29392e}body.parent-mode #worldCanvas{
 body.parent-mode .world-label-layer,body.parent-mode .world-quest-panel,body.parent-mode .world-current-card,body.parent-mode .world-hint,body.parent-mode .world-reset{display:none}
 body.parent-mode .app{display:flex;flex-direction:column;max-width:1380px;min-height:100svh;margin:0 auto;padding:22px 26px 34px;overflow:visible;pointer-events:auto}body.parent-mode .app>*{pointer-events:auto}
 body.parent-mode .top{position:relative;top:auto;left:auto;right:auto;width:100%;margin:0}
-body.parent-mode .stats{position:relative;top:auto;right:auto;left:auto;width:100%;grid-template-columns:repeat(4,minmax(0,1fr));margin:15px 0 0}
+body.parent-mode .stats{display:none}
 body.parent-mode .stat{min-width:0;background:rgba(255,255,255,.88);border:1px solid #e0e7dc;box-shadow:0 7px 22px rgba(37,56,39,.05)}
 body.parent-mode .nav{position:relative;left:auto;bottom:auto;transform:none;align-self:flex-start;max-width:100%;margin:15px 0 0;overflow-x:auto}
 body.parent-mode .nav button{background:#fff;border-color:#e0e7dc;color:#657465;box-shadow:none}body.parent-mode .nav button.active{background:#426b4d;border-color:#426b4d;color:#fff9e9}
@@ -322,7 +322,7 @@ body.parent-mode #parentPage{position:relative;z-index:20;top:auto;right:auto;le
 @media(prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 @media(max-width:760px){
  body.parent-mode .app{padding:12px 12px 28px}body.parent-mode .top{align-items:flex-start;flex-direction:column}body.parent-mode .top-actions{display:flex}
- body.parent-mode .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:12px}
+ body.parent-mode .stats{display:none}
  body.parent-mode .nav{align-self:stretch;width:100%;margin-top:12px}body.parent-mode .nav button{flex:1 0 auto;min-width:58px}
  body.parent-mode .parent-hero{padding:19px 17px;align-items:flex-start;flex-direction:column}body.parent-mode .parent-source{width:100%}
  body.parent-mode .parent-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
