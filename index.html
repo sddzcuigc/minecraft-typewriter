@@ -1,108 +1,12 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#294638"><title>词汇方块世界 WordCraft V5.0 · 学生探索与家长学习报告</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="world-theme.css"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/svg+xml" href="icon.svg"></head>
-<body class="voxel-body"><canvas id="worldCanvas" aria-label="Three.js 方块英语世界"></canvas><div class="world-vignette"></div><div id="worldLabels" class="world-label-layer"></div><aside class="world-quest-panel"><div class="quest-kicker">YOUR LEARNING WORLD / 06</div><div class="quest-title">今天，探索一个新世界</div><div class="quest-desc">选择一个世界，解锁词汇、完成拼写挑战，让知识地图逐渐亮起来。</div><div id="worldUnitList" class="world-unit-list"></div><div class="quest-footer">拖动世界查看地形 · 点击浮岛开始冒险。<br>每个岛屿都是一个学习单元。</div></aside><aside class="world-current-card"><div class="current-kicker">CURRENT QUEST / 当前任务</div><div id="worldCurrentWord" class="world-current-word">SPORT</div><div id="worldCurrentMeaning" class="world-current-meaning">运动</div><div id="worldCurrentUnit" class="world-current-unit">运动与坚持 · 当前任务</div><div class="world-current-progress"><span id="worldProgressBar"></span></div></aside><div class="world-hint">拖动旋转 · 滚轮缩放 · 点击浮岛探索</div><button id="worldResetView" class="world-reset" type="button">⌖ 重置世界视角</button><div class="app">
-<header class="top"><div class="brand"><div class="logo"><span>W</span></div><div><h1>词汇方块世界 <span style="font-size:12px;color:#8b98ad">WORDCRAFT</span></h1><div class="sub">把英语学习变成一场方块世界冒险 · 153 个词条 · Three.js 本地 3D 引擎</div></div></div><div class="top-actions"><span class="chip" id="streak">今日正确 0 次</span><span class="chip" id="todayProgress">每日目标</span></div></header>
-<section class="stats"><div class="stat"><div class="k">已解锁</div><div class="v" id="statOpen">6</div><div class="hint">可以开始探索</div></div><div class="stat"><div class="k">已掌握</div><div class="v" id="statDone">0</div><div class="hint">跨日无提示回忆</div></div><div class="stat"><div class="k">待复习</div><div class="v" id="statDue">0</div><div class="hint">需要复习的词</div></div><div class="stat"><div class="k">今日准确率</div><div class="v" id="statAccuracy">—</div><div class="hint">按今日答题记录</div></div></section>
-<nav class="nav" aria-label="学习导航"><button class="active" data-page="practice"><span class="hotbar-icon">⚔</span><span>学习</span></button><button data-page="dictation"><span class="hotbar-icon">🎧</span><span>听写</span></button><button data-page="pinyin"><span class="hotbar-icon">⌨</span><span>拼写</span></button><button data-page="images"><span class="hotbar-icon">🖼</span><span>图鉴</span></button><button data-page="memory"><span class="hotbar-icon">✦</span><span>记忆</span></button><button data-page="map"><span class="hotbar-icon">🗺</span><span>星图</span></button><button data-page="parent"><span class="hotbar-icon">⚙</span><span>家长</span></button></nav>
-<section id="practicePage"><div class="layout"><main class="panel practice"><div class="panel-head"><div><div class="eyebrow">LEARN BY RECALL</div><div class="unit-title" id="unitTitle"></div></div><div class="mode"><button id="easyMode" class="active">简单 · 鼠标点字</button><button id="hardMode">进阶 · 键盘打字</button></div></div>
-<div class="word-card"><div class="word-emoji" id="wordEmoji">🏃</div><div class="meaning" id="meaning">运动</div><div class="meta" id="wordMeta">看中文，回忆英文拼写</div><div class="chunk-row hidden" id="chunkRow"></div><div class="word-image-preview" id="wordImagePreview"></div></div>
-<div class="controls"><button class="soft" id="speakBtn">🔊 重读单词</button><button class="soft" id="speakExampleBtn">▶ 朗读例句</button><button class="soft" id="autoSpeakToggle">自动朗读：开</button><button class="soft" id="chunksBtn">显示拼写块</button><button class="soft" id="hintBtn">给一点提示</button><button class="soft" id="mapCurrentBtn">查看关联</button><button class="soft" id="wordImageBtn">🖼 单词配图</button><button class="soft" id="wordMemoryBtn">✦ 记忆方法</button></div>
-<div class="submode hidden" id="easySubmode" style="display:flex;justify-content:center;gap:7px"><button class="active" id="letterKind">点字母</button><button id="chunkKind">点拼写块</button></div>
-<div class="progress-track"><div class="progress-fill" id="wordProgress" style="width:0%"></div></div><div class="progress-label" id="wordProgressLabel">拼写进度 0%</div>
-<div class="answer-zone"><div class="answer-label" id="answerLabel">按顺序点击字母，拼出英文单词</div><div class="assembled" id="assembled"></div><div class="tiles" id="tileArea"></div><div class="keyboard hidden" id="keyboardArea"><input id="keyboardInput" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="点这里，然后直接用键盘输入"></div><div class="feedback" id="feedback">答对后自动进入关联词，不需要提交。</div><div class="tip" id="tipText">简单模式适合熟悉字母；进阶模式用来检验真正的拼写回忆。</div></div></main><section class="examples-panel" id="examplesPanel"><div class="examples-title">把单词放进句子里</div><div id="examplesContent"></div></section>
-<aside class="panel side"><div class="side-section"><h3>当前学习进度</h3><div class="side-row"><span>本单元</span><strong id="sideUnit"></strong></div><div class="side-row"><span>稳定掌握</span><strong id="unitCount"></strong></div><div class="mini-track"><span id="unitBar" style="width:0%"></span></div><div class="side-row"><span>到期复习</span><strong id="dueSide">0 个</strong></div></div><div class="side-section"><h3>这个词会带你认识</h3><div class="relation-list" id="relatedList"></div></div><div class="side-section"><h3>继续学习</h3><div class="field"><label>选择单元</label><select id="unitSelect"></select></div><div class="controls" style="justify-content:flex-start;margin:8px 0"><button class="soft" id="reviewBtn">只练到期词</button></div></div><div class="side-section"><h3>掌握规则</h3><p class="tip" style="text-align:left">鼠标模式用于熟悉拼写。键盘模式无提示答对后安排复习；经过跨日回忆，才逐步标记为稳定掌握。</p></div></aside></div></section>
-
-<section id="pinyinPage" class="panel view hidden">
- <div class="view-head"><div><h2>拼音打字练习</h2><p>先听标准英语，再用汉语拼音近音钩子辅助回忆，直接键入英文；没有提交按钮。</p></div></div>
- <div class="feature-layout">
-  <div class="feature-card">
-   <div class="feature-kicker" id="pinyinUnitName">拼音线索</div><div class="feature-meaning" id="pinyinMeaning">选择一个词开始</div><div class="pinyin-meta" id="pinyinEnglishLength"></div>
-   <div class="pinyin-cue" id="pinyinCue"></div><div id="pinyinChunks" class="chunk-row"></div>
-   <div class="pinyin-slots" id="pinyinSlots"></div><div class="pinyin-progress"><span id="pinyinProgress"></span></div><div class="pinyin-progress-label" id="pinyinProgressText">拼写进度 0%</div>
-   <input class="pinyin-input" id="pinyinInput" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="直接输入英文单词">
-   <div class="feedback" id="pinyinFeedback">拼对后自动进入下一个词。</div>
-   <div class="controls"><button class="soft" id="pinyinSpeakBtn">🔊 重听标准发音</button><button class="soft" id="pinyinNextBtn">跳过此词</button></div>
-   <div class="tip">拼音近音只是记忆钩子，不是英语音标。遇到不自然的近音，请在记忆中心修改或删除；标准读音以英语朗读为准。</div>
-  </div>
-  <aside class="feature-card"><h3>选择单元和单词</h3><div class="field"><label>单元</label><select id="pinyinUnitSelect"></select></div><div class="pinyin-word-list" id="pinyinWordList"></div></aside>
- </div>
-</section>
-<section id="imagesPage" class="panel view hidden">
- <div class="view-head"><div><h2>图片词典</h2><p>自动搜索 Wikimedia Commons 图片；选中后缓存到本机，之后断网也能查看。</p></div></div>
- <div class="feature-card">
-  <div class="image-toolbar"><select id="imageWordSelect"></select><button class="primary" id="imageSearchBtn">重新搜索图片</button><button class="soft" id="imageExportBtn">导出离线图片包</button><label class="soft" for="imageImportInput">导入图片包</label><input class="hidden" id="imageImportInput" type="file" accept=".json,application/json"></div>
-  <div id="imageCachedPreview" class="image-cached"><div class="image-empty">检查本机缓存中…</div></div>
-  <div class="tip" id="imageSearchStatus">打开本页后会自动搜索当前单词。图片许可和作者信息会随图片一并保存。</div>
-  <div id="imageResults" class="image-grid"></div>
-  <p class="memory-note">图片来自 Wikimedia Commons。每张图均保留原始文件页、作者和许可字段；许可信息缺失时会明确标注。在线搜索需要网络，缓存图片和文字学习可离线使用。</p>
- </div>
-</section>
-<section id="memoryPage" class="panel view hidden">
- <div class="view-head"><div><h2>记忆中心 · 记忆曲线与谐音空间</h2><p>把拼音近音、拆分、故事、场景和词根联想保存为自己的记忆卡。</p></div></div>
- <div class="memory-stats" id="memoryStats"></div>
- <div class="memory-grid">
-  <div class="feature-card">
-   <h3>间隔复习曲线</h3><div class="memory-curve" id="memoryCurve"></div><div id="memoryIntervals"></div>
-   <div class="controls"><button class="primary" id="memoryReviewBtn">开始到期复习</button></div>
-   <h3 style="margin-top:18px">到期词队列</h3><div id="memoryDueList"></div>
-  </div>
-  <div class="feature-card">
-   <h3>谐音与联想空间</h3><div class="field"><label>选择单词</label><select id="memoryWordSelect"></select></div>
-   <div class="memory-word-info" id="memoryWordInfo"></div><div id="memoryChunks" class="chunk-row"></div>
-   <div class="memory-fields">
-    <div><label for="memoryPinyin">汉语拼音近音（记忆钩子）</label><textarea id="memoryPinyin" placeholder="例如：píng-pāng（只作联想，不是音标）"></textarea></div>
-    <div><label for="memoryHomophone">谐音联想</label><textarea id="memoryHomophone" placeholder="用一句顺口、好记的话"></textarea></div>
-    <div><label for="memoryStory">故事记忆</label><textarea id="memoryStory" placeholder="把单词放进一个小故事"></textarea></div>
-    <div><label for="memoryScene">图像／空间记忆</label><textarea id="memoryScene" placeholder="把单词放进熟悉的地点或画面"></textarea></div>
-    <div style="grid-column:1/-1"><label for="memoryStructure">拆词、词根词缀或其他方法</label><textarea id="memoryStructure" placeholder="例如：help + -ful；或自己想到的拆分方法"></textarea></div>
-   </div>
-   <div class="controls"><button class="primary" id="saveMnemonicBtn">保存这张记忆卡</button><button class="soft" id="memoryToPracticeBtn">回到当前词练习</button></div>
-   <p class="memory-note">内置示例为本项目原创联想。可自行改写；拼音近音必须标作近似提示，不能代替标准发音。用户自己的记忆卡保存在本机并进入 JSON 备份。</p>
-  </div>
- </div>
-</section>
-<section id="mapPage" class="panel view hidden"><div class="view-head"><div><h2>词汇星图</h2><p id="mapContext">围绕当前单词探索关联。</p></div><button class="soft" id="backPractice" onclick="document.querySelector('[data-page=practice]').click()">回到练习</button></div><div class="map-card"><div class="map-canvas" id="mapCanvas"></div><div class="map-legend"><span><i class="dot"></i>未解锁</span><span><i class="dot open"></i>已解锁</span><span><i class="dot done"></i>稳定掌握</span></div></div><div class="map-details" id="mapDetails"></div></section>
-
-<section id="parentPage" class="panel view hidden parent-view" aria-labelledby="parentTitle">
- <header class="parent-hero"><div class="parent-hero-copy"><div class="parent-eyebrow">FAMILY LEARNING REPORT</div><h2 id="parentTitle">看见进步，也看见下一步。</h2><p>这里汇总学生端在当前浏览器中的真实练习记录。先看掌握结构，再看今天最值得做的一件事。</p></div><div class="parent-source"><span class="parent-source-indicator"></span><div><strong>本机学习档案</strong><small>学生端与家长端共享当前浏览器记录</small></div></div></header>
- <div class="parent-kpis">
-  <article class="parent-kpi"><span>词库总量</span><strong id="parentTotalWords">153</strong><small id="parentUnlockedWords">已解锁 6 个词条</small></article>
-  <article class="parent-kpi"><span>稳定掌握</span><strong id="parentMasteredCount">0</strong><small>完成五轮无提示间隔回忆</small></article>
-  <article class="parent-kpi"><span>待复习</span><strong id="parentDueCount">0</strong><small id="parentDueHint">按当前复习计划计算</small></article>
-  <article class="parent-kpi"><span>今日准确率</span><strong id="parentAccuracy">—</strong><small id="parentTodayAttempts">今日尚无作答记录</small></article>
- </div>
- <div class="parent-dashboard-grid">
-  <section class="parent-card"><div class="parent-card-head"><div><div class="parent-overline">MASTERY MAP</div><h3>词汇掌握结构</h3></div><span class="parent-note">按当前复习等级统计</span></div><div id="parentMasteryDistribution" class="parent-distribution"></div><div id="parentLearningInsight" class="parent-insight"></div></section>
-  <section class="parent-card"><div class="parent-card-head"><div><div class="parent-overline">DAILY CHECK-IN</div><h3>今日学习表现</h3></div></div><div id="parentTodayBreakdown"></div><div id="parentNextStep"></div></section>
-  <section class="parent-card"><div class="parent-card-head"><div><div class="parent-overline">UNIT REPORT</div><h3>单元学习进度</h3></div><span class="parent-note">只统计词库中的真实词条</span></div><div id="parentUnitProgress" class="parent-unit-progress"></div><details class="parent-details"><summary>查看单元详细数据</summary><div class="table-wrap"><table><thead><tr><th>单元</th><th>解锁</th><th>掌握</th><th>待复习</th></tr></thead><tbody id="reportTable"></tbody></table></div></details></section>
-  <section class="parent-card"><div class="parent-card-head"><div><div class="parent-overline">FOCUS WORDS</div><h3>需要加强的词</h3></div></div><p class="parent-card-description">按累计错误次数排序。点击单词可直接回到学生端练习。</p><div class="mistakes" id="mistakeList"></div></section>
- </div>
- <div class="parent-tools-grid">
-  <section class="parent-card"><div class="parent-overline">WORD LIBRARY</div><h3>自定义词库</h3><div class="parent-form-row"><div class="field"><label for="customEn">英文单词</label><input id="customEn" placeholder="例如 apple"></div><div class="field"><label for="customZh">中文意思</label><input id="customZh" placeholder="例如 苹果"></div></div><label class="parent-check"><input id="linkCustom" type="checkbox" checked> 将新词关联到当前学习词</label><div class="parent-inline-action"><button class="soft" id="addCustomBtn" type="button">添加单词</button></div><div class="custom-list" id="customList"></div></section>
-  <section class="parent-card"><div class="parent-overline">LEARNING RHYTHM</div><h3>学习节奏</h3><div class="field"><label for="dailyGoal">每日正确回忆目标</label><select id="dailyGoal"><option value="5">5 次</option><option value="10">10 次</option><option value="15">15 次</option><option value="20">20 次</option></select></div><div class="parent-setting-group"><label class="parent-check"><input id="autoSpeakSetting" type="checkbox" checked> 进入学习词时自动朗读英文</label><label class="parent-check"><input id="autoExampleSetting" type="checkbox" checked> 单词后自动朗读原创例句</label></div><div class="field"><label for="speechRateSetting">默认朗读速度</label><select id="speechRateSetting"><option value="0.65">很慢 0.65×</option><option value="0.8">慢速 0.8×</option><option value="0.9">稍慢 0.9×</option><option value="1">正常 1.0×</option><option value="1.1">稍快 1.1×</option></select></div></section>
-  <section class="parent-card"><div class="parent-overline">DATA & PRIVACY</div><h3>数据备份</h3><p class="parent-card-description">学习记录、自定义词和设置保存在当前浏览器。换设备前先导出 JSON，再在另一台设备导入。</p><div class="parent-backup-actions"><button class="soft" id="exportBtn" type="button">导出备份</button><label class="soft" for="importFile">导入备份</label><input class="hidden" id="importFile" type="file" accept=".json,application/json"></div><div class="parent-danger-zone"><span>清空操作不可撤销，建议先导出备份。</span><button class="soft" id="clearBtn" type="button">清空本机数据</button></div></section>
- </div>
- <p class="parent-footnote">数据边界：目前没有账号和云端同步。学生端与家长端在同一浏览器中共用记录；跨设备请使用备份导入/导出。</p>
-</section>
-
-<section id="dictationPage" class="panel view hidden">
-<div class="view-head"><div><h2>自动听写</h2><p>先听英文发音，再直接键盘拼写。输入正确后自动进入下一个词，不需要提交。</p></div><div class="dictation-badge" id="dictationVoiceStatus">语音检测中</div></div>
-<div class="dictation-settings">
- <div class="field"><label for="dictationUnit">选择单元</label><select id="dictationUnit"><option value="all">全册</option></select></div>
- <div class="field"><label for="dictationScope">听写范围</label><select id="dictationScope"><option value="unit">本单元全部词</option><option value="unitWrong">本单元错词</option><option value="due">到期复习词</option><option value="wrong">全册错词</option><option value="unmastered">全册未掌握</option><option value="all">全册全部词</option></select></div>
- <div class="field"><label for="dictationRepeat">每词朗读次数</label><select id="dictationRepeat"><option value="1">1 次</option><option value="2" selected>2 次</option><option value="3">3 次</option></select></div>
- <div class="field"><label for="dictationRate">朗读速度</label><select id="dictationRate"><option value="0.65">很慢 0.65×</option><option value="0.8" selected>慢速 0.8×</option><option value="0.9">稍慢 0.9×</option><option value="1">正常 1.0×</option><option value="1.1">稍快 1.1×</option></select></div><div class="field dictation-extra"><label><input id="dictationRepeatMistakes" type="checkbox" checked> 首轮结束后，错词自动再练一轮</label><small>只回炉本轮答错的词，不重复整套题。</small></div>
-</div>
-<div class="dictation-actions"><button class="primary" id="dictationStart">开始听写</button><button class="soft" id="dictationPause" disabled>暂停</button><button class="soft" id="dictationReplay" disabled>重播当前词</button><button class="soft" id="dictationStop" disabled>结束</button></div>
-<div class="dictation-card">
- <div class="dictation-count" id="dictationCount">尚未开始</div>
- <div class="dictation-word-hint" id="dictationHint">听清发音，拼出完整单词</div>
- <div class="dictation-progress"><span id="dictationProgressBar"></span></div>
- <input id="dictationInput" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="点击“开始听写”后，在这里直接打字" disabled>
- <div class="dictation-feedback" id="dictationFeedback">没有提交按钮，拼对会自动进入下一题。</div>
- <div class="dictation-summary" id="dictationSummary"></div>
-</div>
-<p class="tip">语音使用浏览器和操作系统已有的英语语音。网页不下载语音、不调用在线 TTS；是否能完全断网发声，取决于目标电脑是否安装本地英语语音包。</p>
-</section>
-<footer class="tip" style="padding:18px 0 4px">本地 Three.js 世界 · 学习记录保存在当前设备</footer></div><div class="toast" id="toast"></div><script src="vendor/three.min.js"></script><script src="data.js"></script>
-<script src="app.js"></script><script src="world.js"></script><script>if("serviceWorker" in navigator && location.protocol.indexOf("http")===0){navigator.serviceWorker.register("./sw.js").catch(function(){});}</script></body></html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prototype</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

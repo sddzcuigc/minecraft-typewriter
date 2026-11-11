@@ -207,7 +207,7 @@ async function importImagePack(e){
 function setPage(next){
  if(page==="dictation"&&next!=="dictation"&&dictation.active)stopDictation(false);
  if(page==="practice"&&next!=="practice"){clearTimeout(autoSpeechTimer);if("speechSynthesis" in window)speechSynthesis.cancel();}
- if(next!=="pinyin")clearTimeout(pinyinTimer);page=next;["practice","dictation","pinyin","images","memory","map","parent"].forEach(id=>document.getElementById(id+"Page").classList.toggle("hidden",id!==next));
+ if(next!=="pinyin")clearTimeout(pinyinTimer);page=next;document.body.classList.toggle("parent-mode",next==="parent");document.body.dataset.page=next;["practice","dictation","pinyin","images","memory","map","parent"].forEach(id=>document.getElementById(id+"Page").classList.toggle("hidden",id!==next));
  document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===next));
  if(next==="map")renderMap();if(next==="parent")renderParent();if(next==="practice")renderPractice();if(next==="dictation")renderDictationPage();if(next==="pinyin")renderPinyinPage();if(next==="images"){selectedImageWordId=currentId;renderImagePage(true);}if(next==="memory")renderMemoryPage();window.dispatchEvent(new CustomEvent("wordmap:page",{detail:{page:next}}));
 }
@@ -495,7 +495,7 @@ function renderStats(){
  ensureDay();const all=allWords(),open=all.filter(unlocked).length,done=all.filter(mastered).length,dueN=all.filter(due).length;
  document.getElementById("statOpen").textContent=open;document.getElementById("statDone").textContent=done;document.getElementById("statDue").textContent=dueN;
  document.getElementById("statAccuracy").textContent=state.daily.attempts?Math.round(state.daily.correct/state.daily.attempts*100)+"%":"—";
- document.getElementById("streak").textContent=`今日正确 ${state.daily.correct} 次`;document.getElementById("todayProgress").textContent=`目标 ${state.settings.dailyGoal} 次`;window.dispatchEvent(new CustomEvent("wordmap:stats",{detail:{open:open,done:done,due:dueN,correct:state.daily.correct,goal:state.settings.dailyGoal}}));
+ document.getElementById("streak").textContent=`今日正确 ${state.daily.correct} 次`;document.getElementById("todayProgress").textContent=`目标 ${state.settings.dailyGoal} 次`;window.dispatchEvent(new CustomEvent("wordmap:stats",{detail:{open:open,done:done,due:dueN,correct:state.daily.correct,goal:state.settings.dailyGoal}}));if(page==="parent")renderParent();
 }
 function renderMap(){
  const w=word(),ns=neighbors(currentId).slice(0,10),canvas=document.getElementById("mapCanvas"),W=800,H=340,cx=400,cy=170,rx=285,ry=125;let lines="",nodes="";
@@ -507,16 +507,27 @@ function renderMap(){
 }
 function renderMapIfVisible(){if(page==="map")renderMap();}
 function renderParent(){
- document.getElementById("dailyGoal").value=state.settings.dailyGoal;
- document.getElementById("autoSpeakSetting").checked=state.settings.autoSpeak!==false;
- document.getElementById("autoExampleSetting").checked=state.settings.autoSpeakExample!==false;
- document.getElementById("speechRateSetting").value=String(state.settings.speechRate||.8);
- document.getElementById("customList").innerHTML=state.customWords.length?state.customWords.map(w=>`<span class="custom-item">${esc(w.en)} · ${esc(w.zh)} <button data-delcustom="${esc(w.id)}">删除</button></span>`).join(""):'<span class="muted" style="font-size:11px">暂无自定义单词。</span>';
+ const all=allWords(),total=all.length,open=all.filter(unlocked).length,done=all.filter(mastered).length,dueWords=all.filter(due);
+ const attempts=state.daily.attempts||0,correct=state.daily.correct||0,wrong=state.daily.wrong||0,accuracy=attempts?Math.round(correct/attempts*100):null;
+ const setText=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value;};
+ setText("parentTotalWords",total);setText("parentUnlockedWords",`已解锁 ${open} / ${total} 个词条`);setText("parentMasteredCount",done);setText("parentDueCount",dueWords.length);
+ setText("parentDueHint",dueWords.length?"建议优先完成到期复习":"当前没有到期词");setText("parentAccuracy",accuracy===null?"—":accuracy+"%");setText("parentTodayAttempts",`今日 ${attempts} 次作答 · 正确 ${correct} · 错误 ${wrong}`);
+ const buckets=[{key:"locked",label:"未解锁",count:all.filter(w=>!unlocked(w)).length,note:"尚未进入学习路径"},{key:"open",label:"已解锁待学习",count:all.filter(w=>unlocked(w)&&progress(w.id).level===0).length,note:"可以开始练习"},{key:"review",label:"复习进行中",count:all.filter(w=>unlocked(w)&&progress(w.id).level>0&&progress(w.id).level<5).length,note:"间隔回忆尚未完成"},{key:"done",label:"稳定掌握",count:done,note:"完成五轮无提示回忆"}];
+ const denominator=Math.max(1,total),distribution=document.getElementById("parentMasteryDistribution");
+ if(distribution){const segments=buckets.map(b=>`<span class="parent-distribution-segment ${b.key}" style="width:${(b.count/denominator*100).toFixed(2)}%" title="${b.label} ${b.count}"></span>`).join("");const rows=buckets.map(b=>`<div class="parent-distribution-item"><i class="parent-distribution-dot ${b.key}"></i><div><strong>${b.label}</strong><small>${b.count} 个 · ${b.note}</small></div><b>${Math.round(b.count/denominator*100)}%</b></div>`).join("");distribution.innerHTML=`<div class="parent-distribution-bar">${segments}</div><div class="parent-distribution-list">${rows}</div>`;}
+ const insight=document.getElementById("parentLearningInsight");if(insight){const ratio=total?Math.round(done/total*100):0;insight.innerHTML=`<strong>当前稳定掌握率 ${ratio}%</strong><span>掌握只统计五轮无提示间隔回忆完成的词，不把点击提示或简单模式算作稳定掌握。</span>`;}
+ const goal=Math.max(1,Number(state.settings.dailyGoal)||10),goalPct=Math.min(100,Math.round(correct/goal*100)),today=document.getElementById("parentTodayBreakdown");
+ if(today)today.innerHTML=`<div class="parent-today-numbers"><div><strong>${correct}</strong><span>正确回忆</span></div><div><strong>${wrong}</strong><span>错误记录</span></div><div><strong>${attempts}</strong><span>总作答</span></div></div><div class="parent-goal-track"><span style="width:${goalPct}%"></span></div><div class="parent-goal-caption">每日目标 ${goal} 次 · 已完成 ${goalPct}%</div>`;
+ const next=document.getElementById("parentNextStep");if(next){if(dueWords.length)next.innerHTML=`<div class="parent-next-step"><span class="parent-overline">SUGGESTED NEXT STEP</span><strong>先处理 ${dueWords.length} 个到期词</strong><p>先复习到期内容，再继续解锁新词，避免只学新词、不回头巩固。</p><button class="parent-action" id="parentReviewBtn" type="button">开始到期复习</button></div>`;else next.innerHTML=`<div class="parent-next-step"><span class="parent-overline">SUGGESTED NEXT STEP</span><strong>继续推进当前学习路径</strong><p>当前没有到期复习词，可以回到学生端继续探索已解锁单元。</p><button class="parent-action" id="parentContinueBtn" type="button">返回学生端</button></div>`;}
+ const unitHost=document.getElementById("parentUnitProgress");if(unitHost)unitHost.innerHTML=UNITS.map(u=>{const list=BASE.filter(w=>w.unit===u.id),unitOpen=list.filter(unlocked).length,unitDone=list.filter(mastered).length,unitDue=list.filter(due).length,pct=list.length?Math.round(unitDone/list.length*100):0;return `<div class="parent-unit-row"><div class="parent-unit-heading"><strong>${esc(u.title)}</strong><span>${unitDone}/${list.length} 已掌握</span></div><div class="parent-unit-track"><span style="width:${pct}%"></span></div><small>已解锁 ${unitOpen} · 待复习 ${unitDue}</small></div>`;}).join("");
+ document.getElementById("dailyGoal").value=state.settings.dailyGoal;document.getElementById("autoSpeakSetting").checked=state.settings.autoSpeak!==false;document.getElementById("autoExampleSetting").checked=state.settings.autoSpeakExample!==false;document.getElementById("speechRateSetting").value=String(state.settings.speechRate||.8);
+ document.getElementById("customList").innerHTML=state.customWords.length?state.customWords.map(w=>`<span class="custom-item">${esc(w.en)} · ${esc(w.zh)} <button data-delcustom="${esc(w.id)}" type="button">删除</button></span>`).join(""):'<span class="muted" style="font-size:11px">暂无自定义单词。</span>';
  document.querySelectorAll("[data-delcustom]").forEach(b=>b.onclick=()=>deleteCustom(b.dataset.delcustom));
- const miss=allWords().filter(w=>progress(w.id).wrong>0&&!mastered(w)).sort((a,b)=>progress(b.id).wrong-progress(a.id).wrong);
- document.getElementById("mistakeList").innerHTML=miss.length?miss.slice(0,30).map(w=>`<button class="mistake" data-mistake="${esc(w.id)}">${esc(w.en)} · 错 ${progress(w.id).wrong} 次</button>`).join(""):'<span class="muted" style="font-size:11px">暂无错词。</span>';
+ const miss=all.filter(w=>progress(w.id).wrong>0&&!mastered(w)).sort((a,b)=>progress(b.id).wrong-progress(a.id).wrong);
+ document.getElementById("mistakeList").innerHTML=miss.length?miss.slice(0,20).map(w=>`<button class="mistake" data-mistake="${esc(w.id)}" type="button"><strong>${esc(w.en)}</strong><small>${esc(w.zh.split("；")[0])} · 错 ${progress(w.id).wrong} 次</small></button>`).join(""):'<span class="muted" style="font-size:11px">暂无需要加强的错词。保持当前节奏。</span>';
  document.querySelectorAll("[data-mistake]").forEach(b=>b.onclick=()=>setCurrent(b.dataset.mistake));
  document.getElementById("reportTable").innerHTML=UNITS.map(u=>{const list=BASE.filter(w=>w.unit===u.id);return `<tr><td>${esc(u.title)}</td><td>${list.filter(unlocked).length}/${list.length}</td><td>${list.filter(mastered).length}</td><td>${list.filter(due).length}</td></tr>`;}).join("");
+ const reviewButton=document.getElementById("parentReviewBtn");if(reviewButton)reviewButton.onclick=startDueReview;const continueButton=document.getElementById("parentContinueBtn");if(continueButton)continueButton.onclick=()=>setPage("practice");
 }
 function addCustom(){
  const en=document.getElementById("customEn").value.trim().toLowerCase().replace(/\s+/g,"-"),zh=document.getElementById("customZh").value.trim();
