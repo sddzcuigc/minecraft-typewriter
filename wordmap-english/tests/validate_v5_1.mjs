@@ -1,7 +1,6 @@
 import { readFileSync } from "node:fs";
 import { strict as assert } from "node:assert";
-import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import { join } from "node:path";
 const root = process.cwd();
 const read = p => readFileSync(join(root,p),"utf8");
 const files = ["index.html","app.js","world.js","world-theme.css","sw.js","styles.css","data.js","WordMap-Offline.html"];
@@ -30,4 +29,5 @@ assert.ok(offline.includes("function refreshWordSelectors"),"offline HTML misses
 assert.ok(offline.includes("updateWorldAnimation"),"offline HTML misses 3D pause logic");
 assert.ok(!/<script\s+src=/i.test(offline),"offline HTML still references external script files");
 assert.ok(!/<link[^>]+href=["\x27]https?:/i.test(offline),"offline HTML contains external stylesheet links");
+assert.equal(read("public/WordMap-Offline.html"),offline,"public offline HTML differs from source");
 console.log("WordMap V5.1 static regression checks passed.");
