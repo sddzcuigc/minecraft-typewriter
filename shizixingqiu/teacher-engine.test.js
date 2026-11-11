@@ -25,6 +25,8 @@ assert.equal(E.makeHint(sound,"shǎn").kind,"tone");
 assert.equal(E.makeHint(sound,"sān").kind,"initial");
 assert.equal(E.makeHint(sound,"shāng").kind,"final");
 assert.ok(E.makeRepair(sound,lessonData).detail.includes("声母"));
+assert.equal(E.makeRepair(sound,lessonData).word,"高山","读音题二次讲解应带精选词语");
+assert.ok(E.makeRepair(sound,lessonData).sentence.includes("高山"));
 const now=1000000000;
 const first=E.makeProgress({}, {kind:"first",mistakes:0}, now);
 assert.equal(first.level,1);assert.equal(first.nextAt,now+86400000);

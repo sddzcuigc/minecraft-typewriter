@@ -90,7 +90,9 @@ function makeRepair(question,lessonData){
  const p=parsePinyin(question.targetPinyin);
  if(!p)return {title:"重新观察读音",answer:question.targetPinyin,detail:"正确读音是 "+question.targetPinyin+"。"};
  const initial=p.initial||"无声母",final=p.final||"待核对",tone=TONE_NAMES[p.tone]||"声调待核对";
- return {title:"把读音拆成三部分",answer:question.targetPinyin,detail:"正确读音是 "+question.targetPinyin+"。声母："+initial+"；韵母："+final+"；声调："+tone+"。先分开看，再连起来读。"};
+ const detail="正确读音是 "+question.targetPinyin+"。声母："+initial+"；韵母："+final+"；声调："+tone+"。先分开看，再连起来读。";
+ if(item)return {title:"拆开读音，再放进词语和句子",word:item[0]||"",meaning:item[1]||"",sentence:item[2]||"",answer:question.targetPinyin,detail};
+ return {title:"把读音拆成三部分",answer:question.targetPinyin,detail};
 }
 function makeProgress(old,outcome,now){
  const p=Object.assign({level:0,streak:0,seen:0,correct:0,wrong:0,hints:0,repairs:0,lapses:0,lastAt:0,nextAt:0,lastOutcome:"new"},old||{});
