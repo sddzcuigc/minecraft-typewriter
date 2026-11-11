@@ -1,4 +1,4 @@
-# 词汇星图 WordMap V5.0
+# 词汇星图 WordMap V5.1.1
 
 ## 本轮新增
 - 拼音打字练习：显示中文意思、拼音近音钩子和拼写块，键入英文时即时判定，不需要提交按钮；拼音练习统计独立记录，不冒充无提示掌握等级。
@@ -64,3 +64,25 @@
 - 家长端和后台标签页不再持续运行 Three.js 动画循环，减少无用 GPU/CPU 占用；切回学生端自动恢复。
 - Service Worker 仅对导航请求回退首页，缺失的静态资源返回 503，避免把 HTML 错误地当作 CSS/JS 返回。
 - 保持现有 localStorage 键、学习数据结构、词库、复习间隔、Three.js 和单文件离线发布方式不变。
+
+
+## V5.1.1 · Go 便携发布包
+
+### 构建
+
+- Windows 10/11 x64：在 Windows 开发机运行 PowerShell 脚本 build/build-windows.ps1。
+- macOS Apple Silicon：运行 bash build/build-macos-arm64.sh。
+- Linux amd64：运行 bash build/build-linux.sh。
+- 构建前如本机安装了 Node.js，会自动执行 tests/validate_v5_1.mjs；该测试只使用 Node 内置模块，不安装 npm 依赖。
+
+### 发布产物
+
+每个平台的 dist 目录包含平台 Go 启动器、静态网页资源、本地 Three.js、WordMap-Offline.html、使用说明、测试记录，以及 WordMap-V5.1-source.zip。另有一个平台运行包 ZIP，解压后即可运行。
+
+### 运行时与数据
+
+- 目标电脑不需要安装 Go、Node.js、Python、npm 或其他服务端运行时；Go 启动器为 CGO_ENABLED=0 编译。
+- 页面 JavaScript 由电脑已有的 Chrome、Edge、Safari 或 Firefox 执行；不额外捆绑浏览器内核，避免把一个不到 1 MB 的学习应用变成几百 MB 的浏览器分发工程。
+- Go 启动器仅监听 127.0.0.1:18765，固定端口用于保持浏览器 localStorage 的站点来源稳定，不开放局域网访问。
+- 文字学习、拼写、记忆、家长端、3D 场景和已缓存图片均可在本机运行；Wikimedia 图片搜索需要网络，语音是否完全离线取决于操作系统英语语音包。
+- 换浏览器、清理站点数据或换电脑前，使用家长端导出 JSON 备份。
