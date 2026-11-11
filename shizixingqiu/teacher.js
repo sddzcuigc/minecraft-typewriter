@@ -31,18 +31,82 @@ function syncProgress(c,p){
  else db.mastered=db.mastered.filter(x=>x!==c);
 }
 function home(){
- const mastered=db.mastered.length,unlocks=[true,mastered>=10,mastered>=25,mastered>=50];
- root.innerHTML='<div class="planet-home"><section class="planet-hero"><div><small>WELCOME TO HANZI PLANET</small><h2>今天，去认识一个新世界。</h2><p>和芽芽老师一起探索汉字。答错了先给提示，再换一种方法讲解，不急着公布答案。</p><button class="planet-cta" id="startQuest">开始今日探索　→</button><div class="hero-foot">✦ 无需登录　　✦ 核心课堂完全离线　　✦ 复习优先的个性化课程</div></div><div class="planet-art"><div class="orbit"></div><div class="planet-core">字</div><span class="float-star">✦</span><i>山</i><b>月</b><em>水</em></div></section><div class="world-stats"><div><b>'+db.xp+'</b><small>星星能量</small></div><div><b>'+mastered+'</b><small>连续掌握</small></div><div><b>'+due()+'</b><small>今日待复习</small></div><div><b>'+db.lessons+'</b><small>完成课堂</small></div></div><section class="world-section"><div class="world-heading"><div><small>YOUR LEARNING JOURNEY</small><h3>探索地图</h3><p>先复习到期的字，再学习新字；基础字表完成后按笔画逐步扩展。</p></div><span>'+mastered+' / 3500 已连续掌握</span></div><div class="world-map">'+[
- ["🌱","启程森林","基础汉字 · 认识读音","开始探索"],
- ["🏞️","自然山谷","山川 · 日月 · 花草",unlocks[1]?"已解锁":"掌握10字解锁"],
- ["🏡","生活小镇","家庭 · 学校 · 日常",unlocks[2]?"已解锁":"掌握25字解锁"],
- ["🚀","表达星港","词语 · 句子 · 阅读",unlocks[3]?"已解锁":"掌握50字解锁"]
- ].map((x,i)=>'<button data-zone="'+i+'" '+(!unlocks[i]?'class="zone-locked"':'')+'><span>'+x[0]+'</span><b>'+x[1]+'</b><small>'+x[2]+'</small><i>'+x[3]+'</i></button>').join("")+'</div></section><section class="teacher-banner"><div class="teacher-face">芽</div><div><small>YOUR PERSONAL GUIDE</small><h3>芽芽老师 · 会根据错误调整讲法</h3><p>先给提示，再拆开读音或放进词语和句子里重新练习。</p></div><button id="meetTeacher">和老师见面 →</button></section><section class="tool-shelf"><small>LEARNING STUDIO</small><h3>学习工具箱</h3><div class="tool-grid"><button data-tool="bank">🗂️<b>汉字图鉴</b><small>搜索3500字</small></button><button data-tool="write">✍️<b>笔顺书写</b><small>描红与练习</small></button><button data-tool="pinyin">🔤<b>拼音练习</b><small>听音与辨读</small></button><button data-tool="curve">🌟<b>记忆花园</b><small>错题与复习</small></button></div></section><p class="local-note">学习记录只保存在这台设备的浏览器中。教学规则、字库和课程均可离线运行，不会上传孩子的学习数据。</p></div>';
- document.getElementById("startQuest").onclick=start;document.getElementById("meetTeacher").onclick=start;
- root.querySelectorAll("[data-zone]").forEach(b=>b.onclick=()=>{const i=Number(b.dataset.zone);if(!unlocks[i]){toast("先完成前面的探索，积累一些连续掌握的汉字。");return}start()});
+ const mastered=db.mastered.length, dueNow=due();
+ const featured=["山","水","日","月","木","林","森","明"].filter(c=>by.has(c));
+ const progress=Math.min(100,Math.round(mastered/3500*100));
+ root.innerHTML=`<div class="dashboard">
+  <section class="welcome-hero">
+   <div class="welcome-copy">
+    <div class="eyebrow"><span class="eyebrow-dot"></span> HANZI PLANET · 每天一点点</div>
+    <h2>让每个汉字，<br><em>都有自己的故事。</em></h2>
+    <p>从看见字形开始，读懂声音、结构与意思。芽芽老师会记住你的学习节奏，也会在你卡住的时候换一种讲法。</p>
+    <div class="welcome-actions"><button class="primary-action" id="startQuest">开始今天的课堂 <span>↗</span></button><span class="action-caption">约 5 分钟 · 5 个汉字</span></div>
+    <div class="hero-trust"><span>本机保存学习进度</span><i></i><span>核心课程支持离线</span></div>
+   </div>
+   <div class="welcome-art" aria-label="山水与汉字的插画">
+    <svg viewBox="0 0 520 360" role="img" aria-label="日月山水组成的汉字星球插画">
+     <defs><linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4ead8"/><stop offset="1" stop-color="#e8eee3"/></linearGradient><linearGradient id="hill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9bb39a"/><stop offset="1" stop-color="#6f8d79"/></linearGradient><linearGradient id="river" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c7d9d3"/><stop offset="1" stop-color="#91b5aa"/></linearGradient></defs>
+     <rect x="42" y="24" width="436" height="302" rx="28" fill="url(#sky)"/>
+     <circle cx="365" cy="100" r="38" fill="#d5a46c" opacity=".9"/>
+     <path d="M65 242 L177 92 L278 229 L337 151 L455 270 L455 306 L65 306Z" fill="#b6c5aa"/>
+     <path d="M112 260 L225 113 L319 252 L365 194 L455 282 L455 306 L112 306Z" fill="url(#hill)"/>
+     <path d="M177 92 L205 132 L188 127 L177 142 L163 126 L149 132Z" fill="#f7f4e9"/>
+     <path d="M225 113 L248 149 L231 145 L218 160 L204 143Z" fill="#f7f4e9"/>
+     <path d="M65 262 Q145 231 214 260 T365 258 T455 269 L455 306 L65 306Z" fill="url(#river)"/>
+     <path d="M80 278 Q160 252 238 278 T430 279" fill="none" stroke="#f5f2e9" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+     <path d="M99 228 Q108 191 135 183 M108 228 Q128 200 151 198" fill="none" stroke="#52745c" stroke-width="5" stroke-linecap="round"/>
+     <path d="M95 201 Q80 184 93 170 Q115 171 115 193 M127 195 Q135 174 155 180 Q160 202 136 207" fill="#7e9e7e"/>
+     <g transform="translate(86 63)"><rect width="76" height="76" rx="20" fill="#fffdf8" stroke="#e9dfcd"/><text x="38" y="54" text-anchor="middle" font-size="45" fill="#426b53" font-family="serif">山</text></g>
+     <g transform="translate(365 188)"><rect width="68" height="68" rx="18" fill="#fffdf8" stroke="#e9dfcd"/><text x="34" y="48" text-anchor="middle" font-size="39" fill="#527d80" font-family="serif">水</text></g>
+     <g transform="translate(315 37)"><rect width="58" height="58" rx="17" fill="#fffdf8" stroke="#e9dfcd"/><text x="29" y="41" text-anchor="middle" font-size="32" fill="#a46f45" font-family="serif">日</text></g>
+     <path d="M73 309 Q260 332 450 309" fill="none" stroke="#78917d" stroke-width="1.5" opacity=".45"/>
+    </svg>
+    <div class="art-caption"><span>山</span><span>水</span><span>日</span><small>从一笔一画，认识这个世界</small></div>
+   </div>
+  </section>
+
+  <section class="dashboard-overview">
+   <div class="overview-intro"><span class="section-kicker">YOUR LEARNING JOURNEY</span><h3>今天的学习节奏</h3><p>不赶进度，先把学过的字记牢。</p></div>
+   <div class="overview-metrics">
+    <div class="metric"><span class="metric-label">连续掌握</span><strong>${mastered}<small> / 3500</small></strong><div class="metric-track"><i style="width:${progress}%"></i></div></div>
+    <div class="metric"><span class="metric-label">待复习</span><strong>${dueNow}<small> 个字</small></strong><span class="metric-note">${dueNow?"先复习，再学新字":"今天没有到期复习"}</span></div>
+    <div class="metric"><span class="metric-label">星星能量</span><strong>${db.xp}<small> ✦</small></strong><span class="metric-note">每次认真练习都算数</span></div>
+   </div>
+  </section>
+
+  <div class="section-heading"><div><span class="section-kicker">START HERE</span><h3>选择今天的学习方式</h3></div><span class="section-aside">每个练习都围绕同一套汉字资料</span></div>
+  <section class="learning-launches">
+   <button class="launch-card launch-main" id="meetTeacher"><span class="launch-index">01 / CLASSROOM</span><span class="launch-icon teacher-mark">芽</span><strong>和芽芽老师上课</strong><small>讲字形、读音和词语。答错时，老师会换一种方式讲。</small><span class="launch-link">进入课堂 <b>↗</b></span></button>
+   <button class="launch-card" data-tool="bank"><span class="launch-index">02 / DICTIONARY</span><span class="launch-icon">字</span><strong>汉字图鉴</strong><small>搜索 3500 个汉字，查看拼音、部首和笔画。</small><span class="launch-link">打开字库 <b>↗</b></span></button>
+   <button class="launch-card" data-tool="pinyin"><span class="launch-index">03 / SOUND LAB</span><span class="launch-icon sound-mark">ā</span><strong>拼音工作室</strong><small>从声母、韵母到声调，把读音真正拆开练习。</small><span class="launch-link">开始练习 <b>↗</b></span></button>
+   <button class="launch-card" data-tool="write"><span class="launch-index">04 / WRITING</span><span class="launch-icon write-mark">永</span><strong>硬笔书写</strong><small>描红、观察笔顺，在方格里练好每一笔。</small><span class="launch-link">进入书写 <b>↗</b></span></button>
+  </section>
+
+  <section class="discovery-section">
+   <div class="section-heading"><div><span class="section-kicker">A LITTLE DISCOVERY</span><h3>今天认识这些字</h3></div><button class="quiet-link" id="seeAll">浏览全部汉字 <b>↗</b></button></div>
+   <div class="featured-characters">${featured.map((c,i)=>{const d=info(c);return `<button class="featured-char" data-feature-char="${esc(c)}"><span class="featured-char-top">${String(i+1).padStart(2,"0")}</span><strong>${esc(c)}</strong><span class="featured-pinyin">${esc(d.py[0]||"")}</span><small>${esc(d.word||d.rad||"认识一个汉字")}</small></button>`}).join("")}</div>
+  </section>
+
+  <section class="studio-section"><div class="section-heading"><div><span class="section-kicker">LEARNING STUDIO</span><h3>学习工具与记忆方法</h3></div><span class="section-aside">按需要使用，不必一次学完</span></div>
+   <div class="studio-links">
+    <button data-tool="curve"><span>记忆曲线</span><small>把学过的字安排到合适的时间复习</small><b>↗</b></button>
+    <button data-tool="memory"><span>联想记忆</span><small>字形联想、谐音空间与间架结构</small><b>↗</b></button>
+    <button data-tool="textbook"><span>课文例句</span><small>把汉字放回真实语境中理解</small><b>↗</b></button>
+    <button data-tool="images"><span>图画资料</span><small>查找、整理与保存汉字联想图</small><b>↗</b></button>
+    <button data-tool="game"><span>拼音打字</span><small>看字输入拼音，练习从认识到表达</small><b>↗</b></button>
+    <button data-tool="review"><span>错字本</span><small>回看容易混淆、需要再次练习的字</small><b>↗</b></button>
+   </div>
+  </section>
+  <footer class="dashboard-foot"><span>识字星球 · 芽芽老师</span><span>学习记录保存在当前设备 · 核心课堂支持离线</span></footer>
+ </div>`;
+ document.getElementById("startQuest").onclick=start;
+ document.getElementById("meetTeacher").onclick=start;
+ document.getElementById("seeAll").onclick=()=>tool("bank");
+ root.querySelectorAll("[data-zone]").forEach(b=>b.onclick=()=>{const i=Number(b.dataset.zone);if(i>0&&mastered<[0,10,25,50][i]){toast("先完成前面的探索，积累一些连续掌握的汉字。");return}start()});
  root.querySelectorAll("[data-tool]").forEach(b=>b.onclick=()=>tool(b.dataset.tool));
+ root.querySelectorAll("[data-feature-char]").forEach(b=>b.onclick=()=>{const c=b.dataset.featureChar;if(by.has(c)){sessionPlan={dueCount:0};lesson=[c];idx=0;results=[];teach()}});
 }
-function tool(t){const b=tabs.querySelector('[data-advanced="'+t+'"]');if(b)b.click();else{const x=tabs.querySelector('[data-view="bank"]');if(x)x.click()}}
+function tool(t){const advanced=tabs.querySelector('[data-advanced="'+t+'"]');if(advanced){advanced.click();return}const basic=tabs.querySelector('[data-view="'+t+'"]')||tabs.querySelector('[data-view="bank"]');if(basic)basic.click()}
 function start(){
  sessionPlan=E.planLesson(rows,db.progress,core,5,Date.now());lesson=sessionPlan.chars;idx=0;results=[];
  if(!lesson.length){completeEmpty();return}
@@ -118,7 +182,11 @@ function finish(){
 }
 function init(){
  shell.classList.add("planet-app");[".intro",".stats",".searchbar","footer"].forEach(s=>document.querySelector(s)?.classList.add("legacy-hidden"));tabs.classList.add("planet-tools-nav");
- const b=document.createElement("button");b.className="tab planet-teacher-tab active";b.textContent="✦ 星球首页";b.onclick=()=>{shell.classList.add("planet-app");tabs.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");home()};tabs.insertBefore(b,tabs.firstChild);
+ const b=document.createElement("button");b.className="tab planet-teacher-tab active";b.textContent="星球首页";b.onclick=()=>{shell.classList.add("planet-app");tabs.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");home()};tabs.insertBefore(b,tabs.firstChild);
+ const all=[...tabs.querySelectorAll(".tab")],groups=[{label:"学习",ids:["planet-teacher-tab","learn","bank","game","pinyin"]},{label:"练习",ids:["write","wubi","curve","review"]},{label:"探索",ids:["memory","textbook","images"]}];
+ const idOf=x=>x.classList.contains("planet-teacher-tab")?"planet-teacher-tab":x.dataset.view||x.dataset.advanced;
+ groups.forEach(g=>{const wrap=document.createElement("div");wrap.className="nav-group";const label=document.createElement("div");label.className="nav-group-label";label.textContent=g.label;wrap.append(label);all.filter(x=>g.ids.includes(idOf(x))).forEach(x=>wrap.append(x));tabs.append(wrap)});
+ tabs.classList.add("nav-grouped");
  tabs.addEventListener("click",e=>{if(e.target.closest(".tab")&&!e.target.closest(".planet-teacher-tab")){b.classList.remove("active");shell.classList.remove("planet-app")}});
  home();
 }

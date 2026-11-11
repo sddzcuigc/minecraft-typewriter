@@ -1,6 +1,6 @@
 "use strict";
-const CACHE_NAME="shizixingqiu-core-v7";
-const CORE=["./","./index.html","./style.css","./data.js","./notes.js","./app.js","./advanced.js","./teacher-engine.js","./teacher.js","./strokes.js","./ATTRIBUTION.md","./STROKE-DATA-LICENSE.txt","./UPSTREAM-MIT-LICENSE.txt"];
+const CACHE_NAME="shizixingqiu-core-v8";
+const CORE=["./","./index.html","./style.css","./design-v32.css","./data.js","./notes.js","./app.js","./advanced.js","./teacher-engine.js","./teacher.js","./strokes.js","./ATTRIBUTION.md","./STROKE-DATA-LICENSE.txt","./UPSTREAM-MIT-LICENSE.txt"];
 self.addEventListener("install",event=>{event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting()))});
 self.addEventListener("activate",event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith("shizixingqiu-")&&k!==CACHE_NAME).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 self.addEventListener("fetch",event=>{
