@@ -2,7 +2,7 @@
 "use strict";
 var THREE=window.THREE, DATA=window.WORDMAP_DATA, API=window.WordMapUI, canvas=document.getElementById("worldCanvas");
 if(!THREE||!canvas||!DATA){document.body.classList.add("world-no-webgl");return;}
-var renderer, scene, camera;
+var renderer, scene, camera, animationFrameId=0, worldAnimationActive=false;
 try{
  renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:false,powerPreference:"high-performance"});
 }catch(err){document.body.classList.add("world-no-webgl");return;}
@@ -276,12 +276,20 @@ function updateMarkers(){
  });
 }
 function animate(){
- requestAnimationFrame(animate);var dt=Math.min(clock.getDelta(),.05),t=clock.elapsedTime;
+ if(!worldAnimationActive)return;
+ animationFrameId=requestAnimationFrame(animate);var dt=Math.min(clock.getDelta(),.05),t=clock.elapsedTime;
  updateCamera(dt);
  clouds.forEach(function(c){c.group.position.x=c.origin+Math.sin(t*c.speed*.18)*2.2;c.group.position.y+=Math.sin(t*c.speed)*.0008;});
  particles.forEach(function(p){p.mesh.position.y+=Math.sin(t*p.speed+p.phase)*.002;p.mesh.rotation.y+=dt*p.speed*.3;});
  if(window.__wordmapAvatar)window.__wordmapAvatar.position.y=2.2+Math.sin(t*2.2)*.08;
  renderer.render(scene,camera);updateMarkers();
+}
+function updateWorldAnimation(){
+ var shouldRun=!document.hidden&&document.body.dataset.page!=="parent";
+ if(shouldRun===worldAnimationActive)return;
+ worldAnimationActive=shouldRun;
+ if(worldAnimationActive){clock.getDelta();animationFrameId=requestAnimationFrame(animate);}
+ else if(animationFrameId){cancelAnimationFrame(animationFrameId);animationFrameId=0;}
 }
 var pointerDown=false,dragged=false,startX=0,startY=0,lastX=0,lastY=0;
 canvas.addEventListener("pointerdown",function(e){pointerDown=true;dragged=false;startX=lastX=e.clientX;startY=lastY=e.clientY;canvas.setPointerCapture(e.pointerId);});
@@ -293,5 +301,7 @@ document.getElementById("worldResetView").addEventListener("click",resetView);
 window.addEventListener("resize",function(){camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight,false);renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.5));});
 window.addEventListener("wordmap:current",syncHud);
 window.addEventListener("wordmap:stats",syncHud);
-buildWorld();buildQuestList();syncHud();animate();
+window.addEventListener("wordmap:page",updateWorldAnimation);
+document.addEventListener("visibilitychange",updateWorldAnimation);
+buildWorld();buildQuestList();syncHud();updateWorldAnimation();
 })();
