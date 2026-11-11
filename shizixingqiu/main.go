@@ -15,7 +15,7 @@ import (
 	"time"
 )
 
-//go:embed index.html style.css data.js notes.js app.js advanced.js teacher.js strokes.js sw.js ATTRIBUTION.md STROKE-DATA-LICENSE.txt UPSTREAM-MIT-LICENSE.txt
+//go:embed index.html style.css data.js notes.js app.js advanced.js teacher-engine.js teacher.js strokes.js sw.js ATTRIBUTION.md STROKE-DATA-LICENSE.txt UPSTREAM-MIT-LICENSE.txt
 var site embed.FS
 
 func main() {

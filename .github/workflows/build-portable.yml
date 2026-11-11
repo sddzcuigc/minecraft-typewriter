@@ -12,7 +12,19 @@ permissions:
   contents: read
 
 jobs:
+  test-engine:
+    name: Test offline teacher engine
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run dependency-free teacher tests
+        run: node shizixingqiu/teacher-engine.test.js
+
   build:
+    needs: test-engine
     name: Build ${{ matrix.label }}
     strategy:
       fail-fast: false
@@ -57,6 +69,7 @@ jobs:
           retention-days: 30
 
   source-package:
+    needs: test-engine
     name: Package source and offline web assets
     runs-on: ubuntu-latest
     steps:

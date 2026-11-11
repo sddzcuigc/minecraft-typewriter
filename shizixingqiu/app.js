@@ -142,6 +142,7 @@ const lesson={
 "白":["白色","像雪一样的颜色。","云朵是白色的。","⬜"],
 "黑":["黑色","像夜空一样深的颜色。","小猫长着黑色的毛。","⬛"]
 };
+window.SZX_LESSON_DATA=lesson;
 const wubi={"日":["J","JJJJ"],"月":["E","EEEE"],"山":["M","MMMM"],"水":["I","IIII"],"火":["O","OOOO"],"木":["S","SSSS"],"口":["K","KKKK"],"人":["W","WWWW"]};
 const chars=src.map(function(r){return {c:r[0],py:r[1],strokes:r[2],radical:r[3],freq:r[4],lesson:lesson[r[0]]||null,wubi:wubi[r[0]]||null}});
 const byChar=Object.fromEntries(chars.map(function(x,i){return [x.c,i]}));
