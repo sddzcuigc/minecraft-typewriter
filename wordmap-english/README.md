@@ -77,7 +77,7 @@
 
 ### 发布产物
 
-每个平台的 dist 目录包含平台 Go 启动器、静态网页资源、本地 Three.js、WordMap-Offline.html、使用说明、测试记录，以及 WordMap-V5.1-source.zip。另有一个平台运行包 ZIP，解压后即可运行。
+每个平台的 dist 目录包含平台 Go 启动器、静态网页资源、本地 Three.js、WordMap-Offline.html、使用说明、测试记录，以及 WordMap-V5.1.1-source.zip。另有一个平台运行包 ZIP，解压后即可运行。
 
 ### 运行时与数据
 

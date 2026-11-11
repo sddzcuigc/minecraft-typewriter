@@ -41,12 +41,12 @@ $sourcePaths = @(
   "WordMap-Offline.html", "manifest.webmanifest", "sw.js", "icon.svg",
   "使用说明.txt", "README.md", "CHANGELOG-V5.1.md", "CHANGELOG-V5.1.1.md"
 )
-Compress-Archive -Path $sourcePaths -DestinationPath "dist/WordMap-V5.1-source.zip" -Force
-$tempZip = "WordMap-V5.1-windows-amd64.zip"
+Compress-Archive -Path $sourcePaths -DestinationPath "dist/WordMap-V5.1.1-source.zip" -Force
+$tempZip = "WordMap-V5.1.1-windows-amd64.zip"
 if (Test-Path $tempZip) { Remove-Item $tempZip -Force }
 Compress-Archive -Path "dist/*" -DestinationPath $tempZip -Force
-Move-Item $tempZip "dist/WordMap-V5.1-windows-amd64.zip" -Force
+Move-Item $tempZip "dist/WordMap-V5.1.1-windows-amd64.zip" -Force
 Write-Host "Build complete:"
 Write-Host "  dist/WordMap.exe"
-Write-Host "  dist/WordMap-V5.1-windows-amd64.zip"
-Write-Host "  dist/WordMap-V5.1-source.zip"
+Write-Host "  dist/WordMap-V5.1.1-windows-amd64.zip"
+Write-Host "  dist/WordMap-V5.1.1-source.zip"

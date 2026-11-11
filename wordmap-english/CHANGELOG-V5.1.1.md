@@ -11,10 +11,10 @@
 
 ## 输出
 
-- Windows：WordMap-V5.1-windows-amd64.zip
-- macOS Apple Silicon：WordMap-V5.1-macos-arm64.zip
-- Linux amd64：WordMap-V5.1-linux-amd64.zip
-- 源代码：WordMap-V5.1-source.zip
+- Windows：WordMap-V5.1.1-windows-amd64.zip
+- macOS Apple Silicon：WordMap-V5.1.1-macos-arm64.zip
+- Linux amd64：WordMap-V5.1.1-linux-amd64.zip
+- 源代码：WordMap-V5.1.1-source.zip
 
 ## 验证边界
 

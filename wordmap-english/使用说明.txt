@@ -1,7 +1,7 @@
 词汇星图 WordCraft V5.1.1 · Go 便携版
 
 【Windows 启动】
-1. 解压 WordMap-V5.1-windows-amd64.zip。
+1. 解压 WordMap-V5.1.1-windows-amd64.zip。
 2. 保持 WordMap.exe 与 index.html、app.js、data.js、world.js、styles.css、world-theme.css、vendor 目录在同一文件夹。
 3. 双击 WordMap.exe，默认浏览器会打开 http://127.0.0.1:18765/。
 4. 关闭 WordMap.exe 窗口即可停止本地服务。
@@ -25,8 +25,8 @@
 - WordMap.exe：Windows x64 Go 本地启动器。
 - WordMap-Offline.html：单文件离线版。
 - vendor/three.min.js：本地 Three.js 引擎。
-- WordMap-V5.1-source.zip：包含 HTML/CSS/JS、Go 启动器源码、构建脚本、词库、测试和许可证的源代码包。
-- WordMap-V5.1-windows-amd64.zip：Windows 平台完整运行包。
+- WordMap-V5.1.1-source.zip：包含 HTML/CSS/JS、Go 启动器源码、构建脚本、词库、测试和许可证的源代码包。
+- WordMap-V5.1.1-windows-amd64.zip：Windows 平台完整运行包。
 
 【安全边界】
 - 启动器仅绑定本机回环地址，不向局域网开放。
