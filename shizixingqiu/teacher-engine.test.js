@@ -1,9 +1,8 @@
-"use strict";
-const assert=require("node:assert/strict");
-global.window=global;
-require("./data.js");
-require("./teacher-engine.js");
-const E=global.SZX_TEACHER_ENGINE,rows=global.HANZI_3500;
+import assert from "node:assert/strict";
+globalThis.window=globalThis;
+await import("./data.js");
+await import("./teacher-engine.js");
+const E=globalThis.SZX_TEACHER_ENGINE,rows=globalThis.HANZI_3500;
 assert.equal(rows.length,3500,"字库应有3500条记录");
 assert.deepEqual([E.parsePinyin("shān").initial,E.parsePinyin("shān").final,E.parsePinyin("shān").tone],["sh","an",1]);
 assert.deepEqual([E.parsePinyin("shuǐ").initial,E.parsePinyin("shuǐ").final,E.parsePinyin("shuǐ").tone],["sh","ui",3]);
