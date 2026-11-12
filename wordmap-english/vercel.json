@@ -8,6 +8,9 @@
     ]},
     {"source":"/sw.js","headers":[{"key":"Cache-Control","value":"no-cache, no-store, must-revalidate"}]},
     {"source":"/(index.html|WordMap-Offline.html)","headers":[{"key":"Cache-Control","value":"public, max-age=0, must-revalidate"}]},
-    {"source":"/(.*)\\.(js|css|svg|webmanifest)","headers":[{"key":"Cache-Control","value":"public, max-age=3600, stale-while-revalidate=86400"}]}
+    {"source":"/(styles|world-theme)\\.css","headers":[{"key":"Cache-Control","value":"public, max-age=3600, stale-while-revalidate=86400"}]},
+    {"source":"/(data|app|world)\\.js","headers":[{"key":"Cache-Control","value":"public, max-age=3600, stale-while-revalidate=86400"}]},
+    {"source":"/vendor/three\\.min\\.js","headers":[{"key":"Cache-Control","value":"public, max-age=86400, stale-while-revalidate=604800"}]},
+    {"source":"/(icon\\.svg|manifest\\.webmanifest)","headers":[{"key":"Cache-Control","value":"public, max-age=3600, stale-while-revalidate=86400"}]}
   ]
 }
