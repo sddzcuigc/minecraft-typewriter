@@ -87,3 +87,9 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
 
 /* Ensure HTML interaction state wins over component display rules on all viewports. */
 #content [hidden]{display:none!important}
+
+/* Local progress backup is a small secondary action, never an overlay. */
+.progress-backup{display:flex;flex-wrap:wrap;gap:7px;align-items:center;min-width:0}
+.progress-backup button{min-height:36px;border:1px solid #dce3d7;border-radius:8px;background:#f9faf5;color:#4f6b54;font-size:11px;padding:7px 11px;box-shadow:none}
+.progress-backup button:hover{border-color:#adc1ab;background:#eaf0e7}
+@media(max-width:760px){.dashboard-foot{align-items:flex-start}.progress-backup button{min-height:44px}}
