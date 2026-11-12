@@ -64,3 +64,11 @@
 - 家长端和后台标签页不再持续运行 Three.js 动画循环，减少无用 GPU/CPU 占用；切回学生端自动恢复。
 - Service Worker 仅对导航请求回退首页，缺失的静态资源返回 503，避免把 HTML 错误地当作 CSS/JS 返回。
 - 保持现有 localStorage 键、学习数据结构、词库、复习间隔、Three.js 和单文件离线发布方式不变。
+
+
+## V5.2 · 下载可靠性与静态部署优化
+
+- 修复离线图片包导出时 Blob URL 立即释放的问题：将下载链接挂载到文档后触发下载，并延迟释放 URL。
+- Vercel 增加响应安全头：MIME sniffing 防护、Referrer Policy、禁止被 iframe 嵌入、关闭当前未使用的摄像头/麦克风/地理位置权限。
+- 区分缓存策略：Service Worker 脚本不缓存；HTML 入口重新验证；静态 JS/CSS/SVG/manifest 使用短缓存和 stale-while-revalidate。
+- 不增加 CDN、后端或运行时依赖，保持离线架构。

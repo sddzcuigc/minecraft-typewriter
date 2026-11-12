@@ -207,7 +207,7 @@ function dataURLToBlob(data){const parts=data.split(","),mime=(parts[0].match(/:
 async function exportImagePack(){
  try{const records=await getAllImageRecords();if(!records.length){toast("本机还没有缓存图片。");return;}
   const images=[];for(const r of records)images.push({wordId:r.wordId,title:r.title,page:r.page,license:r.license,artist:r.artist,data:await blobToDataURL(r.blob)});
-  const blob=new Blob([JSON.stringify({app:"WordMapImages",version:1,exportedAt:new Date().toISOString(),images},null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="WordMap-离线图片包.json";a.click();URL.revokeObjectURL(a.href);toast("已导出 "+images.length+" 张缓存图片。");
+  const blob=new Blob([JSON.stringify({app:"WordMapImages",version:1,exportedAt:new Date().toISOString(),images},null,2)],{type:"application/json"}),a=document.createElement("a"),url=URL.createObjectURL(blob);a.href=url;a.download="WordMap-离线图片包.json";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);toast("已导出 "+images.length+" 张缓存图片。");
  }catch(e){toast("图片包导出失败："+(e.message||"未知错误"));}}
 async function importImagePack(e){
  const file=e.target.files?.[0];if(!file)return;try{const pack=JSON.parse(await file.text());if(pack.app!=="WordMapImages"||!Array.isArray(pack.images))throw new Error("文件格式不正确");
