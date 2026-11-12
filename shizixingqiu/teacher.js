@@ -30,6 +30,41 @@ function syncProgress(c,p){
  if(p.level>=3&&p.streak>=3){if(!db.mastered.includes(c))db.mastered.push(c)}
  else db.mastered=db.mastered.filter(x=>x!==c);
 }
+
+function exportClassroomRecord(){
+ const payload={format:"shizixingqiu-teacher-backup",version:1,exportedAt:new Date().toISOString(),record:db};
+ const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json;charset=utf-8"});
+ const url=URL.createObjectURL(blob),link=document.createElement("a");
+ link.href=url;link.download="shizixingqiu-classroom-"+new Date().toISOString().slice(0,10)+".json";
+ document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ toast("课堂学习记录已导出。此文件不包含其他工具的单独记录。");
+}
+function parseClassroomBackup(text){
+ const payload=JSON.parse(text);
+ if(!payload||payload.format!=="shizixingqiu-teacher-backup"||payload.version!==1||!payload.record||typeof payload.record!=="object"||Array.isArray(payload.record))throw Error("文件不是受支持的课堂备份");
+ const raw=payload.record,clean=defaults(),num=value=>Number.isFinite(Number(value))?Math.max(0,Number(value)):0;
+ clean.xp=num(raw.xp);clean.lessons=num(raw.lessons);
+ if(!raw.progress||typeof raw.progress!=="object"||Array.isArray(raw.progress))throw Error("备份缺少有效学习进度");
+ for(const [char,p] of Object.entries(raw.progress)){
+  if(!by.has(char)||!p||typeof p!=="object"||Array.isArray(p))continue;
+  const progress={level:Math.min(5,num(p.level)),streak:num(p.streak),seen:num(p.seen),correct:num(p.correct),wrong:num(p.wrong),hints:num(p.hints),repairs:num(p.repairs),lapses:num(p.lapses),lastAt:num(p.lastAt),nextAt:num(p.nextAt),lastOutcome:String(p.lastOutcome||"imported").slice(0,32)};
+  clean.progress[char]=progress;clean.due[char]={level:progress.level,next:progress.nextAt,last:progress.lastAt};clean.wrong[char]=progress.wrong;
+  if(progress.level>=3&&progress.streak>=3)clean.mastered.push(char);
+ }
+ if(Array.isArray(raw.recentErrors))clean.recentErrors=raw.recentErrors.filter(x=>x&&by.has(x.char)&&typeof x==="object").slice(-100).map(x=>({char:x.char,target:String(x.target||"").slice(0,60),selected:String(x.selected||"").slice(0,60),mode:String(x.mode||"").slice(0,32),kind:String(x.kind||"").slice(0,32),at:num(x.at)}));
+ return clean;
+}
+async function importClassroomRecord(event){
+ const input=event.target,file=input.files&&input.files[0];if(!file)return;
+ try{
+  if(file.size>2*1024*1024)throw Error("备份文件超过 2 MB");
+  const imported=parseClassroomBackup(await file.text());
+  if(!window.confirm("导入将覆盖本浏览器现有的课堂学习记录。建议先导出当前记录，是否确认导入？"))return;
+  db=imported;save();home();toast("课堂记录已恢复。其他学习工具的本地数据未更改。");
+ }catch(e){toast("导入失败："+(e&&e.message||"文件格式错误"))}
+ finally{input.value=""}
+}
+
 function home(){
  const mastered=db.mastered.length, dueNow=due();
  const featured=["山","水","日","月","木","林","森","明"].filter(c=>by.has(c));
@@ -97,8 +132,11 @@ function home(){
     <button data-tool="review"><span>错字本</span><small>回看容易混淆、需要再次练习的字</small><b>↗</b></button>
    </div>
   </section>
-  <footer class="dashboard-foot"><span>识字星球 · 芽芽老师</span><span>学习记录保存在当前设备 · 核心课堂支持离线</span></footer>
+  <footer class="dashboard-foot"><span>识字星球 · 芽芽老师 · V5.0</span><div class="progress-backup"><button id="exportProgress" type="button">备份课堂记录</button><button id="importProgress" type="button">恢复课堂记录</button><input id="progressFile" type="file" accept="application/json,.json" hidden aria-label="选择课堂学习记录备份文件"></div><span>学习记录保存在当前设备 · 核心课堂支持离线</span></footer>
  </div>`;
+ document.getElementById("exportProgress").onclick=exportClassroomRecord;
+ document.getElementById("importProgress").onclick=()=>document.getElementById("progressFile").click();
+ document.getElementById("progressFile").onchange=importClassroomRecord;
  document.getElementById("startQuest").onclick=start;
  document.getElementById("meetTeacher").onclick=start;
  document.getElementById("seeAll").onclick=()=>tool("bank");
