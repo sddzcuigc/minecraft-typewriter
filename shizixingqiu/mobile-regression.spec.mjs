@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { mkdir } from "node:fs/promises";
+import { mkdir, readFile } from "node:fs/promises";
 import path from "node:path";
 
 const BASE = process.env.SZX_BASE_URL || "http://127.0.0.1:4173/";
@@ -158,4 +158,42 @@ test("320px: 小屏工具导航、拼音闯关、错字本入口不导致整页�
     await page.locator(".planet-teacher-tab").click();
     await expect(page.locator(".dashboard")).toBeVisible();
   }
+});
+
+
+test("375px: 学习记录备份、恢复、重载验证", async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await boot(page);
+  await page.locator("#startQuest").click();
+  const char = (await page.locator(".lesson-character strong").innerText()).trim();
+  await page.locator("#ready").click();
+  await takeCorrect(page, char);
+  const before = await page.evaluate(c => JSON.parse(localStorage.getItem("szx_world_v4")).progress[c], char);
+  await page.locator(".planet-teacher-tab").click();
+
+  const [download] = await Promise.all([
+    page.waitForEvent("download"),
+    page.locator("#exportProgress").click(),
+  ]);
+  expect(download.suggestedFilename()).toMatch(/shizixingqiu-classroom.*\.json$/);
+  const exported = await readFile(await download.path(), "utf8");
+  const data = JSON.parse(exported);
+  expect(data.format).toBe("shizixingqiu-teacher-backup");
+  expect(data.record.progress[char].seen).toEqual(before.seen);
+
+  await page.evaluate(() => localStorage.removeItem("szx_world_v4"));
+  await page.reload();
+  const lost = await page.evaluate(c => JSON.parse(localStorage.getItem("szx_world_v4") || "{}").progress?.[c], char);
+  expect(lost).toBeUndefined();
+
+  page.once("dialog", dialog => dialog.accept());
+  await page.locator("#progressFile").setInputFiles({name:"classroom.json",mimeType:"application/json",buffer:Buffer.from(exported)});
+  await expect(page.locator(".planet-toast")).toContainText("课堂记录已恢复");
+  const restored = await page.evaluate(c => JSON.parse(localStorage.getItem("szx_world_v4")).progress[c], char);
+  expect(restored.seen).toEqual(before.seen);
+  await page.reload();
+  const afterReload = await page.evaluate(c => JSON.parse(localStorage.getItem("szx_world_v4")).progress[c], char);
+  expect(afterReload.seen).toEqual(before.seen);
+  await noDocumentOverflow(page, "backup restore");
+  await shot(page, "backup-restored-375");
 });
