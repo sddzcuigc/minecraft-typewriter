@@ -84,3 +84,6 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
  .quiz-options{grid-template-columns:1fr}
  .overview-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+
+/* Ensure HTML interaction state wins over component display rules on all viewports. */
+#content [hidden]{display:none!important}
