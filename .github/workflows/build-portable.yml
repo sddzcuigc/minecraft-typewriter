@@ -6,6 +6,10 @@ on:
     paths:
       - "shizixingqiu/**"
       - ".github/workflows/build-portable.yml"
+  pull_request:
+    paths:
+      - "shizixingqiu/**"
+      - ".github/workflows/build-portable.yml"
   workflow_dispatch:
 
 permissions:
@@ -23,8 +27,40 @@ jobs:
       - name: Run dependency-free teacher tests
         run: node shizixingqiu/teacher-engine.test.js
 
-  build:
+  browser-regression:
     needs: test-engine
+    name: Chromium mobile and tablet journey
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install browser test tooling (CI only, not app runtime)
+        run: |
+          npm install --no-save --no-audit --no-fund @playwright/test@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Serve offline-first static site locally
+        run: |
+          python3 -m http.server 4173 --directory shizixingqiu > /tmp/szx-http.log 2>&1 &
+          for n in $(seq 1 30); do curl -fsS http://127.0.0.1:4173/ >/dev/null && break || sleep 1; done
+          curl -fsS http://127.0.0.1:4173/ >/dev/null
+      - name: Run real Chromium 320/375/768px regression
+        run: npx playwright test shizixingqiu/mobile-regression.spec.mjs --reporter=line
+      - name: Upload browser screenshots and traces
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shizixingqiu-mobile-browser-evidence
+          path: |
+            artifacts/mobile/**
+            test-results/**
+          if-no-files-found: warn
+          retention-days: 30
+
+  build:
+    needs: [test-engine, browser-regression]
     name: Build ${{ matrix.label }}
     strategy:
       fail-fast: false
@@ -69,7 +105,7 @@ jobs:
           retention-days: 30
 
   source-package:
-    needs: test-engine
+    needs: [test-engine, browser-regression]
     name: Package source and offline web assets
     runs-on: ubuntu-latest
     steps:
